@@ -1,0 +1,91 @@
+# Unity-related files
+[Aa]ssets/AssetStoreTools*
+[Bb]uild/
+[Ll]ibrary/
+[Ll]ocal[Cc]ache/
+[Oo]bj/
+[Tt]emp/
+[Uu]nityGenerated/
+
+# file on crash reports
+sysinfo.txt
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity crash reports
+*.stacktrace
+
+# User-specific files
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# macOS specific files
+.DS_Store
+*.AppleDouble
+*.LSOverride
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+
+# Linux specific files
+.directory
+
+# Whisper Live
+whisper-live/venv/
+whisper-live/__pycache__/
+whisper-live/*.log
+
+# Python environment
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pdb
+*.env
+*.egg
+*.egg-info
+dist/
+build/
+
+# Package distribution
+*.tar.gz
+*.zip
+*.whl
+
+
+###
+# VS/MD solution and project files
+###
+[Ee]xportedObj/
+*.booproj
+*.csproj
+*.sln
+*.suo
+*.svd
+*.unityproj
+*.user
+*.userprefs
+*.pidb
+.DS_Store
+
+###
+# OS generated
+###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# Exclude virtual environments
+whisper-live/myenv/
+whisper-live/whisper-env/*
