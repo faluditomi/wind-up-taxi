@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using UnityEngine;
-using System.Collections.Generic;
 
 public class Arrow : MonoBehaviour
 {
@@ -8,6 +6,10 @@ public class Arrow : MonoBehaviour
     public Transform currentDestination;
 
     private GameObject[] destinationObjects;
+
+    [SerializeField] float minDistance;
+
+    private bool isPassenger;
 
     public Vector3 arrowOffset = new Vector3(0, 1, 0);
 
@@ -17,7 +19,6 @@ public class Arrow : MonoBehaviour
 
         destinationObjects = GameObject.FindGameObjectsWithTag("Destination");
 
-        //temp
         currentDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
     }
 
@@ -33,12 +34,6 @@ public class Arrow : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(direction);
         }
-
-        //temp
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            SelectRandomDestination();
-        }
     }
 
     private void SelectRandomDestination()
@@ -49,7 +44,45 @@ public class Arrow : MonoBehaviour
         {
             newDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
 
-            currentDestination = newDestination;
+            if(newDestination == currentDestination || Vector3.Distance(newDestination.position, currentDestination.position) < minDistance)
+            {
+                Debug.Log("Retry");
+
+                SelectRandomDestination();
+            }
+            else
+            {
+                currentDestination = newDestination;
+
+                Debug.Log("Next destination: " + currentDestination);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Destination"))
+        {
+            if(!isPassenger)
+            {
+                //Pickup passenger
+                Debug.Log("Choosing passenger.");
+
+                isPassenger = true;
+            }
+            else
+            {
+                //Deliver passenger
+
+                //give point
+                //recalculate timer
+
+                Debug.Log("You delivered the passenger successfully.");
+
+                isPassenger = false;
+            }
+
+            SelectRandomDestination();
         }
     }
 }
