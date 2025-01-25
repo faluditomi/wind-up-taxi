@@ -25,7 +25,8 @@ public class CarMovementController : MonoBehaviour
         HandleMotor();
         HandleSteering();
         UpdateWheels();
-        ApplyAntiRoll();
+        ApplyAntiRoll(frontLeftWheelCollider, frontRightWheelCollider);
+        ApplyAntiRoll(rearLeftWheelCollider, rearRightWheelCollider);
     }
 
     public void setHorizontalInput(float value)
@@ -48,21 +49,29 @@ public class CarMovementController : MonoBehaviour
         currentMotorForce = maxMotorForce * value;
     }
 
-    public void ApplyAntiRoll()
+    public void ApplyAntiRoll(WheelCollider leftWheel, WheelCollider rightWheel)
     {
         WheelHit hitLeft, hitRight;
         float travelLeft = 1f, travelRight = 1f;
 
-        if (rearLeftWheelCollider.GetGroundHit(out hitLeft))
-            travelLeft = (-rearLeftWheelCollider.transform.InverseTransformPoint(hitLeft.point).y - rearLeftWheelCollider.radius) / rearLeftWheelCollider.suspensionDistance;
-        if (rearRightWheelCollider.GetGroundHit(out hitRight))
-            travelRight = (-rearRightWheelCollider.transform.InverseTransformPoint(hitRight.point).y - rearRightWheelCollider.radius) / rearRightWheelCollider.suspensionDistance;
+        if (leftWheel.GetGroundHit(out hitLeft))
+            travelLeft = (-leftWheel.transform.InverseTransformPoint(hitLeft.point).y - leftWheel.radius) / leftWheel.suspensionDistance;
+        if (rightWheel.GetGroundHit(out hitRight))
+            travelRight = (-rightWheel.transform.InverseTransformPoint(hitRight.point).y - rightWheel.radius) / rightWheel.suspensionDistance;
 
+        // Calculate the anti-roll force
         float force = (travelLeft - travelRight) * antiRollForce;
-        if (rearLeftWheelCollider.isGrounded)
-            GetComponent<Rigidbody>().AddForceAtPosition(rearLeftWheelCollider.transform.up * -force, rearLeftWheelCollider.transform.position);
-        if (rearRightWheelCollider.isGrounded)
-            GetComponent<Rigidbody>().AddForceAtPosition(rearRightWheelCollider.transform.up * force, rearRightWheelCollider.transform.position);
+
+        // Limit the force to avoid jerking
+        force = Mathf.Clamp(force, -antiRollForce, antiRollForce);
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        // Apply the forces to the wheels
+        if (leftWheel.isGrounded)
+            rb.AddForceAtPosition(leftWheel.transform.up * -force, leftWheel.transform.position);
+        if (rightWheel.isGrounded)
+            rb.AddForceAtPosition(rightWheel.transform.up * force, rightWheel.transform.position);
     }
 
     private void HandleMotor() {

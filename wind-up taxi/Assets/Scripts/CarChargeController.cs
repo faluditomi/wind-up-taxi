@@ -22,7 +22,7 @@ public class Car : MonoBehaviour
 
     private void Awake()
     {
-        carStateController = new CarStateController();
+        carStateController = GetComponent<CarStateController>();
         carMovementController = GetComponent<CarMovementController>();
         myRigidBody = GetComponent<Rigidbody>();
     }
@@ -30,17 +30,21 @@ public class Car : MonoBehaviour
     private void FixedUpdate()
     {
         GetInput();
+        // myRigidBody.AddForce(-transform.up * 50f * myRigidBody.linearVelocity.magnitude);
     }
 
     private void GetInput() {
         if(isInCarMode)
         {
+            carMovementController.modifyCurrentMotorForce(1f);
             carMovementController.setHorizontalInput(Input.GetAxis("Horizontal"));
             carMovementController.setVerticalInput(Input.GetAxis("Vertical"));
             carMovementController.setBreakingInput(Input.GetKey(KeyCode.Space));
         }
         else
         {
+            carMovementController.modifyCurrentMotorForce(0f);
+
             if(carStateController.GetState() == CarStateController.CarState.Moving)
             {
                 carMovementController.setVerticalInput(Input.GetAxis("Vertical"));
@@ -108,10 +112,7 @@ public class Car : MonoBehaviour
     {
         Reset();
 
-        if(!carStateController.SetState(CarStateController.CarState.Charging))
-        {
-            yield break;
-        }
+        carStateController.SetState(CarStateController.CarState.Charging);
 
         if(timerCoroutine != null)
         {

@@ -766,21 +766,21 @@ WheelCollider:
     damper: 9000
     targetPosition: 0.5
   m_SuspensionDistance: 1
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 0.1
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_ExtremumSlip: 0.3
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.3
+    m_AsymptoteValue: 0.2
+    m_Stiffness: 3
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.2
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1414,7 +1414,7 @@ Rigidbody:
   m_Mass: 1300
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -1429,7 +1429,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!4 &1133596395
 Transform:
   m_ObjectHideFlags: 0
@@ -1460,9 +1460,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMotorForce: 1000
-  breakForce: 1000
+  breakForce: 3000
   maxSteerAngle: 30
-  antiRollForce: 3000
+  antiRollForce: 1000
   frontLeftWheelCollider: {fileID: 1427668850}
   frontRightWheelCollider: {fileID: 473406473}
   rearLeftWheelCollider: {fileID: 1460945124}
@@ -1486,7 +1486,7 @@ MonoBehaviour:
   maxTimeToTravel: 2
   maxTimeToCharge: 8
   maxTimeToOvercharge: 2
-  isInCarMode: 0
+  isInCarMode: 1
 --- !u!1 &1343551312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1788,21 +1788,21 @@ WheelCollider:
     damper: 9000
     targetPosition: 0.5
   m_SuspensionDistance: 1
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 0.1
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_ExtremumSlip: 0.3
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.3
+    m_AsymptoteValue: 0.2
+    m_Stiffness: 3
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.2
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1876,21 +1876,21 @@ WheelCollider:
     damper: 9000
     targetPosition: 0.5
   m_SuspensionDistance: 1
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 0.1
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_ExtremumSlip: 0.3
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.3
+    m_AsymptoteValue: 0.2
+    m_Stiffness: 3
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.2
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2505,21 +2505,21 @@ WheelCollider:
     damper: 9000
     targetPosition: 0.5
   m_SuspensionDistance: 1
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 0.1
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
-    m_ExtremumSlip: 0.4
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.8
-    m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_ExtremumSlip: 0.3
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.3
+    m_AsymptoteValue: 0.2
+    m_Stiffness: 3
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.5
+    m_ExtremumValue: 3
+    m_AsymptoteSlip: 0.2
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 3
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
