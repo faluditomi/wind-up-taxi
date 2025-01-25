@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Happy Customers: 10'
+  m_text: 'Happy Customers: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   timerText: {fileID: 1740167709724586952}
   scoreText: {fileID: 8902139203281191379}
   pausePanel: {fileID: 7801801114596576479}
-  remainingTime: 5
+  remainingTime: 60
   deathMenuScript: {fileID: 0}
 --- !u!1 &9113108135537166024
 GameObject:

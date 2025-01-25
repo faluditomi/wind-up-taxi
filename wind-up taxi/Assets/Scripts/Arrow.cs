@@ -11,6 +11,8 @@ public class Arrow : MonoBehaviour
 
     private GameObject[] destinationObjects;
 
+    private GameObject dropOffArrow;
+
     [SerializeField] Material arrowMaterial;
     [SerializeField] Material outlineMaterial;
     private Material[] originalMaterials;
@@ -59,6 +61,11 @@ public class Arrow : MonoBehaviour
         if(direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direction);
+        }
+
+        if(dropOffArrow)
+        {
+            dropOffArrow.transform.Rotate(0, 0, 50 * Time.deltaTime);
         }
     }
 
@@ -159,6 +166,12 @@ public class Arrow : MonoBehaviour
         currentPassenger.gameObject.SetActive(false);
 
         SelectRandomDestination();
+
+        dropOffArrow = currentDestination.Find("Arrow").gameObject;
+        
+        dropOffArrow.gameObject.SetActive(true);
+
+        currentDestination.Find("Passenger").gameObject.SetActive(false);
     }
 
     public void DeliverPassenger()
@@ -186,6 +199,10 @@ public class Arrow : MonoBehaviour
         pauseMenuScript.AddTime(bonusTime);
 
         currentPassenger.gameObject.SetActive(true);
+
+        dropOffArrow.gameObject.SetActive(false);
+
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
 
         SelectRandomDestination();
 
