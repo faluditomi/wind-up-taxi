@@ -4,6 +4,7 @@ public class Arrow : MonoBehaviour
 {
     private Transform carTransform;
     private Transform currentDestination;
+    private Transform currentPassenger;
 
     [SerializeField] DeathMenu deathMenuScript;
     private PauseMenu pauseMenuScript;
@@ -11,6 +12,8 @@ public class Arrow : MonoBehaviour
     private GameObject[] destinationObjects;
 
     [SerializeField] Material arrowMaterial;
+    [SerializeField] Material outlineMaterial;
+    private Material[] originalMaterials;
 
     [SerializeField] float minDistance;
     [SerializeField] float baseBonusTime;
@@ -34,11 +37,15 @@ public class Arrow : MonoBehaviour
 
     private void Start()
     {
-        currentDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
+        SelectRandomDestination();
 
         arrowMaterial.color = Color.red;
 
         deathMenuScript.SetFinalScore(finalScore.ToString());
+
+        originalMaterials = currentDestination.GetComponentInChildren<Renderer>().materials;
+
+        AddMaterial();
     }
 
     private void Update()
@@ -61,20 +68,63 @@ public class Arrow : MonoBehaviour
 
         if(destinationObjects.Length > 0)
         {
-            newDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
-
-            if(newDestination == currentDestination || Vector3.Distance(newDestination.position, currentDestination.position) < minDistance)
+            if(currentDestination == null)
             {
-                Debug.Log("Retry");
+                float closestDistance = float.MaxValue;
 
-                SelectRandomDestination();
-            }
-            else
-            {
-                currentDestination = newDestination;
+                Transform closestDestination = null;
+
+                foreach(GameObject destinationObject in destinationObjects)
+                {
+                    float distance = Vector3.Distance(transform.position, destinationObject.transform.position);
+
+                    if(distance < closestDistance)
+                    {
+                        closestDistance = distance;
+
+                        closestDestination = destinationObject.transform;
+                    }
+                }
+
+                currentDestination = closestDestination;
 
                 Debug.Log("Next destination: " + currentDestination);
             }
+            else
+            {
+                newDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
+
+                if(newDestination == currentDestination || Vector3.Distance(newDestination.position, currentDestination.position) < minDistance)
+                {
+                    Debug.Log("Retry");
+
+                    SelectRandomDestination();
+                }
+                else
+                {
+                    currentDestination = newDestination;
+
+                    Debug.Log("Next destination: " + currentDestination);
+                }
+            }
+        }
+    }
+
+    private void AddMaterial()
+    {
+        if(!isPassenger)
+        {
+            Material[] currentMaterials = currentDestination.GetComponentInChildren<Renderer>().materials;
+            Material[] updatedMaterials = new Material[currentMaterials.Length + 1];
+
+            for(int i = 0; i < currentMaterials.Length; i++)
+            {
+                updatedMaterials[i] = currentMaterials[i];
+            }
+
+            updatedMaterials[updatedMaterials.Length - 1] = outlineMaterial;
+
+            currentDestination.GetComponentInChildren<Renderer>().materials = updatedMaterials;
         }
     }
 
@@ -101,6 +151,12 @@ public class Arrow : MonoBehaviour
         isPassenger = true;
 
         arrowMaterial.color = Color.green;
+
+        currentDestination.GetComponentInChildren<Renderer>().materials = originalMaterials;
+
+        currentPassenger = currentDestination.GetComponentInChildren<Transform>();
+
+        currentPassenger.gameObject.SetActive(false);
 
         SelectRandomDestination();
     }
@@ -129,7 +185,11 @@ public class Arrow : MonoBehaviour
 
         pauseMenuScript.AddTime(bonusTime);
 
+        currentPassenger.gameObject.SetActive(true);
+
         SelectRandomDestination();
+
+        AddMaterial();
     }
 
     public Transform GetCurrentDestination()
