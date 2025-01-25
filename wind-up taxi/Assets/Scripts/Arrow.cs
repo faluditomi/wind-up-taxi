@@ -3,16 +3,20 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     private Transform carTransform;
-    public Transform currentDestination;
+    private Transform currentDestination;
 
     private PauseMenu pauseMenuScript;
 
     private GameObject[] destinationObjects;
 
+    [SerializeField] Material arrowMaterial;
+
     [SerializeField] float minDistance;
-    [SerializeField] float bonusTime;
+    [SerializeField] float baseBonusTime;
+    [SerializeField] float timerModifier;
 
     private int scoreCounter = 1;
+    private int passengersDelivered = 0;
 
     private bool isPassenger;
 
@@ -30,6 +34,8 @@ public class Arrow : MonoBehaviour
     private void Start()
     {
         currentDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
+
+        arrowMaterial.color = Color.red;
     }
 
     private void Update()
@@ -69,30 +75,63 @@ public class Arrow : MonoBehaviour
         }
     }
 
+    //temp: This should be in the car script. Remove Collider and Rigidbody from arrow prefab after.
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Destination") && other.transform == currentDestination)
+        if(other.CompareTag("Destination") && other.transform == GetCurrentDestination())
         {
-            if(!isPassenger)
+            if(!GetIsPassenger())
             {
-                //Pickup passenger
-                Debug.Log("Choosing passenger.");
-
-                isPassenger = true;
+                PickupPassenger();
             }
             else
             {
-                //Deliver passenger
-                pauseMenuScript.AddScore(scoreCounter);
-
-                pauseMenuScript.AddTime(bonusTime);
-
-                Debug.Log("You delivered the passenger successfully.");
-
-                isPassenger = false;
+                DeliverPassenger();
             }
-
-            SelectRandomDestination();
         }
+    }
+
+    public void PickupPassenger()
+    {
+        Debug.Log("Choosing passenger.");
+
+        isPassenger = true;
+
+        arrowMaterial.color = Color.green;
+
+        SelectRandomDestination();
+    }
+
+    public void DeliverPassenger()
+    {
+        Debug.Log("You delivered the passenger successfully.");
+
+        isPassenger = false;
+
+        passengersDelivered++;
+
+        arrowMaterial.color = Color.red;
+
+        float distance = Vector3.Distance(currentDestination.position, carTransform.position);
+
+        float bonusTime = Mathf.Max(baseBonusTime + (distance * 0.5f * (1 - passengersDelivered * timerModifier)), 0);
+
+        Debug.Log("Bonus time: " + bonusTime);
+
+        pauseMenuScript.AddScore(scoreCounter);
+
+        pauseMenuScript.AddTime(bonusTime);
+
+        SelectRandomDestination();
+    }
+
+    public Transform GetCurrentDestination()
+    {
+        return currentDestination;
+    }
+
+    public bool GetIsPassenger()
+    {
+        return isPassenger;
     }
 }

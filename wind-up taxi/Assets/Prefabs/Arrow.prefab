@@ -134,7 +134,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4283447665192502184}
@@ -405,7 +405,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06d638091b8d5da428261fcf61c9a5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDestination: {fileID: 0}
+  arrowMaterial: {fileID: 2100000, guid: ecee2dcd3d0bf6d4385186fe3ea1259d, type: 2}
+  minDistance: 5
+  baseBonusTime: 10
+  timerModifier: 0.1
   arrowOffset: {x: 0, y: 5, z: 0}
 --- !u!65 &7956995420486173137
 BoxCollider:
