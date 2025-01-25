@@ -5,6 +5,7 @@ public class Arrow : MonoBehaviour
     private Transform carTransform;
     private Transform currentDestination;
 
+    [SerializeField] DeathMenu deathMenuScript;
     private PauseMenu pauseMenuScript;
 
     private GameObject[] destinationObjects;
@@ -15,8 +16,8 @@ public class Arrow : MonoBehaviour
     [SerializeField] float baseBonusTime;
     [SerializeField] float timerModifier;
 
-    private int scoreCounter = 1;
     private int passengersDelivered = 0;
+    private int finalScore = 0;
 
     private bool isPassenger;
 
@@ -36,6 +37,8 @@ public class Arrow : MonoBehaviour
         currentDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
 
         arrowMaterial.color = Color.red;
+
+        deathMenuScript.SetFinalScore(finalScore.ToString());
     }
 
     private void Update()
@@ -118,7 +121,11 @@ public class Arrow : MonoBehaviour
 
         Debug.Log("Bonus time: " + bonusTime);
 
-        pauseMenuScript.AddScore(scoreCounter);
+        pauseMenuScript.AddScore(1);
+
+        finalScore++;
+
+        deathMenuScript.SetFinalScore(finalScore.ToString());
 
         pauseMenuScript.AddTime(bonusTime);
 

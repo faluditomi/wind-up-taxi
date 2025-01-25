@@ -11,9 +11,17 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] float remainingTime;
 
+    [SerializeField] DeathMenu deathMenuScript;
+    private ChangeDeathScene deathScript;
+
     private int score = 0;
     private int minutes;
     private int seconds;
+
+    private void Awake()
+    {
+        deathScript = FindAnyObjectByType<ChangeDeathScene>();
+    }
 
     private void Update()
     {
@@ -25,7 +33,8 @@ public class PauseMenu : MonoBehaviour
         {
             remainingTime = 0;
 
-            Debug.Log("Game Over");
+            //Out of time death scene.
+            deathScript.ChangeCamera("OutOfTime");
         }
 
         minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -64,6 +73,11 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void QuitGame()

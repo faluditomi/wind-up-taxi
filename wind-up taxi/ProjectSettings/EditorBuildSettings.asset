@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AndreiScene.unity
     guid: 40c2a638c2545ea4c980a35aae0e7eaa
+  - enabled: 1
+    path: Assets/Scenes/Death Scenes/Out Of Time.unity
+    guid: 46530f0223a29704eb1ddffa1d17095b
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
