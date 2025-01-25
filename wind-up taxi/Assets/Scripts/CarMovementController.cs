@@ -11,6 +11,10 @@ public class CarMovementController : MonoBehaviour
     [SerializeField] float steeringRange = 30;
     [SerializeField] float steeringRangeAtMaxSpeed = 10;
     [SerializeField] float centreOfGravityOffset = -1f;
+    [SerializeField] float antiRollForce = 20000f;
+
+    [SerializeField] WheelCollider leftRearWheel;
+    [SerializeField] WheelCollider rightRearWheel;
 
     WheelController[] wheels;
     Rigidbody rigidBody;
@@ -28,7 +32,7 @@ public class CarMovementController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Calculate current speed in relation to the forward direction of the car
         // (this returns a negative number when traveling backwards)
@@ -37,7 +41,7 @@ public class CarMovementController : MonoBehaviour
         // Calculate how close the car is to top speed
         // as a number from zero to one
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
-        print(forwardSpeed);
+        print(speedFactor);
 
         // Use that to calculate how much torque is available 
         // (zero torque at top speed)
@@ -77,6 +81,25 @@ public class CarMovementController : MonoBehaviour
                 wheel.WheelCollider.motorTorque = 0;
             }
         }
+
+        ApplyAntiRoll();
+    }
+
+    public void ApplyAntiRoll()
+    {
+        WheelHit hitLeft, hitRight;
+        float travelLeft = 1f, travelRight = 1f;
+
+        if(leftRearWheel.GetGroundHit(out hitLeft))
+            travelLeft = (-leftRearWheel.transform.InverseTransformPoint(hitLeft.point).y - leftRearWheel.radius) / leftRearWheel.suspensionDistance;
+        if(rightRearWheel.GetGroundHit(out hitRight))
+            travelRight = (-rightRearWheel.transform.InverseTransformPoint(hitRight.point).y - rightRearWheel.radius) / rightRearWheel.suspensionDistance;
+
+        float force = (travelLeft - travelRight) * antiRollForce;
+        if(leftRearWheel.isGrounded)
+            GetComponent<Rigidbody>().AddForceAtPosition(leftRearWheel.transform.up * -force, leftRearWheel.transform.position);
+        if(rightRearWheel.isGrounded)
+            GetComponent<Rigidbody>().AddForceAtPosition(rightRearWheel.transform.up * force, rightRearWheel.transform.position);
     }
 
     public void SetSteeringInput(float value)
