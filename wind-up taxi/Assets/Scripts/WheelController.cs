@@ -29,5 +29,6 @@ public class WheelController : MonoBehaviour
         WheelCollider.GetWorldPose(out position, out rotation);
         wheelModel.transform.position = position;
         wheelModel.transform.rotation = rotation;
+        wheelModel.transform.Rotate(Vector3.up, 180f, Space.Self);
     }
 }

@@ -44,7 +44,7 @@ public class Car : MonoBehaviour
             carMovementController.SetSteeringInput(playerInput.Gameplay.Steering.ReadValue<float>());
         // }
         
-        carMovementController.SetSpeedingInput(-playerInput.Gameplay.Speeding.ReadValue<float>());
+        carMovementController.SetSpeedingInput(playerInput.Gameplay.Speeding.ReadValue<float>());
     }
 
     private void ChargeStartInput(InputAction.CallbackContext context) 

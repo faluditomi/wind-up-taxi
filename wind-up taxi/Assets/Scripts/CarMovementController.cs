@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -33,10 +34,10 @@ public class CarMovementController : MonoBehaviour
         // (this returns a negative number when traveling backwards)
         float forwardSpeed = Vector3.Dot(transform.forward, rigidBody.linearVelocity);
 
-
         // Calculate how close the car is to top speed
         // as a number from zero to one
         float speedFactor = Mathf.InverseLerp(0, maxSpeed, forwardSpeed);
+        print(forwardSpeed);
 
         // Use that to calculate how much torque is available 
         // (zero torque at top speed)
@@ -61,10 +62,11 @@ public class CarMovementController : MonoBehaviour
             if (isAccelerating)
             {
                 // Apply torque to Wheel colliders that have "Motorized" enabled
-                if (wheel.motorized)
+                if(wheel.motorized)
                 {
                     wheel.WheelCollider.motorTorque = speedInput * currentMotorTorque;
                 }
+
                 wheel.WheelCollider.brakeTorque = 0;
             }
             else
