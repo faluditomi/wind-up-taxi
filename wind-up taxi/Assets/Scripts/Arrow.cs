@@ -5,20 +5,30 @@ public class Arrow : MonoBehaviour
     private Transform carTransform;
     public Transform currentDestination;
 
+    private PauseMenu pauseMenuScript;
+
     private GameObject[] destinationObjects;
 
     [SerializeField] float minDistance;
+    [SerializeField] float bonusTime;
+
+    private int scoreCounter = 1;
 
     private bool isPassenger;
 
     public Vector3 arrowOffset = new Vector3(0, 1, 0);
 
-    private void Start()
+    private void Awake()
     {
         carTransform = GameObject.FindGameObjectWithTag("Car").GetComponent<Transform>();
 
         destinationObjects = GameObject.FindGameObjectsWithTag("Destination");
 
+        pauseMenuScript = FindAnyObjectByType<PauseMenu>();
+    }
+
+    private void Start()
+    {
         currentDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
     }
 
@@ -61,7 +71,7 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Destination"))
+        if(other.CompareTag("Destination") && other.transform == currentDestination)
         {
             if(!isPassenger)
             {
@@ -73,9 +83,9 @@ public class Arrow : MonoBehaviour
             else
             {
                 //Deliver passenger
+                pauseMenuScript.AddScore(scoreCounter);
 
-                //give point
-                //recalculate timer
+                pauseMenuScript.AddTime(bonusTime);
 
                 Debug.Log("You delivered the passenger successfully.");
 

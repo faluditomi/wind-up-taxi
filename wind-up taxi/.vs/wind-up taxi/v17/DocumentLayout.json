@@ -3,7 +3,15 @@
   "WorkspaceRootPath": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|c:\\my shit\\unity projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|c:\\my shit\\unity projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\main menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\main menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|c:\\my shit\\unity projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\gametimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gametimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Main Menu.cs",
+              "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Main Menu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Main Menu.cs",
+              "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Main Menu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Main Menu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T09:15:06.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameTimer.cs",
+              "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\GameTimer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameTimer.cs",
+              "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\GameTimer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameTimer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-25T08:35:57.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Arrow.cs",
               "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Arrow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Arrow.cs",
               "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Arrow.cs",
               "RelativeToolTip": "Assets\\Scripts\\Arrow.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAwwE8AAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-24T21:54:17.879Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-24T21:54:17.879Z"
             }
           ]
         }
