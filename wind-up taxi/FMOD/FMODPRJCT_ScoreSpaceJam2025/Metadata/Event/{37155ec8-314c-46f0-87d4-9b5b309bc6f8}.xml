@@ -8,7 +8,7 @@
 			<value>1</value>
 		</property>
 		<relationship name="folder">
-			<destination>{10626052-c98b-4665-b391-646f2512cecd}</destination>
+			<destination>{660d8cf9-5917-44af-b2f8-ac4ec0c98f0d}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{bcd134fb-9ef7-4528-993e-bf7bcb585f26}</destination>
@@ -87,9 +87,6 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{e8765666-a866-4f75-b86f-a6d5f7d11c10}">
-		<property name="playbackMode">
-			<value>1</value>
-		</property>
 		<relationship name="sounds">
 			<destination>{9170867c-7916-4832-af18-f8ef792a64bf}</destination>
 		</relationship>

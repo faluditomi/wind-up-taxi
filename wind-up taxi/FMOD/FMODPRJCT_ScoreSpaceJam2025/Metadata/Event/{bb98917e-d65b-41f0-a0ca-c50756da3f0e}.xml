@@ -72,7 +72,6 @@ https://wingless-seraph.net</value>
 			<destination>{39cbb0ff-4dab-40ea-9a56-a47bded2cf5f}</destination>
 			<destination>{cf10d147-3484-4550-a91d-7061dc9796c4}</destination>
 			<destination>{9dc30817-c499-4fea-9098-f3736e39b09b}</destination>
-			<destination>{3fe5f2b8-98d7-480f-937c-f111c263ea0b}</destination>
 			<destination>{1731796a-a361-4a75-8895-aff45dbcd984}</destination>
 			<destination>{68a35a97-f2de-497b-9994-69b7fc686a71}</destination>
 		</relationship>
@@ -148,14 +147,6 @@ https://wingless-seraph.net</value>
 			<destination>{483e5cb4-3460-4323-80dd-0abf90b2350d}</destination>
 		</relationship>
 	</object>
-	<object class="GroupTrack" id="{3fe5f2b8-98d7-480f-937c-f111c263ea0b}">
-		<relationship name="modules">
-			<destination>{d509d387-c2b9-42be-81f8-caf9658886f4}</destination>
-		</relationship>
-		<relationship name="mixerGroup">
-			<destination>{efe0a862-7cee-4d03-b348-a616b906c364}</destination>
-		</relationship>
-	</object>
 	<object class="GroupTrack" id="{1731796a-a361-4a75-8895-aff45dbcd984}">
 		<relationship name="automationTracks">
 			<destination>{9a9ea017-ac8c-4ca7-a1f1-3762613af9e5}</destination>
@@ -187,7 +178,6 @@ https://wingless-seraph.net</value>
 		<relationship name="modules">
 			<destination>{21b32596-5af4-4064-b294-07f5479e2ad1}</destination>
 			<destination>{35ef2d41-ca9c-43bf-a5d2-7cfde9bf4cb4}</destination>
-			<destination>{d509d387-c2b9-42be-81f8-caf9658886f4}</destination>
 			<destination>{ee99ed9f-9ea2-4be0-942c-852881c23d31}</destination>
 		</relationship>
 		<relationship name="preset">
@@ -374,46 +364,6 @@ https://wingless-seraph.net</value>
 		</relationship>
 		<relationship name="panner">
 			<destination>{b387e5d2-c3cd-4ff5-9b75-2753a6c698ed}</destination>
-		</relationship>
-		<relationship name="output">
-			<destination>{871985fe-9de0-4a22-8e2f-6dbf6ec4d178}</destination>
-		</relationship>
-	</object>
-	<object class="SoundScatterer" id="{d509d387-c2b9-42be-81f8-caf9658886f4}">
-		<property name="polyphony">
-			<value>1</value>
-		</property>
-		<property name="soundStealing">
-			<value>3</value>
-		</property>
-		<property name="minimumTimeBetweenSounds">
-			<value>23000</value>
-		</property>
-		<property name="maximumTimeBetweenSounds">
-			<value>85000</value>
-		</property>
-		<property name="minimumScatterDistance">
-			<value>0</value>
-		</property>
-		<property name="maximumScatterDistance">
-			<value>0</value>
-		</property>
-		<property name="volumeRandomization">
-			<value>-3.5</value>
-		</property>
-		<relationship name="sound">
-			<destination>{a28a5eb8-5ff8-41d7-9eae-ea4e1a89b2b1}</destination>
-		</relationship>
-	</object>
-	<object class="EventMixerGroup" id="{efe0a862-7cee-4d03-b348-a616b906c364}">
-		<property name="name">
-			<value>Trains</value>
-		</property>
-		<relationship name="effectChain">
-			<destination>{62c16c56-fed0-4ffb-9e40-1453e42531ea}</destination>
-		</relationship>
-		<relationship name="panner">
-			<destination>{3644515d-6d3c-4832-b5aa-30bc995ea705}</destination>
 		</relationship>
 		<relationship name="output">
 			<destination>{871985fe-9de0-4a22-8e2f-6dbf6ec4d178}</destination>
@@ -624,18 +574,6 @@ https://wingless-seraph.net</value>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b387e5d2-c3cd-4ff5-9b75-2753a6c698ed}" />
-	<object class="MultiSound" id="{a28a5eb8-5ff8-41d7-9eae-ea4e1a89b2b1}">
-		<relationship name="sounds">
-			<destination>{3849cae4-5893-45ad-8edd-a9868d4dad39}</destination>
-			<destination>{cd001920-9a10-4ca9-91c6-673800965d7e}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusEffectChain" id="{62c16c56-fed0-4ffb-9e40-1453e42531ea}">
-		<relationship name="effects">
-			<destination>{ac994aa3-9012-4dcf-8280-923a8562ea61}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusPanner" id="{3644515d-6d3c-4832-b5aa-30bc995ea705}" />
 	<object class="Automator" id="{16f9acc2-158b-481f-b701-b1440b38da8f}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>volume</value>
@@ -814,17 +752,6 @@ https://wingless-seraph.net</value>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{2506f267-a56d-487c-a2be-95276084bc2a}" />
-	<object class="SingleSound" id="{3849cae4-5893-45ad-8edd-a9868d4dad39}">
-		<relationship name="audioFile">
-			<destination>{1108e948-0cf8-4a91-9a65-30e7b6a6b71f}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{cd001920-9a10-4ca9-91c6-673800965d7e}">
-		<relationship name="audioFile">
-			<destination>{d195eb01-f684-429b-a4ec-c58d7901d376}</destination>
-		</relationship>
-	</object>
-	<object class="MixerBusFader" id="{ac994aa3-9012-4dcf-8280-923a8562ea61}" />
 	<object class="AutomationCurve" id="{a0f8f114-76ac-4082-a8c9-60e4fb87e1ec}">
 		<relationship name="parameter">
 			<destination>{95b9b67d-4a1e-45ab-806f-e46ce640bf5a}</destination>
