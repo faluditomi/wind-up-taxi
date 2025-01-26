@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -36,6 +35,8 @@ public class CarMovementController : MonoBehaviour
         
         if(carStateController.GetState() == CarStateController.CarState.Moving)
         {
+            // soundEmitterRPM.SetParameter("RPM", )
+
             CamFollowPoint.rotation = new Quaternion(CamFollowPoint.rotation.x, transform.rotation.y, CamFollowPoint.rotation.z, CamFollowPoint.rotation.w);
         }
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class Car : MonoBehaviour
     private CarMovementController carMovementController;
     private CinemachineBasicMultiChannelPerlin shake;
     private Arrow arrowController;
+    private StudioEventEmitter soundEmitterRPM;
 
     private Rigidbody myRigidBody;
 
@@ -35,6 +37,7 @@ public class Car : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody>();
         arrowController = FindAnyObjectByType<Arrow>();
         shake = FindFirstObjectByType<CinemachineBasicMultiChannelPerlin>();
+        soundEmitterRPM = transform.Find("CarAudioRPM").GetComponent<StudioEventEmitter>();
     }
 
     private void Start()
@@ -46,6 +49,11 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
+        if(carStateController.GetState() == CarStateController.CarState.Moving)
+        {
+            soundEmitterRPM.SetParameter("RPM", myRigidBody.linearVelocity.magnitude / 40f * 10000f);
+        }
+        
         GetInput();
     }
 

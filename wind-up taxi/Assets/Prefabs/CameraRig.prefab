@@ -228,9 +228,9 @@ GameObject:
   m_Component:
   - component: {fileID: 400984236429544691}
   - component: {fileID: 1194161192142131435}
+  - component: {fileID: 7066601411598438349}
   - component: {fileID: 8576148827362244840}
   - component: {fileID: 4469022059249657309}
-  - component: {fileID: 7066601411598438349}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -296,6 +296,25 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &7066601411598438349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418077228093250994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrackerSettings:
+    BindingMode: 3
+    PositionDamping: {x: 0.3, y: 0.2, z: 0.1}
+    AngularDampingMode: 1
+    RotationDamping: {x: 0, y: 0, z: 0}
+    QuaternionDamping: 0.6
+  FollowOffset: {x: 0, y: 0, z: -0.67}
 --- !u!114 &8576148827362244840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,22 +345,3 @@ MonoBehaviour:
   AmplitudeGain: 1
   FrequencyGain: 1
   m_NoiseOffsets: {x: 0, y: 0, z: 0}
---- !u!114 &7066601411598438349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5418077228093250994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TrackerSettings:
-    BindingMode: 3
-    PositionDamping: {x: 0.3, y: 0.2, z: 0.1}
-    AngularDampingMode: 1
-    RotationDamping: {x: 0, y: 0, z: 0}
-    QuaternionDamping: 0.6
-  FollowOffset: {x: 0, y: 0, z: -0.67}
