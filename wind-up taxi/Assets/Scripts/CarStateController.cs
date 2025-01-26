@@ -14,8 +14,15 @@ public class CarStateController : MonoBehaviour
     }
 
     private CarState currentState;
+    
+    private Animator animator;
 
     private Dictionary<CarState, List<CarState>> allowedStateTransitions;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -45,7 +52,21 @@ public class CarStateController : MonoBehaviour
     {
         if(allowedStateTransitions[currentState].Contains(newState))
         {
+            if(newState == CarState.Overcharging)
+            {
+                print(animator);
+                print(1);
+                animator.SetBool("Overcharging", true);
+            }
+
+            if(currentState == CarState.Overcharging)
+            {
+                print(2);
+                animator.SetBool("Overcharging", false);
+            }
+            
             currentState = newState;
+
             return true;
         }
         else
