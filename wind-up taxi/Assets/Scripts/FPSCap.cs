@@ -6,6 +6,6 @@ public class FPSCap : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
 
-        Application.targetFrameRate = 100;
+        Application.targetFrameRate = 144;
     }
 }
