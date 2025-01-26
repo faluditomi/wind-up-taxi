@@ -6,7 +6,7 @@ public class CarMovementController : MonoBehaviour
     private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
     private float currentMotorForce;
-    [SerializeField] private float maxMotorForce, breakForce, maxSteerAngle, antiRollForce;
+    [SerializeField] private float maxMotorForce, breakForce, maxSteerAngle, antiRollForce, accelerationSmoothing;
     
     private bool isBreaking;
 
@@ -75,8 +75,16 @@ public class CarMovementController : MonoBehaviour
     }
 
     private void HandleMotor() {
-        frontLeftWheelCollider.motorTorque = verticalInput * currentMotorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * currentMotorForce;
+        float targetTorque = verticalInput * currentMotorForce;
+        float currentTorque = Mathf.Lerp(currentMotorForce, targetTorque, Time.fixedDeltaTime * accelerationSmoothing);
+
+        if(verticalInput == 0f)
+        {
+            currentTorque = 0f;
+        }
+
+        frontLeftWheelCollider.motorTorque = currentTorque;
+        frontRightWheelCollider.motorTorque = currentTorque;
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
     }

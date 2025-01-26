@@ -56,13 +56,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.4
     m_AsymptoteValue: 0.8
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.15
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.3
-    m_AsymptoteValue: 0.7
-    m_Stiffness: 2.5
+    m_AsymptoteSlip: 0.2
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 4
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -144,13 +144,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.4
     m_AsymptoteValue: 0.8
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.15
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.3
-    m_AsymptoteValue: 0.7
-    m_Stiffness: 2.5
+    m_AsymptoteSlip: 0.2
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 4
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -232,13 +232,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.4
     m_AsymptoteValue: 0.8
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.15
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.3
-    m_AsymptoteValue: 0.7
-    m_Stiffness: 2.5
+    m_AsymptoteSlip: 0.2
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 4
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -341,7 +341,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1300
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 3
   m_CenterOfMass: {x: 0, y: -0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -370,10 +370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dde9d46af2b7547a2b0745a0ee57d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMotorForce: 1000
-  breakForce: 3000
+  maxMotorForce: 3000
+  breakForce: 9000
   maxSteerAngle: 30
   antiRollForce: 1000
+  accelerationSmoothing: 10
   frontLeftWheelCollider: {fileID: 1522689487668454439}
   frontRightWheelCollider: {fileID: 2301877289765595597}
   rearLeftWheelCollider: {fileID: 295477718196857361}
@@ -455,13 +456,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.4
     m_AsymptoteValue: 0.8
-    m_Stiffness: 2
+    m_Stiffness: 3
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.15
+    m_ExtremumSlip: 0.1
     m_ExtremumValue: 1
-    m_AsymptoteSlip: 0.3
-    m_AsymptoteValue: 0.7
-    m_Stiffness: 2.5
+    m_AsymptoteSlip: 0.2
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 4
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
