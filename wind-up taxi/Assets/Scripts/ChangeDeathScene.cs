@@ -12,8 +12,6 @@ public class ChangeDeathScene : MonoBehaviour
     [SerializeField] GameObject defaultCanvas;
     private GameObject cinemachineChamera;
 
-    [SerializeField] float rotationSpeed;
-
     private enum Reason
     {
         OutOfTime,
@@ -47,5 +45,7 @@ public class ChangeDeathScene : MonoBehaviour
         cameraTransform.SetParent(transform);
 
         cameraTransform.localPosition = Vector3.zero;
+
+        cameraTransform.localRotation = Quaternion.Euler(13.5f, 0, 0);
     }
 }
