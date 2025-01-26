@@ -11,18 +11,20 @@ public class Car : MonoBehaviour
 
     private Rigidbody myRigidBody;
 
+    [SerializeField] private Transform keyModel;
+
     private Coroutine chargeCoroutine;
     private Coroutine timerCoroutine;
-    private Coroutine moveCoroutine;
 
     private float currentMotorForceMultiplier;
     private float currentTimeToTravel;
-    [SerializeField] float maxTimeToTravel = 2f;
-    [SerializeField] float maxTimeToCharge = 8f;
-    [SerializeField] float maxTimeToOvercharge = 2f;
-    [SerializeField] float maxCamShake = 1f;
-    [SerializeField] float minTimeToTravel = 0.75f;
-    [SerializeField] float minMotorForceMultiplier = 20f;
+    [SerializeField] private float maxTimeToTravel = 2f;
+    [SerializeField] private float maxTimeToCharge = 8f;
+    [SerializeField] private float maxTimeToOvercharge = 2f;
+    [SerializeField] private float maxCamShake = 1f;
+    [SerializeField] private float minTimeToTravel = 0.75f;
+    [SerializeField] private float minMotorForceMultiplier = 20f;
+    [SerializeField] private float keyDefaultSpinSpeed = 5f;
 
     [SerializeField] bool isInCarMode = false;
 
@@ -41,18 +43,6 @@ public class Car : MonoBehaviour
         currentTimeToTravel = minTimeToTravel;
         shake.enabled = false;    
     }
-
-    // private void FixedUpdate()
-    // {
-    //     if(carStateController.GetState() == CarStateController.CarState.Idle)
-    //     {
-    //         myRigidBody.isKinematic = true;
-    //     }
-    //     else
-    //     {
-    //         myRigidBody.isKinematic = false;
-    //     }
-    // }
 
     private void Update()
     {
@@ -98,7 +88,7 @@ public class Car : MonoBehaviour
 
                 shake.enabled = false;
 
-                moveCoroutine = StartCoroutine(MoveBehaviour());
+                StartCoroutine(MoveBehaviour());
             }
         }
     }
@@ -132,12 +122,23 @@ public class Car : MonoBehaviour
         }
     }
 
+    private IEnumerator KeySpinWhileMovingBehaviour()
+    {
+        while(carStateController.GetState() == CarStateController.CarState.Moving)
+        {
+            keyModel.Rotate(Vector3.forward, -(keyDefaultSpinSpeed * (currentMotorForceMultiplier + 1f) * Time.deltaTime), Space.Self);
+
+            yield return null;
+        }
+    }
+
     private IEnumerator MoveBehaviour()
     {
         carStateController.SetState(CarStateController.CarState.Moving);
         carMovementController.modifyCurrentMotorForce(currentMotorForceMultiplier);
         carMovementController.setVerticalInput(1f);
-        
+        StartCoroutine(KeySpinWhileMovingBehaviour());
+
         yield return new WaitForSeconds(currentTimeToTravel);
 
         carMovementController.modifyCurrentMotorForce(0);
@@ -150,7 +151,6 @@ public class Car : MonoBehaviour
         myRigidBody.linearVelocity = Vector3.zero;
         myRigidBody.angularVelocity = Vector3.zero;
         carStateController.SetState(CarStateController.CarState.Idle);
-        moveCoroutine = null;
     }
 
     private IEnumerator ChargeBehaviour()
@@ -173,6 +173,8 @@ public class Car : MonoBehaviour
         {
             //camera zoom
 
+            keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * Time.deltaTime, Space.Self);
+
             shake.AmplitudeGain += maxCamShake / maxTimeToCharge * Time.deltaTime;
             shake.AmplitudeGain = Mathf.Min(shake.AmplitudeGain, maxCamShake);
 
@@ -190,14 +192,13 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Overcharging)
         {
-            //camera shake
+            //car shake
+
+            keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * (1f / maxTimeToOvercharge) * Time.deltaTime, Space.Self);
 
             yield return null;
         }
 
-        if(carStateController.GetState() == CarStateController.CarState.Busted)
-        {
-            Reset();
-        }
+        Reset();
     }
 }

@@ -932,30 +932,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 400984236429544691, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 400984236429544691, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.055
-      objectReference: {fileID: 0}
-    - target: {fileID: 400984236429544691, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.208
-      objectReference: {fileID: 0}
-    - target: {fileID: 593643416938255892, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 593643416938255892, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.055
-      objectReference: {fileID: 0}
-    - target: {fileID: 593643416938255892, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.208
-      objectReference: {fileID: 0}
     - target: {fileID: 1194161192142131435, guid: 6060910cad9d7274d9a1f77313557875, type: 3}
       propertyPath: Target.TrackingTarget
       value: 
@@ -5889,6 +5865,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f4c4e7abc2014a48937748397ea57ac, type: 3}
+--- !u!4 &333577941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7574758739702167400, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+  m_PrefabInstance: {fileID: 501560495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &338837773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7833,6 +7814,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1040337590273032757, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: keyModel
+      value: 
+      objectReference: {fileID: 333577941}
+    - target: {fileID: 1040337590273032757, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: keyDefaultSpinSpeed
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 2891629669676549255, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.67
