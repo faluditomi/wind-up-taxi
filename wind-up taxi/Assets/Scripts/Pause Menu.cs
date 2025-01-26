@@ -7,24 +7,55 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    [SerializeField] Transform startingPos;
+    private Transform carTransform;
+
     [SerializeField] GameObject pausePanel;
 
     [SerializeField] float remainingTime;
+    private float startingTime;
 
     [SerializeField] DeathMenu deathMenuScript;
     private ChangeDeathScene deathScript;
+    private Arrow arrowScript;
+    private Car carScript;
 
     private int score = 0;
     private int minutes;
     private int seconds;
 
+    private bool isPaused;
+
     private void Awake()
     {
         deathScript = FindAnyObjectByType<ChangeDeathScene>();
+
+        carTransform = GameObject.FindGameObjectWithTag("Car").GetComponent<Transform>();
+
+        arrowScript = FindAnyObjectByType<Arrow>();
+
+        carScript = FindAnyObjectByType<Car>();
+    }
+
+    private void Start()
+    {
+        startingTime = remainingTime;
     }
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(isPaused)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+
         if(remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
@@ -33,8 +64,14 @@ public class PauseMenu : MonoBehaviour
         {
             remainingTime = 0;
 
-            //Out of time death scene.
-            deathScript.ChangeCamera("OutOfTime");
+            if(!arrowScript.HasPassanger())
+            {
+                deathScript.ChangeCamera(ChangeDeathScene.Reason.OutOfTime);
+            }
+            else
+            {
+                deathScript.ChangeCamera(ChangeDeathScene.Reason.Kidnapping);
+            }
         }
 
         minutes = Mathf.FloorToInt(remainingTime / 60);
@@ -60,6 +97,8 @@ public class PauseMenu : MonoBehaviour
     {
         pausePanel.SetActive(true);
 
+        isPaused = true;
+
         Time.timeScale = 0;
     }
 
@@ -67,12 +106,30 @@ public class PauseMenu : MonoBehaviour
     {
         pausePanel.SetActive(false);
 
+        isPaused = false;
+
         Time.timeScale = 1;
     }
 
     public void RestartGame()
     {
+        //carScript.Restart();
+
+        //carTransform.position = startingPos.position;
+
+        //carTransform.localRotation = Quaternion.Euler(0, 0, 0);
+
+        //score = 0;
+
+        //ResumeGame();
+
+        //remainingTime = startingTime;
+
+        //arrowScript.ResetMap();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        ResumeGame();
     }
 
     public void ReturnToMainMenu()

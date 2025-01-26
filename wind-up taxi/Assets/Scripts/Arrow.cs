@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [SerializeField] Transform startingDestination;
     private Transform carTransform;
     private Transform currentDestination;
     private Transform currentPassenger;
@@ -10,12 +11,10 @@ public class Arrow : MonoBehaviour
     private PauseMenu pauseMenuScript;
 
     private GameObject[] destinationObjects;
-
+    
     private GameObject dropOffArrow;
 
     [SerializeField] Material arrowMaterial;
-    [SerializeField] Material outlineMaterial;
-    private Material[] originalMaterials;
 
     [SerializeField] float minDistance;
     [SerializeField] float baseBonusTime;
@@ -45,9 +44,7 @@ public class Arrow : MonoBehaviour
 
         deathMenuScript.SetFinalScore(finalScore.ToString());
 
-        originalMaterials = currentDestination.GetComponentInChildren<Renderer>().materials;
-
-        AddMaterial();
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
     }
 
     private void Update()
@@ -69,6 +66,11 @@ public class Arrow : MonoBehaviour
         }
     }
 
+    public bool HasPassanger()
+    {
+        return isPassenger;
+    }
+
     private void SelectRandomDestination()
     {
         Transform newDestination;
@@ -77,23 +79,7 @@ public class Arrow : MonoBehaviour
         {
             if(currentDestination == null)
             {
-                float closestDistance = float.MaxValue;
-
-                Transform closestDestination = null;
-
-                foreach(GameObject destinationObject in destinationObjects)
-                {
-                    float distance = Vector3.Distance(transform.position, destinationObject.transform.position);
-
-                    if(distance < closestDistance)
-                    {
-                        closestDistance = distance;
-
-                        closestDestination = destinationObject.transform;
-                    }
-                }
-
-                currentDestination = closestDestination;
+                currentDestination = startingDestination;
 
                 Debug.Log("Next destination: " + currentDestination);
             }
@@ -117,25 +103,6 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    private void AddMaterial()
-    {
-        if(!isPassenger)
-        {
-            Material[] currentMaterials = currentDestination.GetComponentInChildren<Renderer>().materials;
-            Material[] updatedMaterials = new Material[currentMaterials.Length + 1];
-
-            for(int i = 0; i < currentMaterials.Length; i++)
-            {
-                updatedMaterials[i] = currentMaterials[i];
-            }
-
-            updatedMaterials[updatedMaterials.Length - 1] = outlineMaterial;
-
-            currentDestination.GetComponentInChildren<Renderer>().materials = updatedMaterials;
-        }
-    }
-    
-
     public void PickupPassenger()
     {
         Debug.Log("Choosing passenger.");
@@ -144,7 +111,7 @@ public class Arrow : MonoBehaviour
 
         arrowMaterial.color = Color.green;
 
-        currentDestination.GetComponentInChildren<Renderer>().materials = originalMaterials;
+        currentDestination.Find("Passenger").gameObject.SetActive(false);
 
         currentPassenger = currentDestination.GetComponentInChildren<Transform>();
 
@@ -152,11 +119,11 @@ public class Arrow : MonoBehaviour
 
         SelectRandomDestination();
 
+        CalculateTime();
+
         dropOffArrow = currentDestination.Find("Arrow").gameObject;
         
         dropOffArrow.gameObject.SetActive(true);
-
-        currentDestination.Find("Passenger").gameObject.SetActive(false);
     }
 
     public void DeliverPassenger()
@@ -169,29 +136,32 @@ public class Arrow : MonoBehaviour
 
         arrowMaterial.color = Color.red;
 
-        float distance = Vector3.Distance(currentDestination.position, carTransform.position);
-
-        float bonusTime = Mathf.Max(baseBonusTime + (distance * 0.5f * (1 - passengersDelivered * timerModifier)), 0);
-
-        Debug.Log("Bonus time: " + bonusTime);
-
         pauseMenuScript.AddScore(1);
 
         finalScore++;
 
         deathMenuScript.SetFinalScore(finalScore.ToString());
 
-        pauseMenuScript.AddTime(bonusTime);
-
         currentPassenger.gameObject.SetActive(true);
 
         dropOffArrow.gameObject.SetActive(false);
 
-        currentDestination.Find("Passenger").gameObject.SetActive(true);
-
         SelectRandomDestination();
 
-        AddMaterial();
+        CalculateTime();
+
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
+    }
+
+    private void CalculateTime()
+    {
+        float distance = Vector3.Distance(currentDestination.position, carTransform.position);
+
+        float bonusTime = Mathf.Max(baseBonusTime + (distance * 0.5f * (1 - passengersDelivered * timerModifier)), 0);
+
+        Debug.Log("Bonus time: " + bonusTime);
+
+        pauseMenuScript.AddTime(bonusTime);
     }
 
     public Transform GetCurrentDestination()
@@ -202,5 +172,38 @@ public class Arrow : MonoBehaviour
     public bool GetIsPassenger()
     {
         return isPassenger;
+    }
+
+    public void ResetMap()
+    {
+        if(currentPassenger != null)
+        {
+            currentPassenger.gameObject.SetActive(true);
+
+            currentDestination.Find("Passenger").gameObject.SetActive(false);
+        }
+
+        if(dropOffArrow != null)
+        {
+            dropOffArrow.gameObject.SetActive(false);
+        }
+
+        currentDestination = null;
+
+        currentPassenger = null;
+
+        passengersDelivered = 0;
+
+        finalScore = 0;
+
+        deathMenuScript.SetFinalScore(finalScore.ToString());
+
+        isPassenger = false;
+
+        SelectRandomDestination();
+
+        arrowMaterial.color = Color.red;
+
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
     }
 }
