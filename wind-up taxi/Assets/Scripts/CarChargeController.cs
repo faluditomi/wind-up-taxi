@@ -10,6 +10,7 @@ public class Car : MonoBehaviour
     private CinemachineBasicMultiChannelPerlin shake;
     private Arrow arrowController;
     private StudioEventEmitter soundEmitterRPM;
+    private ChangeDeathScene deathScript;
 
     private Rigidbody myRigidBody;
 
@@ -17,6 +18,7 @@ public class Car : MonoBehaviour
 
     private Coroutine chargeCoroutine;
     private Coroutine timerCoroutine;
+    private Coroutine moveCoroutine;
 
     private float currentMotorForceMultiplier;
     private float currentTimeToTravel;
@@ -38,11 +40,12 @@ public class Car : MonoBehaviour
         arrowController = FindAnyObjectByType<Arrow>();
         shake = FindFirstObjectByType<CinemachineBasicMultiChannelPerlin>();
         soundEmitterRPM = transform.Find("CarAudioRPM").GetComponent<StudioEventEmitter>();
+        deathScript = FindFirstObjectByType<ChangeDeathScene>();
     }
 
     private void Start()
     {
-        currentMotorForceMultiplier = minMotorForceMultiplier;
+        currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
         currentTimeToTravel = minTimeToTravel;
         shake.enabled = false;    
     }
@@ -96,7 +99,7 @@ public class Car : MonoBehaviour
 
                 shake.enabled = false;
 
-                StartCoroutine(MoveBehaviour());
+                moveCoroutine = StartCoroutine(MoveBehaviour());
             }
         }
     }
@@ -118,8 +121,6 @@ public class Car : MonoBehaviour
 
     public void Restart()
     {
-        ResetVariables();
-        
         if(chargeCoroutine != null)
         {
             StopCoroutine(chargeCoroutine);
@@ -131,6 +132,16 @@ public class Car : MonoBehaviour
             StopCoroutine(timerCoroutine);
             timerCoroutine = null;
         }
+
+        if(moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+            moveCoroutine = null;
+        }
+
+        carStateController.SetState(CarStateController.CarState.Idle);
+
+        ResetVariables();
     }
 
     public void ResetVariables()
@@ -171,6 +182,7 @@ public class Car : MonoBehaviour
         myRigidBody.linearVelocity = Vector3.zero;
         myRigidBody.angularVelocity = Vector3.zero;
         carStateController.SetState(CarStateController.CarState.Idle);
+        moveCoroutine = null;
     }
 
     private IEnumerator ChargeBehaviour()
@@ -219,6 +231,6 @@ public class Car : MonoBehaviour
             yield return null;
         }
 
-        //GameController.GameOver();
+        deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
     }
 }
