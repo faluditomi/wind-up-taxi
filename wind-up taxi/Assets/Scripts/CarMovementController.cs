@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
 {
+    private CarStateController carStateController;
+
     private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
     private float currentMotorForce;
@@ -19,6 +21,11 @@ public class CarMovementController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
     [SerializeField] private Transform CamFollowPoint;
 
+    private void Awake()
+    {
+        carStateController = GetComponent<CarStateController>();
+    }
+
     private void FixedUpdate()
     {
         HandleMotor();
@@ -26,7 +33,11 @@ public class CarMovementController : MonoBehaviour
         UpdateWheels();
         ApplyAntiRoll(frontLeftWheelCollider, frontRightWheelCollider);
         ApplyAntiRoll(rearLeftWheelCollider, rearRightWheelCollider);
-        CamFollowPoint.rotation = new Quaternion(CamFollowPoint.rotation.x, transform.rotation.y, CamFollowPoint.rotation.z, CamFollowPoint.rotation.w);
+        
+        if(carStateController.GetState() == CarStateController.CarState.Moving)
+        {
+            CamFollowPoint.rotation = new Quaternion(CamFollowPoint.rotation.x, transform.rotation.y, CamFollowPoint.rotation.z, CamFollowPoint.rotation.w);
+        }
     }
 
     public void setHorizontalInput(float value)

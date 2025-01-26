@@ -42,6 +42,18 @@ public class Car : MonoBehaviour
         shake.enabled = false;    
     }
 
+    // private void FixedUpdate()
+    // {
+    //     if(carStateController.GetState() == CarStateController.CarState.Idle)
+    //     {
+    //         myRigidBody.isKinematic = true;
+    //     }
+    //     else
+    //     {
+    //         myRigidBody.isKinematic = false;
+    //     }
+    // }
+
     private void Update()
     {
         GetInput();
