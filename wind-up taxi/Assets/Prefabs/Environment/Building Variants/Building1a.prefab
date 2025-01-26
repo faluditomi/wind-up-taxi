@@ -46,6 +46,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building2 top
       objectReference: {fileID: 0}
+    - target: {fileID: 266561732354175220, guid: 6c91d9df70dc64f4d85a2ad36e85c20e, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 3255639333931472327, guid: 6c91d9df70dc64f4d85a2ad36e85c20e, type: 3}
       propertyPath: 'm_Materials.Array.data[2]'
       value: 
@@ -156,6 +160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building3 middle
       objectReference: {fileID: 0}
+    - target: {fileID: 5623147456696913853, guid: 3075c4708c86cea4b97986ef0b29c5d8, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -217,6 +225,10 @@ PrefabInstance:
     - target: {fileID: 8696163877611532401, guid: ddd032c2064bae34588026fa89b9569b, type: 3}
       propertyPath: m_Name
       value: Building1 low
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696163877611532401, guid: ddd032c2064bae34588026fa89b9569b, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
