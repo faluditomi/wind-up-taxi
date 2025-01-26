@@ -5,20 +5,19 @@ public class CarMovementController : MonoBehaviour
 {
     private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
+    private float currentMotorForce;
+    [SerializeField] private float maxMotorForce, breakForce, maxSteerAngle, antiRollForce;
+    
     private bool isBreaking;
 
-    // Settings
-    [SerializeField] private float maxMotorForce, breakForce, maxSteerAngle, antiRollForce;
-
-    private float currentMotorForce;
-
-    // Wheel Colliders
+    
     [SerializeField] private WheelCollider frontLeftWheelCollider, frontRightWheelCollider;
     [SerializeField] private WheelCollider rearLeftWheelCollider, rearRightWheelCollider;
 
-    // Wheels
+    
     [SerializeField] private Transform frontLeftWheelTransform, frontRightWheelTransform;
     [SerializeField] private Transform rearLeftWheelTransform, rearRightWheelTransform;
+    [SerializeField] private Transform CamFollowPoint;
 
     private void FixedUpdate()
     {
@@ -27,6 +26,7 @@ public class CarMovementController : MonoBehaviour
         UpdateWheels();
         ApplyAntiRoll(frontLeftWheelCollider, frontRightWheelCollider);
         ApplyAntiRoll(rearLeftWheelCollider, rearRightWheelCollider);
+        CamFollowPoint.rotation = new Quaternion(CamFollowPoint.rotation.x, transform.rotation.y, CamFollowPoint.rotation.z, CamFollowPoint.rotation.w);
     }
 
     public void setHorizontalInput(float value)
