@@ -650,9 +650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d65c76f5415f334eaa49c6bbb98cd10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tickerItemPrefab: {fileID: 0}
-  itemDuration: 5
-  fillerItems: []
+  tickerItemPrefab: {fileID: 2674956384107636371, guid: a393e493758509f4199d71ef73c146c0, type: 3}
+  itemDuration: 20
 --- !u!114 &1506116990
 MonoBehaviour:
   m_ObjectHideFlags: 0

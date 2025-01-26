@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ticker : MonoBehaviour
@@ -7,34 +8,54 @@ public class Ticker : MonoBehaviour
 
     [SerializeField] private float itemDuration = 5f;
 
-    public string[] fillerItems;
+    private List<string> fillerItems;
 
     private float width;
-    private float pixelPerSecond;
+    private float pixelsPerSecond;
 
     private int currentItemIndex = 0;
 
-    private void Awake()
+    private void Start()
     {
-        width = GetComponent<RectTransform>().rect.width;
-        pixelPerSecond = width / itemDuration;
+        fillerItems = new List<string>();
         
+        if(Leaderboard.Instance.HasEntries())
+        {
+            foreach(KeyValuePair<string, int> entry in Leaderboard.Instance.GetTopTenScores())
+            {
+                fillerItems.Add(entry.Key + ": " + entry.Value + "   ");
+            }
+        }
+        else
+        {
+            fillerItems.Add("Mad Cabbie on The Loose Again... Pullback Springs in Shambles.   ");
+        }
+
+        width = GetComponent<RectTransform>().rect.width;
+        pixelsPerSecond = width / itemDuration;
+        AddNextTickerItem();
     }
 
-    // private void Update()
-    // {
-    //     if(currentItem.GetXPosition() <= currentItem.GetWidth())
-    //     {
-    //         AddTickerItem
-    //     }    
-    // }
+    private void Update()
+    {
+        if(currentItem.GetXPosition() <= -currentItem.GetWidth())
+        {
+            AddNextTickerItem();
+        }
+    }
 
-    // private void AddNextTickerItem()
-    // {
-    //     currentItem = Instantiate(tickerItemPrefab, transform);
-    //     currentItem.Initialise(width, pixelPerSecond, fillerItems[currentItemIndex]);
-    //     if(currentItemIndex.)
-    //     currentItemIndex++;
+    private void AddNextTickerItem()
+    {
+        currentItem = Instantiate(tickerItemPrefab, transform);
+        currentItem.Initialise(width, pixelsPerSecond, fillerItems[currentItemIndex]);
 
-    // }
+        if(currentItemIndex + 1 >= fillerItems.Count)
+        {
+            currentItemIndex = 0;
+        }
+        else
+        {
+            currentItemIndex++;
+        }
+    }
 }
