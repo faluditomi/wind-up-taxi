@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|c:\\my shit\\unity projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\changedeathscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\changedeathscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changedeathscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\death menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\death menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\pause menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\pause menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\carchargecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\carchargecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|c:\\my shit\\unity projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\arrow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\assets\\scripts\\death menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D4F646B0-16EB-0AB5-3156-FF4082DE1EFF}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\death menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,30 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CarChargeController.cs",
-              "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\CarChargeController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\CarChargeController.cs",
-              "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\CarChargeController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\CarChargeController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAcwG0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-26T11:39:04.043Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Arrow.cs",
               "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Arrow.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Arrow.cs",
               "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Arrow.cs",
               "RelativeToolTip": "Assets\\Scripts\\Arrow.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAwwIIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-24T21:54:17.879Z",
               "EditorCaption": ""
@@ -66,14 +49,14 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\ChangeDeathScene.cs",
               "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\ChangeDeathScene.cs",
               "RelativeToolTip": "Assets\\Scripts\\ChangeDeathScene.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T12:25:34.611Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Death Menu.cs",
               "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Death Menu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Death Menu.cs",
@@ -81,18 +64,17 @@
               "RelativeToolTip": "Assets\\Scripts\\Death Menu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-25T11:26:07.257Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-25T11:26:07.257Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Pause Menu.cs",
               "DocumentMoniker": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Pause Menu.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Pause Menu.cs",
               "ToolTip": "C:\\My Shit\\Unity Projects\\wind-up-taxi\\wind-up taxi\\Assets\\Scripts\\Pause Menu.cs",
               "RelativeToolTip": "Assets\\Scripts\\Pause Menu.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAowBUAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-25T09:39:32.246Z",
               "EditorCaption": ""
