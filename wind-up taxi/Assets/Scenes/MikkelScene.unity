@@ -14124,6 +14124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993302470}
   - component: {fileID: 993302471}
+  - component: {fileID: 993302472}
   m_Layer: 0
   m_Name: CarAudio
   m_TagString: Untagged
@@ -14161,11 +14162,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 2057693425
-      Data2: 1120308930
-      Data3: 1091724724
-      Data4: 1436550054
-    Path: event:/Vehicles/Ride-on Mower
+      Data1: 209937332
+      Data2: 1335632815
+      Data3: 1359563695
+      Data4: -2072128577
+    Path: event:/Vehicles/Car Engine
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
@@ -14176,6 +14177,39 @@ MonoBehaviour:
   Params:
   - Name: RPM
     Value: 1000
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &993302472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993302469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 689830458
+      Data2: 1130277249
+      Data3: 1771715256
+      Data4: 1937151307
+    Path: event:/Vehicles/Car Wind Up
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params:
+  - Name: Winding
+    Value: 0
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
