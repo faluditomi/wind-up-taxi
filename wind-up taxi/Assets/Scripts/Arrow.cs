@@ -134,22 +134,7 @@ public class Arrow : MonoBehaviour
             currentDestination.GetComponentInChildren<Renderer>().materials = updatedMaterials;
         }
     }
-
-    //temp: This should be in the car script. Remove Collider and Rigidbody from arrow prefab after.
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Destination") && other.transform == GetCurrentDestination())
-        {
-            if(!GetIsPassenger())
-            {
-                PickupPassenger();
-            }
-            else
-            {
-                DeliverPassenger();
-            }
-        }
-    }
+    
 
     public void PickupPassenger()
     {

@@ -5,6 +5,7 @@ public class Car : MonoBehaviour
 {
     private CarStateController carStateController;
     private CarMovementController carMovementController;
+    private Arrow arrowController;
 
     private Rigidbody myRigidBody;
 
@@ -27,6 +28,7 @@ public class Car : MonoBehaviour
         carStateController = GetComponent<CarStateController>();
         carMovementController = GetComponent<CarMovementController>();
         myRigidBody = GetComponent<Rigidbody>();
+        arrowController = FindAnyObjectByType<Arrow>();
     }
 
     private void Start()
@@ -78,6 +80,21 @@ public class Car : MonoBehaviour
                 }
 
                 moveCoroutine = StartCoroutine(MoveBehaviour());
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Destination") && other.transform == arrowController.GetCurrentDestination())
+        {
+            if(!arrowController.GetIsPassenger())
+            {
+                arrowController.PickupPassenger();
+            }
+            else
+            {
+                arrowController.DeliverPassenger();
             }
         }
     }
