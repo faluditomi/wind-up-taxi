@@ -1,24 +1,34 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Leaderboard : MonoBehaviour
 {
+    public static Leaderboard Instance { get; private set; }
+
     private Dictionary<string, int> leaderboard;
 
     private string leaderboardCode = "leaderboard";
 
-    private void Start()
+    private void Awake()
     {
-        if(PlayerPrefs.HasKey(leaderboardCode))
+        if(Instance == null)
         {
-            LoadLeaderboard();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            
+            if(PlayerPrefs.HasKey(leaderboardCode))
+            {
+                LoadLeaderboard();
+            }
+            else
+            {
+                leaderboard = new Dictionary<string, int>();
+            }
         }
         else
         {
-            leaderboard = new Dictionary<string, int>();
+            Destroy(gameObject);
         }
     }
 
