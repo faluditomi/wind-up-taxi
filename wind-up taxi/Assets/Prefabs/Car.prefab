@@ -308,7 +308,6 @@ GameObject:
   - component: {fileID: 8034053296627689660}
   - component: {fileID: 1040337590273032757}
   - component: {fileID: 1463917877189719009}
-  - component: {fileID: 4943658907501118983}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -398,26 +397,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1f4330e5d8e7943ad8cc6f32edf322, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyModel: {fileID: 7574758739702167400}
   maxTimeToTravel: 4
   maxTimeToCharge: 5
   maxTimeToOvercharge: 2
   maxCamShake: 1
   minTimeToTravel: 0.75
   minMotorForceMultiplier: 30
+  keyDefaultSpinSpeed: 40
   isInCarMode: 0
 --- !u!114 &1463917877189719009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6846066293625509654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ad2a8b3bca2df418e10c12fbb2dc98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &4943658907501118983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -669,6 +658,11 @@ Transform:
 --- !u!4 &6580435678140526416 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4434544723596929589, guid: 056c1d4cac23e234196f7b847a8a05d8, type: 3}
+  m_PrefabInstance: {fileID: 1812472847892970139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7574758739702167400 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8086706275406630387, guid: 056c1d4cac23e234196f7b847a8a05d8, type: 3}
   m_PrefabInstance: {fileID: 1812472847892970139}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8940204331069259046 stripped
