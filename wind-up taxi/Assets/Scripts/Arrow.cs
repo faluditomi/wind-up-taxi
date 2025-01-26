@@ -66,6 +66,11 @@ public class Arrow : MonoBehaviour
         }
     }
 
+    public int GetFinalScore()
+    {
+        return finalScore;
+    }
+
     public bool HasPassanger()
     {
         return isPassenger;

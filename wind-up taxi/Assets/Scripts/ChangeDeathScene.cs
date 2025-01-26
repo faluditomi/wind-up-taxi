@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ChangeDeathScene : MonoBehaviour
 {
+    private Arrow arrow;
+
     [SerializeField] Transform outOfTimeTransform;
     [SerializeField] Transform crashIntoBuildingTransform;
     [SerializeField] Transform crashIntoRobotTransform;
@@ -30,12 +32,14 @@ public class ChangeDeathScene : MonoBehaviour
     private void Awake()
     {
         cameraTransform = FindAnyObjectByType<Camera>().GetComponent<Transform>();
-
+        arrow = FindFirstObjectByType<Arrow>();
         cinemachineChamera = GameObject.Find("CinemachineCamera");
     }
 
     public void ChangeCamera(Reason reason)
     {
+        Leaderboard.Instance.AddScore(arrow.GetFinalScore());
+
         cinemachineChamera.SetActive(false);
 
         defaultCanvas.SetActive(false);
@@ -45,37 +49,37 @@ public class ChangeDeathScene : MonoBehaviour
         switch(reason)
         {
             case Reason.OutOfTime:
-                deathMenuScript.SetReason("-Obstruction of Traffic\r\n-Failure to Act\r\n-Fraud");
+                deathMenuScript.SetReason("- Obstruction of Traffic\r\n- Failure to Act\r\n- Fraud");
 
                 transform.SetParent(outOfTimeTransform);
             break;
             
             case Reason.CrashIntoBuilding:
-                deathMenuScript.SetReason("-Reckless Driving\r\n-Criminal Mischief\r\n-Endangering Others\r\n-Driving Under the Influence\r\n-Insurance Fraud");
+                deathMenuScript.SetReason("- Reckless Driving\r\n- Criminal Mischief\r\n- Endangering Others\r\n- Driving Under the Influence\r\n- Insurance Fraud");
 
                 transform.SetParent(crashIntoBuildingTransform);
             break;
 
             case Reason.CrashIntoRobot:
-                deathMenuScript.SetReason("-Vehicular Botslaughter\r\n-Assault with a Deadly Weapon\r\n-Reckless Endangerment\r\n-Driving Under the Influence");
+                deathMenuScript.SetReason("- Vehicular Botslaughter\r\n- Assault with a Deadly Weapon\r\n- Reckless Endangerment\r\n- Driving Under the Influence");
 
                 transform.SetParent(crashIntoRobotTransform);
             break;
 
             case Reason.CrashIntoCar:
-                deathMenuScript.SetReason("-Reckless Driving\r\n-Vehicular Assault\r\n-Driving Under the Influence\r\n-Insurance Fraud");
+                deathMenuScript.SetReason("- Reckless Driving\r\n- Vehicular Assault\r\n- Driving Under the Influence\r\n- Insurance Fraud");
 
                 transform.SetParent(crashIntoCarTransform);
             break;
 
             case Reason.Overcharged:
-                deathMenuScript.SetReason("-Obstruction of Traffic\r\n-Vehicular Negligence");
+                deathMenuScript.SetReason("- Obstruction of Traffic\r\n- Vehicular Negligence");
 
                 transform.SetParent(overchargedTransform);
             break;
 
             case Reason.Kidnapping:
-                deathMenuScript.SetReason("-Kidnapping\r\n-Robot Trafficking\r\n-Conspiracy");
+                deathMenuScript.SetReason("- Kidnapping\r\n- Robot Trafficking\r\n- Conspiracy");
 
                 transform.SetParent(kidnappingTransform);
             break;

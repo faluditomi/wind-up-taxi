@@ -9,6 +9,8 @@ public class Leaderboard : MonoBehaviour
     private Dictionary<string, int> leaderboard;
 
     private string leaderboardCode = "leaderboard";
+    private string currentNameCode = "currentName";
+    private string currentName = "cabbie";
 
     private void Awake()
     {
@@ -16,7 +18,7 @@ public class Leaderboard : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            
+
             if(PlayerPrefs.HasKey(leaderboardCode))
             {
                 LoadLeaderboard();
@@ -24,6 +26,11 @@ public class Leaderboard : MonoBehaviour
             else
             {
                 leaderboard = new Dictionary<string, int>();
+            }
+
+            if(PlayerPrefs.HasKey(currentNameCode))
+            {
+                currentName = PlayerPrefs.GetString(currentNameCode);
             }
         }
         else
@@ -46,9 +53,9 @@ public class Leaderboard : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void AddScore(string name, int score)
+    public void AddScore(int score)
     {
-        leaderboard.Add(name, score);
+        leaderboard.Add(currentName, score);
         SaveLeaderboard();
     }
 
