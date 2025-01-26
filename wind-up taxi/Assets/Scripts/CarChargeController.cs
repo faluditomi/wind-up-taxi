@@ -141,6 +141,9 @@ public class Car : MonoBehaviour
 
         carStateController.SetState(CarStateController.CarState.Idle);
 
+        myRigidBody.linearVelocity = Vector3.zero;
+        myRigidBody.angularVelocity = Vector3.zero;
+
         ResetVariables();
     }
 
@@ -231,6 +234,6 @@ public class Car : MonoBehaviour
             yield return null;
         }
 
-        deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
+        //deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
     }
 }
