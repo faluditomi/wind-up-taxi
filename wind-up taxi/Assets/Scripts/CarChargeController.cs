@@ -1,10 +1,12 @@
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class Car : MonoBehaviour
 {
     private CarStateController carStateController;
     private CarMovementController carMovementController;
+    private CinemachineBasicMultiChannelPerlin shake;
     private Arrow arrowController;
 
     private Rigidbody myRigidBody;
@@ -18,6 +20,7 @@ public class Car : MonoBehaviour
     [SerializeField] float maxTimeToTravel = 2f;
     [SerializeField] float maxTimeToCharge = 8f;
     [SerializeField] float maxTimeToOvercharge = 2f;
+    [SerializeField] float maxCamShake = 1f;
     [SerializeField] float minTimeToTravel = 0.75f;
     [SerializeField] float minMotorForceMultiplier = 20f;
 
@@ -29,12 +32,14 @@ public class Car : MonoBehaviour
         carMovementController = GetComponent<CarMovementController>();
         myRigidBody = GetComponent<Rigidbody>();
         arrowController = FindAnyObjectByType<Arrow>();
+        shake = FindFirstObjectByType<CinemachineBasicMultiChannelPerlin>();
     }
 
     private void Start()
     {
         currentMotorForceMultiplier = minMotorForceMultiplier;
         currentTimeToTravel = minTimeToTravel;
+        shake.enabled = false;    
     }
 
     private void Update()
@@ -79,6 +84,8 @@ public class Car : MonoBehaviour
                     timerCoroutine = null;
                 }
 
+                shake.enabled = false;
+
                 moveCoroutine = StartCoroutine(MoveBehaviour());
             }
         }
@@ -104,6 +111,8 @@ public class Car : MonoBehaviour
         carMovementController.modifyCurrentMotorForce(0f);
         currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
         currentTimeToTravel = minTimeToTravel;
+        shake.AmplitudeGain = 0f;
+        shake.enabled = false;
 
         if(carStateController.GetState() == CarStateController.CarState.Busted)
         {
@@ -146,16 +155,20 @@ public class Car : MonoBehaviour
 
         timerCoroutine = StartCoroutine(carStateController.TimedSetStateBehaviour(maxTimeToCharge, CarStateController.CarState.Overcharging));
 
+        shake.enabled = true;
+
         while(carStateController.GetState() == CarStateController.CarState.Charging)
         {
             //camera zoom
 
-            //camera shake
+            shake.AmplitudeGain += maxCamShake / maxTimeToCharge * Time.deltaTime;
+            shake.AmplitudeGain = Mathf.Min(shake.AmplitudeGain, maxCamShake);
 
             currentMotorForceMultiplier += (1f - (minMotorForceMultiplier / 100f)) / maxTimeToCharge * Time.deltaTime;
+            currentMotorForceMultiplier = Mathf.Min(currentMotorForceMultiplier, 1f);
+
             currentTimeToTravel += (maxTimeToTravel - minTimeToTravel) / maxTimeToCharge * Time.deltaTime;
             currentTimeToTravel += maxTimeToTravel / maxTimeToCharge * Time.deltaTime;
-            currentMotorForceMultiplier = Mathf.Min(currentMotorForceMultiplier, 1f);
             currentTimeToTravel = Mathf.Min(currentTimeToTravel, maxTimeToTravel);
 
             yield return null;
@@ -166,8 +179,6 @@ public class Car : MonoBehaviour
         while(carStateController.GetState() == CarStateController.CarState.Overcharging)
         {
             //camera shake
-
-            //car shake
 
             yield return null;
         }
