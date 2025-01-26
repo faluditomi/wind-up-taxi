@@ -12,11 +12,13 @@ public class Car : MonoBehaviour
     private Coroutine timerCoroutine;
     private Coroutine moveCoroutine;
 
-    private float currentMaxMotorForceMultiplier = 0f;
-    private float currentTimeToTravel = 0f;
+    private float currentMotorForceMultiplier;
+    private float currentTimeToTravel;
     [SerializeField] float maxTimeToTravel = 2f;
     [SerializeField] float maxTimeToCharge = 8f;
     [SerializeField] float maxTimeToOvercharge = 2f;
+    [SerializeField] float minTimeToTravel = 0.75f;
+    [SerializeField] float minMotorForceMultiplier = 20f;
 
     [SerializeField] bool isInCarMode = false;
 
@@ -27,10 +29,15 @@ public class Car : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
+    private void Start()
+    {
+        currentMotorForceMultiplier = minMotorForceMultiplier;
+        currentTimeToTravel = minTimeToTravel;
+    }
+
+    private void Update()
     {
         GetInput();
-        // myRigidBody.AddForce(-transform.up * 50f * myRigidBody.linearVelocity.magnitude);
     }
 
     private void GetInput() {
@@ -43,11 +50,9 @@ public class Car : MonoBehaviour
         }
         else
         {
-            carMovementController.modifyCurrentMotorForce(0f);
-
             if(carStateController.GetState() == CarStateController.CarState.Moving)
             {
-                carMovementController.setVerticalInput(Input.GetAxis("Vertical"));
+                carMovementController.setHorizontalInput(Input.GetAxis("Horizontal"));
             }
         
             if(Input.GetKeyDown(KeyCode.Space)
@@ -79,8 +84,9 @@ public class Car : MonoBehaviour
 
     public void Reset()
     {
-        currentMaxMotorForceMultiplier = 0f;
-        currentTimeToTravel = 0f;
+        carMovementController.modifyCurrentMotorForce(0f);
+        currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
+        currentTimeToTravel = minTimeToTravel;
 
         if(carStateController.GetState() == CarStateController.CarState.Busted)
         {
@@ -91,20 +97,21 @@ public class Car : MonoBehaviour
     private IEnumerator MoveBehaviour()
     {
         carStateController.SetState(CarStateController.CarState.Moving);
-        carMovementController.modifyCurrentMotorForce(currentMaxMotorForceMultiplier);
+        carMovementController.modifyCurrentMotorForce(currentMotorForceMultiplier);
         carMovementController.setVerticalInput(1f);
         
         yield return new WaitForSeconds(currentTimeToTravel);
 
         carMovementController.modifyCurrentMotorForce(0);
         carMovementController.setVerticalInput(0);
+        carMovementController.setBreakingInput(true);
 
         yield return new WaitUntil(() => myRigidBody.linearVelocity.sqrMagnitude <= 0.1f);
 
-        carStateController.SetState(CarStateController.CarState.Idle);
-
+        carMovementController.setBreakingInput(false);
         myRigidBody.linearVelocity = Vector3.zero;
         myRigidBody.angularVelocity = Vector3.zero;
+        carStateController.SetState(CarStateController.CarState.Idle);
         moveCoroutine = null;
     }
 
@@ -128,9 +135,10 @@ public class Car : MonoBehaviour
 
             //camera shake
 
-            currentMaxMotorForceMultiplier += 1f / maxTimeToCharge * Time.deltaTime;
+            currentMotorForceMultiplier += (1f - (minMotorForceMultiplier / 100f)) / maxTimeToCharge * Time.deltaTime;
+            currentTimeToTravel += (maxTimeToTravel - minTimeToTravel) / maxTimeToCharge * Time.deltaTime;
             currentTimeToTravel += maxTimeToTravel / maxTimeToCharge * Time.deltaTime;
-            currentMaxMotorForceMultiplier = Mathf.Min(currentMaxMotorForceMultiplier, 1f);
+            currentMotorForceMultiplier = Mathf.Min(currentMotorForceMultiplier, 1f);
             currentTimeToTravel = Mathf.Min(currentTimeToTravel, maxTimeToTravel);
 
             yield return null;

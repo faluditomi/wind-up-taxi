@@ -83,8 +83,8 @@ public class CarMovementController : MonoBehaviour
             currentTorque = 0f;
         }
 
-        frontLeftWheelCollider.motorTorque = currentTorque;
-        frontRightWheelCollider.motorTorque = currentTorque;
+        frontLeftWheelCollider.motorTorque = currentMotorForce;
+        frontRightWheelCollider.motorTorque = currentMotorForce;
         currentbreakForce = isBreaking ? breakForce : 0f;
         ApplyBreaking();
     }
