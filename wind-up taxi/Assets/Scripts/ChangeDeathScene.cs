@@ -10,10 +10,9 @@ public class ChangeDeathScene : MonoBehaviour
 
     [SerializeField] GameObject deathCanvas;
     [SerializeField] GameObject defaultCanvas;
+    private GameObject cinemachineChamera;
 
     [SerializeField] float rotationSpeed;
-
-    private bool isDead;
 
     private enum Reason
     {
@@ -24,23 +23,17 @@ public class ChangeDeathScene : MonoBehaviour
     private void Awake()
     {
         cameraTransform = FindAnyObjectByType<Camera>().GetComponent<Transform>();
-    }
 
-    private void Update()
-    {
-        if(isDead)
-        {
-            transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
-        }
+        cinemachineChamera = GameObject.Find("CinemachineCamera");
     }
 
     public void ChangeCamera(string reason)
     {
+        cinemachineChamera.SetActive(false);
+
         defaultCanvas.SetActive(false);
 
         deathCanvas.SetActive(true);
-
-        isDead = true;
 
         if(reason == Reason.OutOfTime.ToString())
         {
