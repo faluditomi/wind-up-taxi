@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    [SerializeField] Transform startingDestination;
     private Transform carTransform;
     private Transform currentDestination;
     private Transform currentPassenger;
@@ -10,7 +11,7 @@ public class Arrow : MonoBehaviour
     private PauseMenu pauseMenuScript;
 
     private GameObject[] destinationObjects;
-
+    
     private GameObject dropOffArrow;
 
     [SerializeField] Material arrowMaterial;
@@ -43,7 +44,7 @@ public class Arrow : MonoBehaviour
 
         deathMenuScript.SetFinalScore(finalScore.ToString());
 
-        currentDestination.transform.Find("Passenger").gameObject.SetActive(true);
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
     }
 
     private void Update()
@@ -73,23 +74,7 @@ public class Arrow : MonoBehaviour
         {
             if(currentDestination == null)
             {
-                float closestDistance = float.MaxValue;
-
-                Transform closestDestination = null;
-
-                foreach(GameObject destinationObject in destinationObjects)
-                {
-                    float distance = Vector3.Distance(transform.position, destinationObject.transform.position);
-
-                    if(distance < closestDistance)
-                    {
-                        closestDistance = distance;
-
-                        closestDestination = destinationObject.transform;
-                    }
-                }
-
-                currentDestination = closestDestination;
+                currentDestination = startingDestination;
 
                 Debug.Log("Next destination: " + currentDestination);
             }
@@ -182,5 +167,38 @@ public class Arrow : MonoBehaviour
     public bool GetIsPassenger()
     {
         return isPassenger;
+    }
+
+    public void ResetMap()
+    {
+        if(currentPassenger != null)
+        {
+            currentPassenger.gameObject.SetActive(true);
+        }
+
+        if(dropOffArrow != null)
+        {
+            dropOffArrow.gameObject.SetActive(false);
+        }
+
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
+
+        currentDestination = null;
+
+        currentPassenger = null;
+
+        passengersDelivered = 0;
+
+        finalScore = 0;
+
+        deathMenuScript.SetFinalScore(finalScore.ToString());
+
+        isPassenger = false;
+
+        SelectRandomDestination();
+
+        arrowMaterial.color = Color.red;
+
+        currentDestination.Find("Passenger").gameObject.SetActive(true);
     }
 }

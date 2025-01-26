@@ -11,28 +11,21 @@ public class DestinationRangeGizmo : MonoBehaviour
         sphereCollider = GetComponentInParent<SphereCollider>();
     }
 
-    // private void Start()
-    // {
-    //     rangeIndicator = CreateRangeIndicator(sphereCollider.radius);
-    // }
-
-    // private void FixedUpdate()
-    // {
-    //     rangeIndicator.transform.position = new Vector3(transform.position.x, 0.21f, transform.position.z);
-    // }
-
     private void OnDisable()
     {
-        rangeIndicator.SetActive(false);
+        if(rangeIndicator != null && rangeIndicator.activeSelf)
+        {
+            rangeIndicator.SetActive(false);
+        }
     }
 
     private void OnEnable()
     {
-        if(rangeIndicator == null)
+        if(rangeIndicator == null || !rangeIndicator)
         {
             rangeIndicator = CreateRangeIndicator(sphereCollider.radius);
         }
-        
+
         rangeIndicator.SetActive(true);
     }
 
