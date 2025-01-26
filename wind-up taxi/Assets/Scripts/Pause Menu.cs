@@ -64,8 +64,14 @@ public class PauseMenu : MonoBehaviour
         {
             remainingTime = 0;
 
-            //Out of time death scene.
-            deathScript.ChangeCamera("OutOfTime");
+            if(arrowScript.HasPassanger())
+            {
+                deathScript.ChangeCamera(ChangeDeathScene.Reason.OutOfTime);
+            }
+            else
+            {
+                deathScript.ChangeCamera(ChangeDeathScene.Reason.Kidnapping);
+            }
         }
 
         minutes = Mathf.FloorToInt(remainingTime / 60);
