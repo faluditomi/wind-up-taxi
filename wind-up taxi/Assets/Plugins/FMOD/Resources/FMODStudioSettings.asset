@@ -362,16 +362,16 @@ MonoBehaviour:
     HasValue: 0
   displaySortOrder: 0
   childIdentifiers:
+  - de700ef3f37a49b58a57ae3addf01ad9
+  - 52eb9df5db46521439908db3a29a1bbb
   - 0f8eb3f400726694eb47beb1a9f94ce8
-  - 46fbfdf3fc43db0458918377fd40293e
+  - b7716510a1f36934c87976f3a81dbf3d
   - 2fea114e74ecf3c4f920e1d5cc1c4c40
   - e7a046c753c3c3d4aacc91f6597f310d
-  - 52eb9df5db46521439908db3a29a1bbb
-  - 2c5177b11d81d824dbb064f9ac8527da
-  - b7716510a1f36934c87976f3a81dbf3d
   - c88d16e5272a4e241b0ef0ac2e53b73d
-  - de700ef3f37a49b58a57ae3addf01ad9
+  - 2c5177b11d81d824dbb064f9ac8527da
   - fd7c55dab0fce234b8c25f6ffca523c1
+  - 46fbfdf3fc43db0458918377fd40293e
   codecChannels:
     Value: []
     HasValue: 0
@@ -607,10 +607,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 1
-  HasPlatforms: 1
+  HasSourceProject: 0
+  HasPlatforms: 0
   sourceProjectPath: ../../../FMODPRJCT_ScoreSpaceJame2025/ScoreSpaceJam2025/ScoreSpaceJam2025.fspro
-  sourceBankPath: ../../../FMODPRJCT_ScoreSpaceJame2025/ScoreSpaceJam2025/Build
+  sourceBankPath: FMOD/Banks/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -618,7 +618,7 @@ MonoBehaviour:
   BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
-  ImportType: 0
+  ImportType: 1
   TargetAssetPath: FMODBanks
   TargetBankFolder: 
   EventLinkage: 0
@@ -632,15 +632,15 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks:
-  - Dialogue_CN
-  - Dialogue_EN
-  - Dialogue_JP
-  - Music
-  - SFX
-  - Vehicles
-  - VO
+  - Desktop/Dialogue_CN
+  - Desktop/Dialogue_EN
+  - Desktop/Dialogue_JP
+  - Desktop/Music
+  - Desktop/SFX
+  - Desktop/Vehicles
+  - Desktop/VO
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -656,18 +656,18 @@ MonoBehaviour:
   HideSetupWizard: 0
   LastEventReferenceScanVersion: 131622
   Platforms:
-  - {fileID: -581453521647283096}
-  - {fileID: -5646515472327507863}
+  - {fileID: -7930486785033902401}
+  - {fileID: -7465542131686876777}
   - {fileID: -6294787745312480926}
-  - {fileID: 7096002934483134481}
+  - {fileID: -5706274945806297909}
+  - {fileID: -5646515472327507863}
   - {fileID: -3814149849216539241}
   - {fileID: -1931787943038626249}
-  - {fileID: -7465542131686876777}
-  - {fileID: 1462262869077359781}
-  - {fileID: -5706274945806297909}
+  - {fileID: -581453521647283096}
   - {fileID: 706142934495718605}
-  - {fileID: -7930486785033902401}
+  - {fileID: 1462262869077359781}
   - {fileID: 3960825465469937823}
+  - {fileID: 7096002934483134481}
   MigratedPlatforms: 0500000000000000060000000a0000000800000009000000120000000c000000150000000b0000000200000001000000
 --- !u!114 &706142934495718605
 MonoBehaviour:
