@@ -609,8 +609,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../../../FMODPRJCT_ScoreSpaceJame2025/ScoreSpaceJam2025/ScoreSpaceJam2025.fspro
-  sourceBankPath: ../../../FMODPRJCT_ScoreSpaceJame2025/ScoreSpaceJam2025/Build
+  sourceProjectPath: FMOD/FMODPRJCT_ScoreSpaceJam2025/FMODPRJCT_ScoreSpaceJam2025.fspro
+  sourceBankPath: FMOD/FMODPRJCT_ScoreSpaceJam2025/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
