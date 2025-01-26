@@ -49,6 +49,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building3 top
       objectReference: {fileID: 0}
+    - target: {fileID: 7636506539461866959, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
+      propertyPath: m_TagString
+      value: Building
+      objectReference: {fileID: 0}
     - target: {fileID: 8257835537745861633, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -150,6 +154,10 @@ PrefabInstance:
     - target: {fileID: 7011753353089241111, guid: f8fa88f73302fd44889bc35ea705ec44, type: 3}
       propertyPath: m_Name
       value: Corner building low
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011753353089241111, guid: f8fa88f73302fd44889bc35ea705ec44, type: 3}
+      propertyPath: m_TagString
+      value: Building
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

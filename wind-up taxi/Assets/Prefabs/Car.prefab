@@ -890,6 +890,7 @@ GameObject:
   - component: {fileID: 1040337590273032757}
   - component: {fileID: 1463917877189719009}
   - component: {fileID: 1283909497745974105}
+  - component: {fileID: 6479473022892788931}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -1024,6 +1025,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6479473022892788931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6846066293625509654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f956861f6d23f7546a6e15c4379967d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7018587982280331141
 GameObject:
   m_ObjectHideFlags: 0
