@@ -67,6 +67,7 @@ GameObject:
   - component: {fileID: 3102673930627148331}
   - component: {fileID: 1011824579194891408}
   - component: {fileID: 1071972788748002251}
+  - component: {fileID: 1941770966948509962}
   m_Layer: 0
   m_Name: Arrow
   m_TagString: Untagged
@@ -164,6 +165,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1941770966948509962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117942294801479388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090a592524ad79c4faa430c157cba85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicatorMaterial: {fileID: 2100000, guid: 8654e177c80316343b68ebfbf74d6265, type: 2}
 --- !u!1001 &7489776977064750440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -231,8 +245,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 210188524209025674}
   m_SourcePrefab: {fileID: 100100000, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+--- !u!1 &2782037532935309352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+  m_PrefabInstance: {fileID: 7489776977064750440}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &210188524209025674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2782037532935309352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090a592524ad79c4faa430c157cba85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangeIndicatorMaterial: {fileID: 2100000, guid: 8654e177c80316343b68ebfbf74d6265, type: 2}
 --- !u!4 &3330305722838230179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}

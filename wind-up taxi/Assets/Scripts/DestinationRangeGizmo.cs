@@ -8,13 +8,13 @@ public class DestinationRangeGizmo : MonoBehaviour
 
     private void Awake()
     {
-        sphereCollider = GetComponent<SphereCollider>();
+        sphereCollider = GetComponentInParent<SphereCollider>();
     }
 
-    private void Start()
-    {
-        rangeIndicator = CreateRangeIndicator(sphereCollider.radius);
-    }
+    // private void Start()
+    // {
+    //     rangeIndicator = CreateRangeIndicator(sphereCollider.radius);
+    // }
 
     // private void FixedUpdate()
     // {
@@ -28,6 +28,11 @@ public class DestinationRangeGizmo : MonoBehaviour
 
     private void OnEnable()
     {
+        if(rangeIndicator == null)
+        {
+            rangeIndicator = CreateRangeIndicator(sphereCollider.radius);
+        }
+        
         rangeIndicator.SetActive(true);
     }
 
