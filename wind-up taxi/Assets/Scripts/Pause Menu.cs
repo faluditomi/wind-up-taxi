@@ -64,7 +64,7 @@ public class PauseMenu : MonoBehaviour
         {
             remainingTime = 0;
 
-            if(arrowScript.HasPassanger())
+            if(!arrowScript.HasPassanger())
             {
                 deathScript.ChangeCamera(ChangeDeathScene.Reason.OutOfTime);
             }
@@ -113,19 +113,23 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        carScript.Restart();
+        //carScript.Restart();
 
-        carTransform.position = startingPos.position;
+        //carTransform.position = startingPos.position;
 
-        carTransform.localRotation = Quaternion.Euler(0, 0, 0);
+        //carTransform.localRotation = Quaternion.Euler(0, 0, 0);
 
-        score = 0;
+        //score = 0;
+
+        //ResumeGame();
+
+        //remainingTime = startingTime;
+
+        //arrowScript.ResetMap();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         ResumeGame();
-
-        remainingTime = startingTime;
-
-        arrowScript.ResetMap();
     }
 
     public void ReturnToMainMenu()

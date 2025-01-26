@@ -179,14 +179,14 @@ public class Arrow : MonoBehaviour
         if(currentPassenger != null)
         {
             currentPassenger.gameObject.SetActive(true);
+
+            currentDestination.Find("Passenger").gameObject.SetActive(false);
         }
 
         if(dropOffArrow != null)
         {
             dropOffArrow.gameObject.SetActive(false);
         }
-
-        currentDestination.Find("Passenger").gameObject.SetActive(true);
 
         currentDestination = null;
 
