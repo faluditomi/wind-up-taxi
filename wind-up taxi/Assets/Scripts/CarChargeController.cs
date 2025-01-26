@@ -234,6 +234,6 @@ public class Car : MonoBehaviour
             yield return null;
         }
 
-        //deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
+        deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
     }
 }

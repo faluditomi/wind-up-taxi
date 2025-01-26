@@ -66,6 +66,11 @@ public class Arrow : MonoBehaviour
         }
     }
 
+    public bool HasPassanger()
+    {
+        return isPassenger;
+    }
+
     private void SelectRandomDestination()
     {
         Transform newDestination;

@@ -12,10 +12,14 @@ public class ChangeDeathScene : MonoBehaviour
     [SerializeField] GameObject defaultCanvas;
     private GameObject cinemachineChamera;
 
-    private enum Reason
+    public enum Reason
     {
         OutOfTime,
-        Crash
+        CrashIntoCar,
+        CrashIntoRobot,
+        CrashIntoBuilding,
+        Overcharged,
+        Kidnapping
     }
 
     private void Awake()
@@ -25,7 +29,7 @@ public class ChangeDeathScene : MonoBehaviour
         cinemachineChamera = GameObject.Find("CinemachineCamera");
     }
 
-    public void ChangeCamera(string reason)
+    public void ChangeCamera(Reason reason)
     {
         cinemachineChamera.SetActive(false);
 
@@ -33,13 +37,33 @@ public class ChangeDeathScene : MonoBehaviour
 
         deathCanvas.SetActive(true);
 
-        if(reason == Reason.OutOfTime.ToString())
+        switch(reason)
         {
-            deathMenuScript.SetReason("You ran out of time");
+            case Reason.OutOfTime:
+                deathMenuScript.SetReason("You ran out of time");
+                transform.SetParent(outOfTimeTransform);
+                transform.localPosition = Vector3.zero;
+            break;
+            
+            case Reason.CrashIntoBuilding:
 
-            transform.SetParent(outOfTimeTransform);
+            break;
 
-            transform.localPosition = Vector3.zero;
+            case Reason.CrashIntoRobot:
+
+            break;
+
+            case Reason.CrashIntoCar:
+
+            break;
+
+            case Reason.Overcharged:
+
+            break;
+
+            case Reason.Kidnapping:
+
+            break;
         }
 
         cameraTransform.SetParent(transform);
