@@ -116,25 +116,37 @@ public class Car : MonoBehaviour
         }
     }
 
-    public void Reset()
+    public void Restart()
+    {
+        ResetVariables();
+        
+        if(chargeCoroutine != null)
+        {
+            StopCoroutine(chargeCoroutine);
+            chargeCoroutine = null;
+        }
+
+        if(timerCoroutine != null)
+        {
+            StopCoroutine(timerCoroutine);
+            timerCoroutine = null;
+        }
+    }
+
+    public void ResetVariables()
     {
         carMovementController.modifyCurrentMotorForce(0f);
         currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
         currentTimeToTravel = minTimeToTravel;
         shake.AmplitudeGain = 0f;
         shake.enabled = false;
-
-        if(carStateController.GetState() == CarStateController.CarState.Busted)
-        {
-            //GameController.GameOver();
-        }
     }
 
     private IEnumerator KeySpinWhileMovingBehaviour()
     {
         while(carStateController.GetState() == CarStateController.CarState.Moving)
         {
-            keyModel.Rotate(Vector3.forward, -(keyDefaultSpinSpeed * (currentMotorForceMultiplier + 1f) * Time.deltaTime), Space.Self);
+            keyModel.Rotate(Vector3.forward, -(keyDefaultSpinSpeed * (currentMotorForceMultiplier * 10f) * Time.deltaTime), Space.Self);
 
             yield return null;
         }
@@ -163,7 +175,7 @@ public class Car : MonoBehaviour
 
     private IEnumerator ChargeBehaviour()
     {
-        Reset();
+        ResetVariables();
 
         carStateController.SetState(CarStateController.CarState.Charging);
 
@@ -207,6 +219,6 @@ public class Car : MonoBehaviour
             yield return null;
         }
 
-        Reset();
+        //GameController.GameOver();
     }
 }
