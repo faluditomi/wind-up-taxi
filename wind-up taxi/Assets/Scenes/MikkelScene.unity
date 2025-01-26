@@ -7896,6 +7896,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: Params.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: EventReference.Path
+      value: event:/Vehicles/Car Wind Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: EventReference.Guid.Data1
+      value: 689830458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: EventReference.Guid.Data2
+      value: 1130277249
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: EventReference.Guid.Data3
+      value: 1771715256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: EventReference.Guid.Data4
+      value: 1937151307
+      objectReference: {fileID: 0}
     - target: {fileID: 6846066293625509654, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
       propertyPath: m_Name
       value: Car
