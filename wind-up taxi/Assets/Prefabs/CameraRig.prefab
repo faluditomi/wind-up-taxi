@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 4432977339275952885}
   - component: {fileID: 3703232619121269888}
   - component: {fileID: 6487358492246059634}
+  - component: {fileID: -3254408908945839593}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -61,8 +62,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316437164540395685}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: -1.1760381, y: -2.5366557, z: -3.4668064}
+  m_LocalRotation: {x: 0.13355382, y: 0, z: 0, w: 0.9910416}
+  m_LocalPosition: {x: -5.67, y: 3.032359, z: -7.3540993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,7 +102,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -126,7 +127,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4316437164540395685}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &3703232619121269888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,6 +204,20 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &-3254408908945839593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4316437164540395685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nonRigidbodyVelocity: 0
+  attenuationObject: {fileID: 0}
 --- !u!1 &5418077228093250994
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +228,9 @@ GameObject:
   m_Component:
   - component: {fileID: 400984236429544691}
   - component: {fileID: 1194161192142131435}
-  - component: {fileID: 9190064505135610991}
+  - component: {fileID: 7066601411598438349}
   - component: {fileID: 8576148827362244840}
+  - component: {fileID: 4469022059249657309}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -230,8 +246,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5418077228093250994}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: -1.1760381, y: -2.5366557, z: -3.4668064}
+  m_LocalRotation: {x: 0.13355382, y: -0, z: 0, w: 0.9910416}
+  m_LocalPosition: {x: -5.67, y: 3.032359, z: -7.3540993}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -261,7 +277,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 80
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -280,7 +296,7 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &9190064505135610991
+--- !u!114 &7066601411598438349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -289,10 +305,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5418077228093250994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d1163fa822e8b418a0a603ec078d5c, type: 3}
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: 0.3
+  TrackerSettings:
+    BindingMode: 3
+    PositionDamping: {x: 0.3, y: 0.2, z: 0.1}
+    AngularDampingMode: 1
+    RotationDamping: {x: 0, y: 0, z: 0}
+    QuaternionDamping: 0.6
+  FollowOffset: {x: 0, y: 0, z: -0.67}
 --- !u!114 &8576148827362244840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,3 +328,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: 0.8
+--- !u!114 &4469022059249657309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418077228093250994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 1
+  FrequencyGain: 1
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}

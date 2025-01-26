@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class CarStateController : MonoBehaviour
@@ -14,8 +15,19 @@ public class CarStateController : MonoBehaviour
     }
 
     private CarState currentState;
+    
+    private Animator animator;
+    private StudioEventEmitter soundEmitterWinding;
+    private StudioEventEmitter soundEmitterRPM;
 
     private Dictionary<CarState, List<CarState>> allowedStateTransitions;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        soundEmitterWinding = transform.Find("CarAudioWinding").GetComponent<StudioEventEmitter>();
+        soundEmitterRPM = transform.Find("CarAudioRPM").GetComponent<StudioEventEmitter>();
+    }
 
     private void Start()
     {
@@ -45,13 +57,55 @@ public class CarStateController : MonoBehaviour
     {
         if(allowedStateTransitions[currentState].Contains(newState))
         {
+            SetStateAnimatorCheck(newState);
+            SetStateAudioCheck(newState);
+            
             currentState = newState;
+
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    private void SetStateAnimatorCheck(CarState newState)
+    {
+            if(currentState == CarState.Overcharging)
+            {
+                animator.SetBool("Overcharging", false);
+            }
+
+            if(newState == CarState.Overcharging)
+            {
+                animator.SetBool("Overcharging", true);
+            }
+    }
+
+    private void SetStateAudioCheck(CarState newState)
+    {
+            if(currentState == CarState.Overcharging)
+            {
+                soundEmitterWinding.SetParameter("Winding", 0f);
+            }
+            else if(currentState == CarState.Charging)
+            {
+                soundEmitterWinding.SetParameter("Winding", 0f);
+            }
+            else if(currentState == CarState.Moving)
+            {
+                soundEmitterRPM.SetParameter("RPM", 0f);
+            }
+
+            if(newState == CarState.Overcharging)
+            {
+                soundEmitterWinding.SetParameter("Winding", 1f);
+            }
+            else if(newState == CarState.Charging)
+            {
+                soundEmitterWinding.SetParameter("Winding", 1f);
+            }
     }
 
     public IEnumerator TimedSetStateBehaviour(float timeToWait, CarStateController.CarState stateToSet)
