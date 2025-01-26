@@ -18,6 +18,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] DeathMenu deathMenuScript;
     private ChangeDeathScene deathScript;
     private Arrow arrowScript;
+    private Car carScript;
 
     private int score = 0;
     private int minutes;
@@ -32,6 +33,8 @@ public class PauseMenu : MonoBehaviour
         carTransform = GameObject.FindGameObjectWithTag("Car").GetComponent<Transform>();
 
         arrowScript = FindAnyObjectByType<Arrow>();
+
+        carScript = FindAnyObjectByType<Car>();
     }
 
     private void Start()
@@ -104,6 +107,8 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        carScript.Restart();
+
         carTransform.position = startingPos.position;
 
         carTransform.localRotation = Quaternion.Euler(0, 0, 0);
