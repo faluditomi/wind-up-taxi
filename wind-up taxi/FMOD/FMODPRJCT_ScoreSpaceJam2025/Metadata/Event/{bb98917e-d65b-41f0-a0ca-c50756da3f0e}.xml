@@ -108,7 +108,7 @@ https://wingless-seraph.net</value>
 			<destination>{db322273-be5e-4e2a-bd9d-bbb022dc4387}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d9982c58-a056-4e6c-b8e3-883854b4bffb}</destination>
+			<destination>{c83f7b3e-cdcc-48ec-998d-59894015da2b}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{704238b1-6d4d-45d1-8405-6072a459d2ac}" />

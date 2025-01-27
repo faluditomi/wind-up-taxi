@@ -34,9 +34,6 @@
 		<property name="attackTime">
 			<value>6</value>
 		</property>
-		<relationship name="sidechains">
-			<destination>{623c72f2-91b0-441a-aaef-1b6108364a42}</destination>
-		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{a7a9dc9e-2051-44f7-8925-0ddb318ebacb}" />
 </objects>
