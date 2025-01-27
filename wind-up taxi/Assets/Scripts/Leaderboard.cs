@@ -47,7 +47,7 @@ public class Leaderboard : MonoBehaviour
 
     private void SaveLeaderboard()
     {
-        Dictionary<string, int> topTen = GetFirstXScores(10);
+        Dictionary<string, int> topTen = GetTopTenScores();
         string json = JsonUtility.ToJson(topTen);
         PlayerPrefs.SetString(leaderboardCode, json);
         PlayerPrefs.Save();
@@ -59,8 +59,20 @@ public class Leaderboard : MonoBehaviour
         SaveLeaderboard();
     }
 
-    public Dictionary<string, int> GetFirstXScores(int numberOfScoresToGet)
+    public bool HasEntries()
     {
-        return leaderboard.OrderByDescending(pair => pair.Value).Take(numberOfScoresToGet).ToDictionary(pair => pair.Key, pair => pair.Value);
+        return leaderboard.Count > 0;
+    }
+
+    public Dictionary<string, int> GetTopTenScores()
+    {
+        if(leaderboard.Count != 0)
+        {
+            return leaderboard.OrderByDescending(pair => pair.Value).Take(leaderboard.Count).ToDictionary(pair => pair.Key, pair => pair.Value);
+        }
+        else
+        {
+            return null;
+        }
     }
 }
