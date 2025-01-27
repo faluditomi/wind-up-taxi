@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     private Transform carTransform;
 
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject volumePanel;
 
     [SerializeField] float remainingTime;
     private float startingTime;
@@ -140,5 +141,11 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void VolumeSlider()
+    {
+        pausePanel.SetActive(false);
+        volumePanel.SetActive(true);
     }
 }

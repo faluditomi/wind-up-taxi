@@ -8069,49 +8069,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: Params.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: EventReference.Path
-      value: event:/Vehicles/Car Wind Up
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: EventReference.Guid.Data1
-      value: 689830458
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: EventReference.Guid.Data2
-      value: 1130277249
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: EventReference.Guid.Data3
-      value: 1771715256
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: EventReference.Guid.Data4
-      value: 1937151307
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553802616209470609, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: Params.Array.data[0].Value
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6846066293625509654, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    - target: {fileID: 7814709046521269195, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: m_ProvidesContacts
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1578049471382439882, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1481550944}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
 --- !u!4 &501560496 stripped
 Transform:
@@ -21297,42 +21262,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 995774127336501297, guid: 8f4c4e7abc2014a48937748397ea57ac, type: 3}
   m_PrefabInstance: {fileID: 1995266037}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1481550941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1578049471382439882, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-  m_PrefabInstance: {fileID: 501560495}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1481550944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1481550941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -2004290656
-      Data2: 1124260408
-      Data3: 1787592617
-      Data4: -247153724
-    Path: event:/Vehicles/Car Hit
-  Event: 
-  EventPlayTrigger: 7
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1001 &1482549410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23351,6 +23280,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8691143925043649186, guid: b500e7a67bbeced419f56ea765eff475, type: 3}
   m_PrefabInstance: {fileID: 1674436511}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1675239404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1675239406}
+  - component: {fileID: 1675239405}
+  m_Layer: 0
+  m_Name: VolumeControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1675239405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675239404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd81d5b60629ec3439d6e87dda0be365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolume: 1
+  musicVolume: 1
+  ambienceVolume: 1
+  sfxVolume: 1
+--- !u!4 &1675239406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675239404}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.013275, y: -1.7656088, z: -2.0395083}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1684282944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 995774127336501297, guid: 8f4c4e7abc2014a48937748397ea57ac, type: 3}
@@ -29620,3 +29597,4 @@ SceneRoots:
   - {fileID: 105119825}
   - {fileID: 618960368}
   - {fileID: 479850960}
+  - {fileID: 1675239406}
