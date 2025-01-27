@@ -9727,24 +9727,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3964102355799822090, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: Params.Array.data[0].Value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5188130388039046980, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6846066293625509654, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    - target: {fileID: 7018587982280331141, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
-      propertyPath: m_Name
-      value: CarAudioWinding
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5188130388039046980, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -11402,7 +11389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4828647625566389174, guid: 621f13ab499612542b4a7513a5cd02d5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8794501342627768444, guid: 621f13ab499612542b4a7513a5cd02d5, type: 3}
       propertyPath: m_AnchorMax.x
