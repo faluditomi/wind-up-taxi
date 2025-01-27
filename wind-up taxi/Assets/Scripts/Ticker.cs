@@ -21,9 +21,9 @@ public class Ticker : MonoBehaviour
         
         if(Leaderboard.Instance.HasEntries())
         {
-            foreach(KeyValuePair<string, int> entry in Leaderboard.Instance.GetTopTenScores())
+            foreach(Leaderboard.LeaderboardEntry entry in Leaderboard.Instance.GetEntries())
             {
-                fillerItems.Add(entry.Key + ": " + entry.Value + "   ");
+                fillerItems.Add(entry.name + ": " + entry.score + "   ");
             }
         }
         else
