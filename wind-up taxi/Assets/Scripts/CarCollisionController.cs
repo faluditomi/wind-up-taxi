@@ -31,7 +31,7 @@ public class CarCollisionController : MonoBehaviour
 
                 rb.useGravity = true;
 
-                Destroy(other.gameObject, 10f);
+                Destroy(other.transform.parent.gameObject, 10f);
             break;
 
             case "Destructable":
