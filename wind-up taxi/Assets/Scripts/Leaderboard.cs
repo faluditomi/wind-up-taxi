@@ -9,13 +9,15 @@ public class Leaderboard : MonoBehaviour
 
     private Dictionary<string, int> leaderboard;
 
+    [SerializeField] Transform leaderboardView;
+
     private TextMeshProUGUI leaderboardNamesTextUI;
     private TextMeshProUGUI leaderboardScoresTextUI;
     private TMP_InputField currentNameInputFieldUI;
 
     private string leaderboardCode = "leaderboard";
     private string currentNameCode = "currentName";
-    private string currentName = "mad cabbie";
+    private string currentName;
 
     private void Awake()
     {
@@ -38,10 +40,9 @@ public class Leaderboard : MonoBehaviour
                 currentName = PlayerPrefs.GetString(currentNameCode);
             }
 
-            Transform leaderBoardView = GameObject.Find("Leaderboard View").transform;
-            leaderboardNamesTextUI = leaderBoardView.Find("Leaderboard Names").GetComponent<TextMeshProUGUI>();
-            leaderboardScoresTextUI = leaderBoardView.Find("Leaderboard Scores").GetComponent<TextMeshProUGUI>();
-            currentNameInputFieldUI = leaderBoardView.Find("Name Input").Find("Input Field").GetComponent<TMP_InputField>();
+            leaderboardNamesTextUI = leaderboardView.Find("Leaderboard Names").GetComponent<TextMeshProUGUI>();
+            leaderboardScoresTextUI = leaderboardView.Find("Leaderboard Scores").GetComponent<TextMeshProUGUI>();
+            currentNameInputFieldUI = leaderboardView.Find("Name Input").Find("Input Field").GetComponent<TMP_InputField>();
         }
         else
         {
@@ -51,6 +52,17 @@ public class Leaderboard : MonoBehaviour
 
     public void SetCurrentNameInputFieldText()
     {
+        string name;
+
+        if(currentName.Trim().Length == 0)
+        {
+            name = "Mad Cabbie";
+        }
+        else
+        {
+            name = currentName;
+        }
+
         currentNameInputFieldUI.SetTextWithoutNotify(currentName);
     }
 
@@ -58,22 +70,25 @@ public class Leaderboard : MonoBehaviour
     {
         string namesText = "";
 
-        foreach(KeyValuePair<string, int> entry in Leaderboard.Instance.GetTopTenScores())
+        if(HasEntries())
         {
-            string name = "";
-
-            if(entry.Key.Length > 11)
+            foreach(KeyValuePair<string, int> entry in GetTopTenScores())
             {
-                name = entry.Key.Substring(0, 11) + "...";
-            }
-            else
-            {
-                name = entry.Key;
-            }
+                string name = "";
 
-            namesText.Concat(name + "\r\n");
+                if(entry.Key.Length > 11)
+                {
+                    name = entry.Key.Substring(0, 11) + "...";
+                }
+                else
+                {
+                    name = entry.Key;
+                }
+
+                namesText.Concat(name + "\r\n");
+            }
         }
-
+        
         leaderboardNamesTextUI.SetText(namesText);
     }
 
@@ -81,11 +96,14 @@ public class Leaderboard : MonoBehaviour
     {
         string scoresText = "";
 
-        foreach(KeyValuePair<string, int> entry in Leaderboard.Instance.GetTopTenScores())
+        if(HasEntries())
         {
-            scoresText.Concat(entry.Value + "\r\n");
+            foreach(KeyValuePair<string, int> entry in Leaderboard.Instance.GetTopTenScores())
+            {
+                scoresText.Concat(entry.Value + "\r\n");
+            }
         }
-
+        
         leaderboardScoresTextUI.SetText(scoresText);
     }
 
@@ -93,6 +111,7 @@ public class Leaderboard : MonoBehaviour
     {
         currentName = name;
         PlayerPrefs.SetString(currentNameCode, currentName);
+        PlayerPrefs.Save();
     }
 
     private void LoadLeaderboard()

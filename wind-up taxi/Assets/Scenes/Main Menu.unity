@@ -2651,7 +2651,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294901760
+    rgba: 4278255615
   m_fontColor: {r: 1, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8561,6 +8561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a23d7bc310dd78a488d94efbd5993b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leaderboardView: {fileID: 318198009}
 --- !u!4 &1574709312
 Transform:
   m_ObjectHideFlags: 0
