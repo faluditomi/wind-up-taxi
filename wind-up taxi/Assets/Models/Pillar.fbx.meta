@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 99b16ad37e9b3a44cbd491807cfbf7dd
+guid: 71b6e6a7afa087f44ba93003ce11c85f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: asphalt
-    second: {fileID: 2100000, guid: 14f12a1686901344ba4ba92746ee4a51, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "feh\xE9r"
-    second: {fileID: 2100000, guid: 97d499fd807ecb84fa1f900aad32412b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: "j\xE1rda"
-    second: {fileID: 2100000, guid: 3dc25d957f108e64d96d772fb329974d, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
