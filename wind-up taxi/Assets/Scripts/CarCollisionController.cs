@@ -26,6 +26,16 @@ public class CarCollisionController : MonoBehaviour
                 deathScript.ChangeCamera(ChangeDeathScene.Reason.CrashIntoRobot);
             break;
 
+            case "Destructable":
+                BoxCollider boxCollider = other.gameObject.GetComponent<BoxCollider>();
+
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+
+                boxCollider.isTrigger = true;
+
+                Destroy(other.gameObject, 10f);
+                break;
+
             default:
             break;
         }
