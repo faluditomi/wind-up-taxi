@@ -5941,26 +5941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Billy
-
-    Bobby
-
-    Berta
-
-    Bobber
-
-    Bobert
-
-    Baltazar
-
-    Billie
-
-    Bond
-    (James)
-
-    Bolt (Usain)
-
-    Brat (Summer)'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd09e2e087bcdc84fa3e401c9bdfe2bf, type: 2}
   m_sharedMaterial: {fileID: 201448939923946682, guid: cd09e2e087bcdc84fa3e401c9bdfe2bf, type: 2}
@@ -7366,25 +7347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10
-
-    9
-
-    7
-
-    6
-
-    5
-
-    4
-
-    3
-
-    2
-
-    1
-
-    -2'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd09e2e087bcdc84fa3e401c9bdfe2bf, type: 2}
   m_sharedMaterial: {fileID: 201448939923946682, guid: cd09e2e087bcdc84fa3e401c9bdfe2bf, type: 2}
