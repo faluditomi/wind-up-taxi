@@ -8,6 +8,9 @@ TagManager:
   - Destination
   - Building
   - Destructable
+  - ThatOneUIElementIDesperatelyNeed
+  - Robot
+  - NpcCar
   layers:
   - Default
   - TransparentFX

@@ -38,7 +38,10 @@ public class ChangeDeathScene : MonoBehaviour
 
     public void ChangeCamera(Reason reason)
     {
-        Leaderboard.Instance.AddScore(arrow.GetFinalScore());
+        if(Leaderboard.Instance != null)
+        {
+            Leaderboard.Instance.AddScore(arrow.GetFinalScore());
+        }
 
         cinemachineChamera.SetActive(false);
 
