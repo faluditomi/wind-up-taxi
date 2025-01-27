@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarCollisionController : MonoBehaviour
@@ -16,6 +15,7 @@ public class CarCollisionController : MonoBehaviour
         {
             case "Building":
                 deathScript.ChangeCamera(ChangeDeathScene.Reason.CrashIntoBuilding);
+                
             break;
             
             case "NpcCar":
