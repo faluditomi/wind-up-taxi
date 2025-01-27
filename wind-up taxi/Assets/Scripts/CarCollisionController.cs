@@ -23,15 +23,15 @@ public class CarCollisionController : MonoBehaviour
             break;
             
             case "Robot":
-                MeshCollider collider = other.gameObject.GetComponent<MeshCollider>();
+                MeshCollider collider = other.gameObject.GetComponentInChildren<MeshCollider>();
                 
                 collider.isTrigger = true;
 
-                Rigidbody rb = other.gameObject.GetComponentInParent<Rigidbody>();
+                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
                 rb.useGravity = true;
 
-                Destroy(other.transform.parent.gameObject, 10f);
+                Destroy(other.gameObject, 10f);
             break;
 
             case "Destructable":
