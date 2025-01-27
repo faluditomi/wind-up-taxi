@@ -23,13 +23,19 @@ public class CarCollisionController : MonoBehaviour
             break;
             
             case "Robot":
-                deathScript.ChangeCamera(ChangeDeathScene.Reason.CrashIntoRobot);
+                MeshCollider collider = other.gameObject.GetComponent<MeshCollider>();
+                
+                collider.isTrigger = true;
+
+                Rigidbody rb = other.gameObject.GetComponentInParent<Rigidbody>();
+
+                rb.useGravity = true;
+
+                Destroy(other.gameObject, 10f);
             break;
 
             case "Destructable":
                 BoxCollider boxCollider = other.gameObject.GetComponent<BoxCollider>();
-
-                Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
 
                 boxCollider.isTrigger = true;
 
