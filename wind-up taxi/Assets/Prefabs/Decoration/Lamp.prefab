@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5128465368251086368}
   - component: {fileID: 3865239687097825027}
   - component: {fileID: 6903248816694872748}
+  - component: {fileID: 5281564901570697043}
   m_Layer: 0
   m_Name: Lamp
-  m_TagString: Building
+  m_TagString: Destructable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,3 +111,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0063588587, y: 0.006455419, z: 0.20167811}
   m_Center: {x: -0.000015946796, y: -0.00005842788, z: 0.099304825}
+--- !u!54 &5281564901570697043
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7171108609944188961}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 96
+  m_CollisionDetection: 0

@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
+using FMOD.Studio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject volumePanel;
+
+    private Bus masterBus;
 
     [SerializeField] float remainingTime;
     private float startingTime;
@@ -36,6 +40,8 @@ public class PauseMenu : MonoBehaviour
         arrowScript = FindAnyObjectByType<Arrow>();
 
         carScript = FindAnyObjectByType<Car>();
+
+        masterBus = RuntimeManager.GetBus("bus:/");
     }
 
     private void Start()
@@ -101,6 +107,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
 
         Time.timeScale = 0;
+
+        masterBus.setPaused(true);
     }
 
     public void ResumeGame()
@@ -110,6 +118,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
 
         Time.timeScale = 1;
+
+        masterBus.setPaused(false);
     }
 
     public void RestartGame()

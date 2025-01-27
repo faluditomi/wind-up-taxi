@@ -7,6 +7,8 @@ TagManager:
   - Car
   - Destination
   - Building
+  - Destructable
+  - ThatOneUIElementIDesperatelyNeed
   layers:
   - Default
   - TransparentFX
