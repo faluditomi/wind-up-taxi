@@ -29,6 +29,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float minTimeToTravel = 0.75f;
     [SerializeField] private float minMotorForceMultiplier = 20f;
     [SerializeField] private float keyDefaultSpinSpeed = 5f;
+    private float minRPM = 500f;
 
     [SerializeField] bool isInCarMode = false;
 

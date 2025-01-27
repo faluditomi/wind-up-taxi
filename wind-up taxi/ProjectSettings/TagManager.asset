@@ -9,14 +9,16 @@ TagManager:
   - Building
   - Destructable
   - ThatOneUIElementIDesperatelyNeed
+  - Robot
+  - NpcCar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - NPCCar
   - Water
   - UI
-  - 
+  - Robot
   - 
   - 
   - 

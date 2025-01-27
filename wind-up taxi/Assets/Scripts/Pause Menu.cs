@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    private Animator scoreTextAnimator;
+
     [SerializeField] Transform startingPos;
     private Transform carTransform;
 
@@ -42,6 +44,8 @@ public class PauseMenu : MonoBehaviour
         carScript = FindAnyObjectByType<Car>();
 
         masterBus = RuntimeManager.GetBus("bus:/");
+
+        scoreTextAnimator = scoreText.gameObject.GetComponent<Animator>();
     }
 
     private void Start()
@@ -86,8 +90,6 @@ public class PauseMenu : MonoBehaviour
         seconds = Mathf.FloorToInt(remainingTime % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-
-        scoreText.text = "Happy Customers: " + score;
     }
 
     public void AddTime(float addedTime)
@@ -98,6 +100,10 @@ public class PauseMenu : MonoBehaviour
     public void AddScore(int addedScore)
     {
         score += addedScore;
+
+        scoreText.text = score.ToString();
+
+        scoreTextAnimator.SetTrigger("ScoreAdded");
     }
 
     public void PauseGame()
