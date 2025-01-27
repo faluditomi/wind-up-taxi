@@ -106,6 +106,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4927114057120663721, guid: 01db7e9be007e7842903970d7d170d8c, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927114057120663721, guid: 01db7e9be007e7842903970d7d170d8c, type: 3}
       propertyPath: m_TagString
       value: NpcCar
       objectReference: {fileID: 0}

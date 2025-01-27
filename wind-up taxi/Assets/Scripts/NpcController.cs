@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class NpcController : MonoBehaviour
 {
-    private int currentWaypointIndex = 1;
+    private int currentWaypointIndex = 0;
     [SerializeField] private List<Transform> waypoints = new List<Transform>();
     public float speed;
 
     private void Awake()
     {
-        transform.position = waypoints[0].position;
+        //transform.position = waypoints[0].position;
     }
 
     private void FixedUpdate()
