@@ -206,6 +206,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6058857334810605449}
+    - targetCorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -2427990141293647441}
     - targetCorrespondingSourceObject: {fileID: 8111993455575836774, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8536722926646220648}
@@ -295,3 +298,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2427990141293647441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518128918311726990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Car
+  EventReference:
+    Guid:
+      Data1: 924147400
+      Data2: 1190146380
+      Data3: 1536939143
+      Data4: -121201872
+    Path: event:/UI/RobotDeathScream
+  Event: 
+  EventPlayTrigger: 3
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

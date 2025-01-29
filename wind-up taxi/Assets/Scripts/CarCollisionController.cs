@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class CarCollisionController : MonoBehaviour
@@ -24,7 +25,10 @@ public class CarCollisionController : MonoBehaviour
             
             case "Robot":
                 MeshCollider collider = other.gameObject.GetComponentInChildren<MeshCollider>();
-                
+
+                StudioEventEmitter emitter = other.gameObject.GetComponent<StudioEventEmitter>();
+                emitter.Play();
+
                 collider.isTrigger = true;
 
                 Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8216080670676379696
+--- !u!1 &7521313240923504542
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,37 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7001235072069253616}
-  - component: {fileID: 7666082598737825557}
+  - component: {fileID: 7182312094957673958}
+  - component: {fileID: 2117885455923507876}
   m_Layer: 0
-  m_Name: Music
+  m_Name: MusicMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7001235072069253616
+--- !u!4 &7182312094957673958
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8216080670676379696}
+  m_GameObject: {fileID: 7521313240923504542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7927544, y: 9.19762, z: -5.0777054}
+  m_LocalPosition: {x: -6.013275, y: -1.7656088, z: -2.0395083}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7666082598737825557
+--- !u!114 &2117885455923507876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8216080670676379696}
+  m_GameObject: {fileID: 7521313240923504542}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -47,11 +47,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 1752088481
-      Data2: 1319552932
-      Data3: -1750980170
-      Data4: -796029424
-    Path: event:/Music/TaxiMusic
+      Data1: 646032988
+      Data2: 1134966983
+      Data3: -1381514324
+      Data4: -1538621052
+    Path: event:/Music/MenuMusic02
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 2
