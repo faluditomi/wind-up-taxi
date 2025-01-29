@@ -18,7 +18,7 @@ public class Ticker : MonoBehaviour
     private void Start()
     {
         fillerItems = new List<string>();
-        fillerItems.Add("Mad Cabbie on The Loose Again... Pullback Springs in Shambles.   ");
+        fillerItems.Add("Mad Cabbie on The Loose Again... Pullback Springs in Shambles.  |  ");
         
         if(Leaderboard.Instance.HasEntries())
         {
@@ -27,19 +27,19 @@ public class Ticker : MonoBehaviour
                 if(Leaderboard.Instance.GetEntries()[i] != null)
                 {
                     Leaderboard.LeaderboardEntry entry = Leaderboard.Instance.GetEntries()[i];
-                    fillerItems.Add("#" + (i + 1).ToString() + "  " + entry.name + ": " + entry.score + "   ");
+                    string tickerText = "#" + (i + 1) + ": " + entry.name + " - " + entry.score + "  |  ";
+                    fillerItems.Add(tickerText);
                 }
             }
         }
 
         width = GetComponent<RectTransform>().rect.width;
         pixelsPerSecond = width / itemDuration;
-        AddNextTickerItem();
     }
 
     private void Update()
     {
-        if(currentItem.GetXPosition() <= -currentItem.GetWidth())
+        if(currentItem == null || currentItem.GetXPosition() <= -currentItem.GetWidth())
         {
             AddNextTickerItem();
         }
