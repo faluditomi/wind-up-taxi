@@ -106,6 +106,11 @@ public class PauseMenu : MonoBehaviour
         scoreTextAnimator.SetTrigger("ScoreAdded");
     }
 
+    private void OnEnable()
+    {
+        ResumeGame();
+    }
+
     public void PauseGame()
     {
         pausePanel.SetActive(true);

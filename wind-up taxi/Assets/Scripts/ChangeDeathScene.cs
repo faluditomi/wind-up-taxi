@@ -49,6 +49,8 @@ public class ChangeDeathScene : MonoBehaviour
 
         deathCanvas.SetActive(true);
 
+        // GameObject.FindGameObjectsWithTag("Car")[0].GetComponent<Collider
+
         switch(reason)
         {
             case Reason.OutOfTime:

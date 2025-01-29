@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
+using UnityEngine.Rendering;
 
 public class MenuVolumeControls : MonoBehaviour
 {
@@ -40,6 +41,26 @@ public class MenuVolumeControls : MonoBehaviour
         musicBus = RuntimeManager.GetBus("bus:/Music");
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
+
+        if(PlayerPrefs.HasKey(VolumeSlider.VolumeType.MASTER.ToString()))
+        {print(1);
+            masterVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.MASTER.ToString());
+        }
+
+        if(PlayerPrefs.HasKey(VolumeSlider.VolumeType.MUSIC.ToString()))
+        {
+            musicVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.MUSIC.ToString());
+        }
+
+        if(PlayerPrefs.HasKey(VolumeSlider.VolumeType.AMBIENCE.ToString()))
+        {
+            ambienceVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.AMBIENCE.ToString());
+        }
+
+        if(PlayerPrefs.HasKey(VolumeSlider.VolumeType.SFX.ToString()))
+        {
+            sfxVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.SFX.ToString());
+        }
 
     }
     private void Update()

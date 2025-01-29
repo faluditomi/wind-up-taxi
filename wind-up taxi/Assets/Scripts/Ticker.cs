@@ -18,17 +18,18 @@ public class Ticker : MonoBehaviour
     private void Start()
     {
         fillerItems = new List<string>();
+        fillerItems.Add("Mad Cabbie on The Loose Again... Pullback Springs in Shambles.   ");
         
         if(Leaderboard.Instance.HasEntries())
         {
-            foreach(Leaderboard.LeaderboardEntry entry in Leaderboard.Instance.GetEntries())
+            for(int i = 0; i < 3; i++)
             {
-                fillerItems.Add(entry.name + ": " + entry.score + "   ");
+                if(Leaderboard.Instance.GetEntries()[i] != null)
+                {
+                    Leaderboard.LeaderboardEntry entry = Leaderboard.Instance.GetEntries()[i];
+                    fillerItems.Add("#" + (i + 1).ToString() + "  " + entry.name + ": " + entry.score + "   ");
+                }
             }
-        }
-        else
-        {
-            fillerItems.Add("Mad Cabbie on The Loose Again... Pullback Springs in Shambles.   ");
         }
 
         width = GetComponent<RectTransform>().rect.width;
