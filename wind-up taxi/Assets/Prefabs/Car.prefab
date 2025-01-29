@@ -957,7 +957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dde9d46af2b7547a2b0745a0ee57d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMotorForce: 3000
+  maxMotorForce: 2000
   breakForce: 9000
   maxSteerAngle: 30
   antiRollForce: 1000
