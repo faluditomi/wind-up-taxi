@@ -61,7 +61,8 @@ public class Car : MonoBehaviour
         GetInput();
     }
 
-    private void GetInput() {
+    private void GetInput()
+    {
         if(isInCarMode)
         {
             carMovementController.modifyCurrentMotorForce(1f);

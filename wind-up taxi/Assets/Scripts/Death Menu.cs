@@ -29,6 +29,6 @@ public class DeathMenu : MonoBehaviour
 
     public void SetFinalScore(string score)
     {
-        finalScoreText.text = "Happy Customers: " + score;
+        finalScoreText.text = "Debit Cards Charged:\r\n" + score;
     }
 }

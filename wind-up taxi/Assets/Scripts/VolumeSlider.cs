@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class VolumeSlider : MonoBehaviour
 {
     
-    private enum VolumeType
+    public enum VolumeType
     {
         MASTER,
 
@@ -24,6 +24,11 @@ public class VolumeSlider : MonoBehaviour
     private void Awake()
     {
         volumeSlider = this.GetComponentInChildren<Slider>();
+
+        if(PlayerPrefs.HasKey(volumeType.ToString()))
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat(volumeType.ToString());
+        }
     }
 
     private void Update()
@@ -77,6 +82,8 @@ public class VolumeSlider : MonoBehaviour
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
                 break;
         }
+
+        PlayerPrefs.SetFloat(volumeType.ToString(), volumeSlider.value);
     }
 
 }
