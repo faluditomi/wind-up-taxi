@@ -13,6 +13,7 @@ public class ChangeDeathScene : MonoBehaviour
 
     [SerializeField] DeathMenu deathMenuScript;
     [SerializeField] PauseMenu pauseMenuScript;
+    private CarStateController carStateController;
 
     [SerializeField] GameObject deathCanvas;
     [SerializeField] GameObject defaultCanvas;
@@ -32,6 +33,7 @@ public class ChangeDeathScene : MonoBehaviour
         cameraTransform = FindAnyObjectByType<Camera>().GetComponent<Transform>();
         arrow = FindFirstObjectByType<Arrow>();
         cinemachineChamera = GameObject.Find("CinemachineCamera");
+        carStateController = FindAnyObjectByType<CarStateController>();
     }
 
     public void ChangeCamera(Reason reason)
@@ -79,6 +81,8 @@ public class ChangeDeathScene : MonoBehaviour
                 transform.SetParent(kidnappingTransform);
             break;
         }
+
+        carStateController.SetState(CarStateController.CarState.Busted);
 
         transform.localPosition = Vector3.zero;
 

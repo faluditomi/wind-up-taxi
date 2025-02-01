@@ -26,6 +26,7 @@ public class CarCollisionController : MonoBehaviour
                 MeshCollider collider = other.gameObject.GetComponentInChildren<MeshCollider>();
 
                 StudioEventEmitter emitter = other.gameObject.GetComponent<StudioEventEmitter>();
+
                 emitter.Play();
 
                 collider.isTrigger = true;
@@ -34,7 +35,7 @@ public class CarCollisionController : MonoBehaviour
 
                 rb.useGravity = true;
 
-                Destroy(other.gameObject, 10f);
+                Destroy(other.gameObject, 7f);
             break;
 
             case "Destructable":
@@ -42,8 +43,8 @@ public class CarCollisionController : MonoBehaviour
 
                 boxCollider.isTrigger = true;
 
-                Destroy(other.gameObject, 10f);
-                break;
+                Destroy(other.gameObject, 5f);
+            break;
 
             default:
             break;

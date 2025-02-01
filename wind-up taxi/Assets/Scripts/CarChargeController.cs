@@ -180,8 +180,6 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Charging)
         {
-            //camera zoom
-
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * Time.deltaTime, Space.Self);
 
             shake.AmplitudeGain += maxCamShake / maxTimeToCharge * Time.deltaTime;
@@ -201,8 +199,6 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Overcharging)
         {
-            //car shake
-
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * (1f / maxTimeToOvercharge) * Time.deltaTime, Space.Self);
 
             yield return null;

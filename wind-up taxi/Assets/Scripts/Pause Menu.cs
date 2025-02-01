@@ -11,20 +11,15 @@ public class PauseMenu : MonoBehaviour
 
     private Animator scoreTextAnimator;
 
-    private Transform carTransform;
-
     [SerializeField] GameObject pausePanel;
-    [SerializeField] GameObject volumePanel;
 
     private Bus masterBus;
 
     [SerializeField] float remainingTime;
-    private float startingTime;
 
     [SerializeField] DeathMenu deathMenuScript;
     private ChangeDeathScene deathScript;
     private Arrow arrowScript;
-    private Car carScript;
 
     private int score = 0;
     private int minutes;
@@ -36,20 +31,11 @@ public class PauseMenu : MonoBehaviour
     {
         deathScript = FindAnyObjectByType<ChangeDeathScene>();
 
-        carTransform = GameObject.FindGameObjectWithTag("Car").GetComponent<Transform>();
-
         arrowScript = FindAnyObjectByType<Arrow>();
-
-        carScript = FindAnyObjectByType<Car>();
 
         masterBus = RuntimeManager.GetBus("bus:/");
 
         scoreTextAnimator = scoreText.gameObject.GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
-        startingTime = remainingTime;
     }
 
     private void Update()
@@ -152,7 +138,5 @@ public class PauseMenu : MonoBehaviour
     public void VolumeSlider()
     {
         pausePanel.SetActive(false);
-
-        volumePanel.SetActive(true);
     }
 }
