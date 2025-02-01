@@ -8,7 +8,7 @@ public class Arrow : MonoBehaviour
     private Transform currentPassenger;
 
     [SerializeField] DeathMenu deathMenuScript;
-    private PauseMenu pauseMenuScript;
+    [SerializeField] PauseMenu pauseMenuScript;
 
     private GameObject[] destinationObjects;
     
@@ -32,8 +32,6 @@ public class Arrow : MonoBehaviour
         carTransform = GameObject.FindGameObjectWithTag("Car").GetComponent<Transform>();
 
         destinationObjects = GameObject.FindGameObjectsWithTag("Destination");
-
-        pauseMenuScript = FindAnyObjectByType<PauseMenu>();
     }
 
     private void Start()
@@ -57,7 +55,7 @@ public class Arrow : MonoBehaviour
 
         if(direction != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 5f);
         }
 
         if(dropOffArrow)
@@ -66,52 +64,34 @@ public class Arrow : MonoBehaviour
         }
     }
 
-    public int GetFinalScore()
-    {
-        return finalScore;
-    }
-
-    public bool HasPassanger()
-    {
-        return isPassenger;
-    }
-
     private void SelectRandomDestination()
     {
         Transform newDestination;
 
-        if(destinationObjects.Length > 0)
-        {
-            if(currentDestination == null)
-            {
-                currentDestination = startingDestination;
+        int attempts = 0;
 
-                Debug.Log("Next destination: " + currentDestination);
-            }
-            else
+        const int maxAttempts = 10;
+
+        if(currentDestination == null)
+        {
+            currentDestination = startingDestination;
+        }
+        else
+        {
+            do
             {
                 newDestination = destinationObjects[Random.Range(0, destinationObjects.Length)].transform;
 
-                if(newDestination == currentDestination || Vector3.Distance(newDestination.position, currentDestination.position) < minDistance)
-                {
-                    Debug.Log("Retry");
-
-                    SelectRandomDestination();
-                }
-                else
-                {
-                    currentDestination = newDestination;
-
-                    Debug.Log("Next destination: " + currentDestination);
-                }
+                attempts++;
             }
+            while((newDestination == currentDestination || Vector3.Distance(newDestination.position, currentDestination.position) < minDistance) && attempts < maxAttempts);
+
+            currentDestination = newDestination;
         }
     }
 
     public void PickupPassenger()
     {
-        Debug.Log("Choosing passenger.");
-
         isPassenger = true;
 
         arrowMaterial.color = Color.green;
@@ -133,8 +113,6 @@ public class Arrow : MonoBehaviour
 
     public void DeliverPassenger()
     {
-        Debug.Log("You delivered the passenger successfully.");
-
         isPassenger = false;
 
         passengersDelivered++;
@@ -164,11 +142,10 @@ public class Arrow : MonoBehaviour
 
         float bonusTime = Mathf.Max(baseBonusTime + (distance * 0.5f * (1 - passengersDelivered * timerModifier)), 0);
 
-        Debug.Log("Bonus time: " + bonusTime);
-
         pauseMenuScript.AddTime(bonusTime);
     }
 
+    #region Getters
     public Transform GetCurrentDestination()
     {
         return currentDestination;
@@ -179,36 +156,9 @@ public class Arrow : MonoBehaviour
         return isPassenger;
     }
 
-    public void ResetMap()
+    public int GetFinalScore()
     {
-        if(currentPassenger != null)
-        {
-            currentPassenger.gameObject.SetActive(true);
-
-            currentDestination.Find("Passenger").gameObject.SetActive(false);
-        }
-
-        if(dropOffArrow != null)
-        {
-            dropOffArrow.gameObject.SetActive(false);
-        }
-
-        currentDestination = null;
-
-        currentPassenger = null;
-
-        passengersDelivered = 0;
-
-        finalScore = 0;
-
-        deathMenuScript.SetFinalScore(finalScore.ToString());
-
-        isPassenger = false;
-
-        SelectRandomDestination();
-
-        arrowMaterial.color = Color.red;
-
-        currentDestination.Find("Passenger").gameObject.SetActive(true);
+        return finalScore;
     }
+    #endregion
 }

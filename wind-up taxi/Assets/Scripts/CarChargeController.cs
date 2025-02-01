@@ -61,7 +61,8 @@ public class Car : MonoBehaviour
         GetInput();
     }
 
-    private void GetInput() {
+    private void GetInput()
+    {
         if(isInCarMode)
         {
             carMovementController.modifyCurrentMotorForce(1f);
@@ -118,34 +119,6 @@ public class Car : MonoBehaviour
                 arrowController.DeliverPassenger();
             }
         }
-    }
-
-    public void Restart()
-    {
-        if(chargeCoroutine != null)
-        {
-            StopCoroutine(chargeCoroutine);
-            chargeCoroutine = null;
-        }
-
-        if(timerCoroutine != null)
-        {
-            StopCoroutine(timerCoroutine);
-            timerCoroutine = null;
-        }
-
-        if(moveCoroutine != null)
-        {
-            StopCoroutine(moveCoroutine);
-            moveCoroutine = null;
-        }
-
-        carStateController.SetState(CarStateController.CarState.Idle);
-
-        myRigidBody.linearVelocity = Vector3.zero;
-        myRigidBody.angularVelocity = Vector3.zero;
-
-        ResetVariables();
     }
 
     public void ResetVariables()
@@ -207,8 +180,6 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Charging)
         {
-            //camera zoom
-
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * Time.deltaTime, Space.Self);
 
             shake.AmplitudeGain += maxCamShake / maxTimeToCharge * Time.deltaTime;
@@ -228,8 +199,6 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Overcharging)
         {
-            //car shake
-
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * (1f / maxTimeToOvercharge) * Time.deltaTime, Space.Self);
 
             yield return null;

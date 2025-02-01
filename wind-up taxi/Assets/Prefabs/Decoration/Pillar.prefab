@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3262079490561483095}
   - component: {fileID: 7001832249993860288}
   - component: {fileID: 339414361250793661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pillar
   m_TagString: Destructable
   m_Icon: {fileID: 0}

@@ -6,7 +6,6 @@ public class ChangeDeathScene : MonoBehaviour
 
     [SerializeField] Transform outOfTimeTransform;
     [SerializeField] Transform crashIntoBuildingTransform;
-    [SerializeField] Transform crashIntoRobotTransform;
     [SerializeField] Transform crashIntoCarTransform;
     [SerializeField] Transform overchargedTransform;
     [SerializeField] Transform kidnappingTransform;
@@ -14,6 +13,7 @@ public class ChangeDeathScene : MonoBehaviour
 
     [SerializeField] DeathMenu deathMenuScript;
     [SerializeField] PauseMenu pauseMenuScript;
+    private CarStateController carStateController;
 
     [SerializeField] GameObject deathCanvas;
     [SerializeField] GameObject defaultCanvas;
@@ -23,7 +23,6 @@ public class ChangeDeathScene : MonoBehaviour
     {
         OutOfTime,
         CrashIntoCar,
-        CrashIntoRobot,
         CrashIntoBuilding,
         Overcharged,
         Kidnapping
@@ -34,6 +33,7 @@ public class ChangeDeathScene : MonoBehaviour
         cameraTransform = FindAnyObjectByType<Camera>().GetComponent<Transform>();
         arrow = FindFirstObjectByType<Arrow>();
         cinemachineChamera = GameObject.Find("CinemachineCamera");
+        carStateController = FindAnyObjectByType<CarStateController>();
     }
 
     public void ChangeCamera(Reason reason)
@@ -63,12 +63,6 @@ public class ChangeDeathScene : MonoBehaviour
                 transform.SetParent(crashIntoBuildingTransform);
             break;
 
-            case Reason.CrashIntoRobot:
-                deathMenuScript.SetReason("- Vehicular Botslaughter\r\n- Assault with a Deadly Weapon\r\n- Reckless Endangerment\r\n- Driving Under the Influence");
-
-                transform.SetParent(crashIntoRobotTransform);
-            break;
-
             case Reason.CrashIntoCar:
                 deathMenuScript.SetReason("- Reckless Driving\r\n- Vehicular Assault\r\n- Driving Under the Influence\r\n- Insurance Fraud");
 
@@ -87,6 +81,8 @@ public class ChangeDeathScene : MonoBehaviour
                 transform.SetParent(kidnappingTransform);
             break;
         }
+
+        carStateController.SetState(CarStateController.CarState.Busted);
 
         transform.localPosition = Vector3.zero;
 

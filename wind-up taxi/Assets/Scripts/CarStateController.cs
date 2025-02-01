@@ -58,9 +58,17 @@ public class CarStateController : MonoBehaviour
         if(allowedStateTransitions[currentState].Contains(newState))
         {
             SetStateAnimatorCheck(newState);
+
             SetStateAudioCheck(newState);
             
             currentState = newState;
+
+            if(currentState == CarState.Busted)
+            {
+                transform.GetChild(3).GetComponent<BoxCollider>().enabled = false;
+
+                transform.GetComponent<Rigidbody>().isKinematic = true;
+            }
 
             return true;
         }
@@ -72,45 +80,46 @@ public class CarStateController : MonoBehaviour
 
     private void SetStateAnimatorCheck(CarState newState)
     {
-            if(currentState == CarState.Overcharging)
-            {
-                animator.SetBool("Overcharging", false);
-            }
+        if(currentState == CarState.Overcharging)
+        {
+            animator.SetBool("Overcharging", false);
+        }
 
-            if(newState == CarState.Overcharging)
-            {
-                animator.SetBool("Overcharging", true);
-            }
+        if(newState == CarState.Overcharging)
+        {
+            animator.SetBool("Overcharging", true);
+        }
     }
 
     private void SetStateAudioCheck(CarState newState)
     {
-            if(currentState == CarState.Overcharging)
-            {
-                soundEmitterWinding.SetParameter("Winding", 0f);
-            }
-            else if(currentState == CarState.Charging)
-            {
-                soundEmitterWinding.SetParameter("Winding", 0f);
-            }
-            else if(currentState == CarState.Moving)
-            {
-                soundEmitterRPM.SetParameter("RPM", 0f);
-            }
+        if(currentState == CarState.Overcharging)
+        {
+            soundEmitterWinding.SetParameter("Winding", 0f);
+        }
+        else if(currentState == CarState.Charging)
+        {
+            soundEmitterWinding.SetParameter("Winding", 0f);
+        }
+        else if(currentState == CarState.Moving)
+        {
+            soundEmitterRPM.SetParameter("RPM", 0f);
+        }
 
-            if(newState == CarState.Overcharging)
-            {
-                soundEmitterWinding.SetParameter("Winding", 1f);
-            }
-            else if(newState == CarState.Charging)
-            {
-                soundEmitterWinding.SetParameter("Winding", 1f);
-            }
+        if(newState == CarState.Overcharging)
+        {
+            soundEmitterWinding.SetParameter("Winding", 1f);
+        }
+        else if(newState == CarState.Charging)
+        {
+            soundEmitterWinding.SetParameter("Winding", 1f);
+        }
     }
 
     public IEnumerator TimedSetStateBehaviour(float timeToWait, CarStateController.CarState stateToSet)
     {
         yield return new WaitForSeconds(timeToWait);
+
         SetState(stateToSet);
     }
 }
