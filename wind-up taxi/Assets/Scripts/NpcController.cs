@@ -7,11 +7,6 @@ public class NpcController : MonoBehaviour
     [SerializeField] private List<Transform> waypoints = new List<Transform>();
     public float speed;
 
-    private void Awake()
-    {
-        //transform.position = waypoints[0].position;
-    }
-
     private void FixedUpdate()
     {
         if(waypoints.Count == 0)

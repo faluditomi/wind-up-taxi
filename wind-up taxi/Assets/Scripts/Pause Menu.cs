@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
 
     private Animator scoreTextAnimator;
 
-    [SerializeField] Transform startingPos;
     private Transform carTransform;
 
     [SerializeField] GameObject pausePanel;
@@ -75,7 +74,7 @@ public class PauseMenu : MonoBehaviour
         {
             remainingTime = 0;
 
-            if(!arrowScript.HasPassanger())
+            if(!arrowScript.GetIsPassenger())
             {
                 deathScript.ChangeCamera(ChangeDeathScene.Reason.OutOfTime);
             }
@@ -135,20 +134,6 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
-        //carScript.Restart();
-
-        //carTransform.position = startingPos.position;
-
-        //carTransform.localRotation = Quaternion.Euler(0, 0, 0);
-
-        //score = 0;
-
-        //ResumeGame();
-
-        //remainingTime = startingTime;
-
-        //arrowScript.ResetMap();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         ResumeGame();
@@ -167,6 +152,7 @@ public class PauseMenu : MonoBehaviour
     public void VolumeSlider()
     {
         pausePanel.SetActive(false);
+
         volumePanel.SetActive(true);
     }
 }

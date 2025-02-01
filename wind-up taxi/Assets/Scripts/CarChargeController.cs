@@ -121,34 +121,6 @@ public class Car : MonoBehaviour
         }
     }
 
-    public void Restart()
-    {
-        if(chargeCoroutine != null)
-        {
-            StopCoroutine(chargeCoroutine);
-            chargeCoroutine = null;
-        }
-
-        if(timerCoroutine != null)
-        {
-            StopCoroutine(timerCoroutine);
-            timerCoroutine = null;
-        }
-
-        if(moveCoroutine != null)
-        {
-            StopCoroutine(moveCoroutine);
-            moveCoroutine = null;
-        }
-
-        carStateController.SetState(CarStateController.CarState.Idle);
-
-        myRigidBody.linearVelocity = Vector3.zero;
-        myRigidBody.angularVelocity = Vector3.zero;
-
-        ResetVariables();
-    }
-
     public void ResetVariables()
     {
         carMovementController.modifyCurrentMotorForce(0f);

@@ -6,7 +6,6 @@ public class ChangeDeathScene : MonoBehaviour
 
     [SerializeField] Transform outOfTimeTransform;
     [SerializeField] Transform crashIntoBuildingTransform;
-    [SerializeField] Transform crashIntoRobotTransform;
     [SerializeField] Transform crashIntoCarTransform;
     [SerializeField] Transform overchargedTransform;
     [SerializeField] Transform kidnappingTransform;
@@ -23,7 +22,6 @@ public class ChangeDeathScene : MonoBehaviour
     {
         OutOfTime,
         CrashIntoCar,
-        CrashIntoRobot,
         CrashIntoBuilding,
         Overcharged,
         Kidnapping
@@ -61,12 +59,6 @@ public class ChangeDeathScene : MonoBehaviour
                 deathMenuScript.SetReason("- Reckless Driving\r\n- Criminal Mischief\r\n- Endangering Others\r\n- Driving Under the Influence\r\n- Insurance Fraud");
 
                 transform.SetParent(crashIntoBuildingTransform);
-            break;
-
-            case Reason.CrashIntoRobot:
-                deathMenuScript.SetReason("- Vehicular Botslaughter\r\n- Assault with a Deadly Weapon\r\n- Reckless Endangerment\r\n- Driving Under the Influence");
-
-                transform.SetParent(crashIntoRobotTransform);
             break;
 
             case Reason.CrashIntoCar:
