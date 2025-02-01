@@ -1,26 +1,14 @@
 using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
-using UnityEngine.Rendering;
 
 public class MenuVolumeControls : MonoBehaviour
 {
-
     [Header("Volume")]
-    [Range(0, 1)]
-
-    public float masterVolume = 1;
-    [Range(0, 1)]
-
-    public float musicVolume = 1;
-    [Range(0, 1)]
-
-    public float ambienceVolume = 1;
-    [Range(0, 1)]
-
-    public float sfxVolume = 1;
-    [Range(0, 1)]
-
+    [Range(0, 1)] public float masterVolume = 1;
+    [Range(0, 1)] public float musicVolume = 1;
+    [Range(0, 1)] public float ambienceVolume = 1;
+    [Range(0, 1)] public float sfxVolume = 1;
 
     private Bus masterBus;
     private Bus musicBus;
@@ -28,22 +16,26 @@ public class MenuVolumeControls : MonoBehaviour
     private Bus sfxBus;
 
     public static MenuVolumeControls instance { get; private set; }
+
     void Awake()
     {
-        if (instance != null)
+        if(instance != null)
         {
             Debug.LogError("Found more than one Audio Manager in the scene.");
         }
+
         instance = this;
 
-
         masterBus = RuntimeManager.GetBus("bus:/");
+
         musicBus = RuntimeManager.GetBus("bus:/Music");
+
         ambienceBus = RuntimeManager.GetBus("bus:/Ambience");
+
         sfxBus = RuntimeManager.GetBus("bus:/SFX");
 
         if(PlayerPrefs.HasKey(VolumeSlider.VolumeType.MASTER.ToString()))
-        {print(1);
+        {
             masterVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.MASTER.ToString());
         }
 
@@ -61,14 +53,16 @@ public class MenuVolumeControls : MonoBehaviour
         {
             sfxVolume = PlayerPrefs.GetFloat(VolumeSlider.VolumeType.SFX.ToString());
         }
-
     }
+
     private void Update()
     {
         masterBus.setVolume(masterVolume);
+
         musicBus.setVolume(musicVolume);
+
         ambienceBus.setVolume(ambienceVolume);
+
         sfxBus.setVolume(sfxVolume);
     }
-
 }

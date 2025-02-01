@@ -3,17 +3,12 @@ using UnityEngine.UI;
 
 public class VolumeSlider : MonoBehaviour
 {
-    
     public enum VolumeType
     {
         MASTER,
-
         MUSIC,
-
         AMBIENCE,
-
-        SFX,
-
+        SFX
     }
 
     [Header("Type")]
@@ -37,53 +32,51 @@ public class VolumeSlider : MonoBehaviour
         {
             case VolumeType.MASTER:
                 volumeSlider.value = MenuVolumeControls.instance.masterVolume;
-                break;
+            break;
 
             case VolumeType.MUSIC:
                 volumeSlider.value = MenuVolumeControls.instance.musicVolume;
-                break;
+            break;
 
             case VolumeType.AMBIENCE:
                 volumeSlider.value = MenuVolumeControls.instance.ambienceVolume;
-                break;
+            break;
 
             case VolumeType.SFX:
                 volumeSlider.value = MenuVolumeControls.instance.sfxVolume;
-                break;
+            break;
 
-                default:
+            default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
-                break;  
+            break;  
         }
-
     }
 
     public void OnSliderValueChanged()
     {
-        switch (volumeType)
+        switch(volumeType)
         {
             case VolumeType.MASTER:
                 MenuVolumeControls.instance.masterVolume = volumeSlider.value;
-                break;
+            break;
 
             case VolumeType.MUSIC:
                 MenuVolumeControls.instance.musicVolume = volumeSlider.value;
-                break;
+            break;
 
             case VolumeType.AMBIENCE:
                 MenuVolumeControls.instance.ambienceVolume = volumeSlider.value;
-                break;
+            break;
 
             case VolumeType.SFX:
                 MenuVolumeControls.instance.sfxVolume = volumeSlider.value;
-                break;
+            break;
 
             default:
                 Debug.LogWarning("Volume Type not supported: " + volumeType);
-                break;
+            break;
         }
 
         PlayerPrefs.SetFloat(volumeType.ToString(), volumeSlider.value);
     }
-
 }

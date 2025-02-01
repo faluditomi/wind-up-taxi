@@ -16,7 +16,6 @@ public class CarCollisionController : MonoBehaviour
         {
             case "Building":
                 deathScript.ChangeCamera(ChangeDeathScene.Reason.CrashIntoBuilding);
-                
             break;
             
             case "NpcCar":
