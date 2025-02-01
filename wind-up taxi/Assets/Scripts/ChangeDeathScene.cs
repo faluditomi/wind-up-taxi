@@ -1,4 +1,7 @@
 using UnityEngine;
+using UnityEngine.Playables;
+using FMOD.Studio;
+using FMODUnity;
 
 public class ChangeDeathScene : MonoBehaviour
 {
@@ -10,6 +13,8 @@ public class ChangeDeathScene : MonoBehaviour
     [SerializeField] Transform overchargedTransform;
     [SerializeField] Transform kidnappingTransform;
     private Transform cameraTransform;
+
+    private StudioEventEmitter soundEmitter;
 
     [SerializeField] DeathMenu deathMenuScript;
     [SerializeField] PauseMenu pauseMenuScript;
@@ -34,6 +39,8 @@ public class ChangeDeathScene : MonoBehaviour
         arrow = FindFirstObjectByType<Arrow>();
         cinemachineChamera = GameObject.Find("CinemachineCamera");
         carStateController = FindAnyObjectByType<CarStateController>();
+
+        soundEmitter = GameObject.Find("Music").GetComponent<StudioEventEmitter>();
     }
 
     public void ChangeCamera(Reason reason)
@@ -81,6 +88,8 @@ public class ChangeDeathScene : MonoBehaviour
                 transform.SetParent(kidnappingTransform);
             break;
         }
+
+        soundEmitter.SetParameter("Speed", -1);
 
         carStateController.SetState(CarStateController.CarState.Busted);
 

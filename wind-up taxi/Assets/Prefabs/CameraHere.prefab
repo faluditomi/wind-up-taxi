@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909365225187845994}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -45,8 +45,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outOfTimeTransform: {fileID: 0}
+  crashIntoBuildingTransform: {fileID: 0}
+  crashIntoCarTransform: {fileID: 0}
+  overchargedTransform: {fileID: 0}
+  kidnappingTransform: {fileID: 0}
+  musicEvent:
+    Guid:
+      Data1: 1752088481
+      Data2: 1319552932
+      Data3: -1750980170
+      Data4: -796029424
+    Path: event:/Music/TaxiMusic
   deathMenuScript: {fileID: 0}
   pauseMenuScript: {fileID: 0}
   deathCanvas: {fileID: 0}
   defaultCanvas: {fileID: 0}
-  rotationSpeed: 20
