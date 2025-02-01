@@ -36,6 +36,7 @@ public class PauseMenu : MonoBehaviour
         masterBus = RuntimeManager.GetBus("bus:/");
 
         scoreTextAnimator = scoreText.gameObject.GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -120,6 +121,8 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartGame()
     {
+        masterBus.setPaused(true);
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         ResumeGame();
