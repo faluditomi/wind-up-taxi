@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3865239687097825027}
   - component: {fileID: 6903248816694872748}
   - component: {fileID: 5281564901570697043}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lamp
   m_TagString: Destructable
   m_Icon: {fileID: 0}
