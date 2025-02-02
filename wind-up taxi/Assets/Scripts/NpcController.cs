@@ -24,7 +24,6 @@ public class NpcController : MonoBehaviour
     {
         if(this.gameObject.tag == "Honk")
         {
-            //ScheduleNextHonk();
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
         }
     }
@@ -35,11 +34,8 @@ public class NpcController : MonoBehaviour
         {
             if(Time.time >= nextTime)
             {
-                Debug.Log(this.gameObject + " honked!");
-
                 honkEmitter.Play();
 
-                //ScheduleNextHonk();
                 nextTime = Time.time + Random.Range(minInterval, maxInterval);
             }
         }
@@ -66,10 +62,5 @@ public class NpcController : MonoBehaviour
                 currentWaypointIndex = 0;
             }
         }
-    }
-
-    private void ScheduleNextHonk()
-    {
-        nextTime = Time.time + Random.Range(minInterval, maxInterval);
     }
 }

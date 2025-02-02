@@ -89,7 +89,7 @@ MonoBehaviour:
   Preload: 0
   NonRigidbodyVelocity: 0
   Params: []
-  OverrideAttenuation: 0
+  OverrideAttenuation: 1
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
 --- !u!1001 &4914569044442062503
