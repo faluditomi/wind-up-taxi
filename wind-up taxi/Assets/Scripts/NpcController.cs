@@ -1,11 +1,49 @@
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class NpcController : MonoBehaviour
 {
     private int currentWaypointIndex = 0;
+
     [SerializeField] private List<Transform> waypoints = new List<Transform>();
-    public float speed;
+
+    [SerializeField] float speed;
+    [SerializeField] float minInterval;
+    [SerializeField] float maxInterval;
+    private float nextTime;
+
+    private StudioEventEmitter honkEmitter;
+
+    private void Awake()
+    {
+        honkEmitter = GetComponent<StudioEventEmitter>();
+    }
+
+    private void Start()
+    {
+        if(this.gameObject.tag == "Honk")
+        {
+            //ScheduleNextHonk();
+            nextTime = Time.time + Random.Range(minInterval, maxInterval);
+        }
+    }
+
+    private void Update()
+    {
+        if(this.gameObject.tag == "Honk")
+        {
+            if(Time.time >= nextTime)
+            {
+                Debug.Log(this.gameObject + " honked!");
+
+                honkEmitter.Play();
+
+                //ScheduleNextHonk();
+                nextTime = Time.time + Random.Range(minInterval, maxInterval);
+            }
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -28,5 +66,10 @@ public class NpcController : MonoBehaviour
                 currentWaypointIndex = 0;
             }
         }
+    }
+
+    private void ScheduleNextHonk()
+    {
+        nextTime = Time.time + Random.Range(minInterval, maxInterval);
     }
 }
