@@ -21310,6 +21310,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 9044328672120524352, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: TriggerOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044328672120524352, guid: 954864947101b8143bcc8eaa87f89a27, type: 3}
+      propertyPath: AllowFadeout
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
