@@ -115,7 +115,7 @@ public class Car : MonoBehaviour
                 moveCoroutine = StartCoroutine(MoveBehaviour());
             }
 
-            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.S))
+            if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.S))
             {
                 if(!isHonking && !honkEmitter.IsPlaying())
                 {
@@ -123,8 +123,12 @@ public class Car : MonoBehaviour
 
                     isHonking = true;
                 }
+                else if(isHonking)
+                {
+                    honkEmitter.Stop();
 
-                isHonking = false;
+                    isHonking = false;
+                }
             }
         }
     }
