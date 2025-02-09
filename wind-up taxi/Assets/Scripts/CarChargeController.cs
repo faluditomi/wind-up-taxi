@@ -112,7 +112,7 @@ public class Car : MonoBehaviour
                 moveCoroutine = StartCoroutine(MoveBehaviour());
             }
 
-            if(Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.S))
             {
                 if(!isHonking && !honkEmitter.IsPlaying())
                 {
