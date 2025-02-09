@@ -36,7 +36,6 @@ public class PauseMenu : MonoBehaviour
         masterBus = RuntimeManager.GetBus("bus:/");
 
         scoreTextAnimator = scoreText.gameObject.GetComponent<Animator>();
-
     }
 
     private void Update()

@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2643455649390410934}
   - component: {fileID: 1685479007849215593}
+  - component: {fileID: 730253917290978595}
   m_Layer: 0
   m_Name: NpcCar
-  m_TagString: Untagged
+  m_TagString: Honk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +58,40 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 10
+  speed: 3
+  minInterval: 20
+  maxInterval: 40
+--- !u!114 &730253917290978595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678206972946338007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1650511345
+      Data2: 1247496825
+      Data3: 50055336
+      Data4: -1752628751
+    Path: event:/SFX/NPCHonk
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &4914569044442062503
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,7 +245,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4823312133428339586, guid: b0ed7395fbb5bf04db0cd4a787ef4a98, type: 3}
+    - {fileID: 5629919768757060104, guid: b0ed7395fbb5bf04db0cd4a787ef4a98, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0ed7395fbb5bf04db0cd4a787ef4a98, type: 3}

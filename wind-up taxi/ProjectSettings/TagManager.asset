@@ -11,6 +11,7 @@ TagManager:
   - ThatOneUIElementIDesperatelyNeed
   - Robot
   - NpcCar
+  - Honk
   layers:
   - Default
   - TransparentFX

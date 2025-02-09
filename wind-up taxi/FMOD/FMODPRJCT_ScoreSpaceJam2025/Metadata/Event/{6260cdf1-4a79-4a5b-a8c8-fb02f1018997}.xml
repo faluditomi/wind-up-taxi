@@ -5,7 +5,7 @@
 			<value>NPCHonk</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{24af3eef-4e1a-46c4-98e7-5211bb3a531c}</destination>
@@ -92,6 +92,7 @@
 	<object class="MixerBusEffectChain" id="{cfa466a4-731f-4c34-83ae-ee173b84a721}">
 		<relationship name="effects">
 			<destination>{0eab88ce-b044-4c82-8822-409c8a83dd9d}</destination>
+			<destination>{e42751ae-586b-48b4-aeed-c2ff9148a1a9}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{0694a35d-b937-428e-ac62-7959bf4b25fa}" />
@@ -114,6 +115,14 @@
 	</object>
 	<object class="MixerBusFader" id="{43ac4d39-beb3-4516-a889-e6b1a5f70963}" />
 	<object class="MixerBusFader" id="{0eab88ce-b044-4c82-8822-409c8a83dd9d}" />
+	<object class="SpatialiserEffect" id="{e42751ae-586b-48b4-aeed-c2ff9148a1a9}">
+		<property name="maximumDistance">
+			<value>50</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 	<object class="RandomizerModulator" id="{5d6830c2-e755-4867-9b63-121288884bfc}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>pitch</value>

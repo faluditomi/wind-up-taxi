@@ -65,7 +65,7 @@ public class CarStateController : MonoBehaviour
 
             if(currentState == CarState.Busted)
             {
-                transform.GetChild(3).GetComponent<BoxCollider>().enabled = false;
+                transform.GetChild(0).GetComponent<BoxCollider>().enabled = false;
 
                 transform.GetComponent<Rigidbody>().isKinematic = true;
             }

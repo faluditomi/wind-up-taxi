@@ -9,8 +9,12 @@ public class Car : MonoBehaviour
     private CarMovementController carMovementController;
     private CinemachineBasicMultiChannelPerlin shake;
     private Arrow arrowController;
-    private StudioEventEmitter soundEmitterRPM;
     private ChangeDeathScene deathScript;
+
+    private StudioEventEmitter RPMEmitter;
+    private StudioEventEmitter pickUpEmitter;
+    private StudioEventEmitter dropOffEmitter;
+    private StudioEventEmitter honkEmitter;
 
     private Rigidbody myRigidBody;
 
@@ -32,6 +36,7 @@ public class Car : MonoBehaviour
     private float minRPM = 500f;
 
     [SerializeField] bool isInCarMode = false;
+    private bool isHonking = false;
 
     private void Awake()
     {
@@ -40,7 +45,10 @@ public class Car : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody>();
         arrowController = FindAnyObjectByType<Arrow>();
         shake = FindFirstObjectByType<CinemachineBasicMultiChannelPerlin>();
-        soundEmitterRPM = transform.Find("CarAudioRPM").GetComponent<StudioEventEmitter>();
+        RPMEmitter = transform.Find("CarAudioRPM").GetComponent<StudioEventEmitter>();
+        pickUpEmitter = transform.Find("CarAudioPickUp").GetComponent<StudioEventEmitter>();
+        dropOffEmitter = transform.Find("CarAudioDropOff").GetComponent<StudioEventEmitter>();
+        honkEmitter = transform.Find("CarAudioHonk").GetComponent<StudioEventEmitter>();
         deathScript = FindFirstObjectByType<ChangeDeathScene>();
     }
 
@@ -55,7 +63,7 @@ public class Car : MonoBehaviour
     {
         if(carStateController.GetState() == CarStateController.CarState.Moving)
         {
-            soundEmitterRPM.SetParameter("RPM", myRigidBody.linearVelocity.magnitude / 40f * 10000f);
+            RPMEmitter.SetParameter("RPM", myRigidBody.linearVelocity.magnitude / 40f * 10000f);
         }
         
         GetInput();
@@ -103,6 +111,18 @@ public class Car : MonoBehaviour
 
                 moveCoroutine = StartCoroutine(MoveBehaviour());
             }
+
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                if(!isHonking && !honkEmitter.IsPlaying())
+                {
+                    honkEmitter.Play();
+
+                    isHonking = true;
+                }
+
+                isHonking = false;
+            }
         }
     }
 
@@ -112,10 +132,14 @@ public class Car : MonoBehaviour
         {
             if(!arrowController.GetIsPassenger())
             {
+                pickUpEmitter.Play();
+
                 arrowController.PickupPassenger();
             }
             else
             {
+                dropOffEmitter.Play();
+
                 arrowController.DeliverPassenger();
             }
         }

@@ -1,12 +1,8 @@
 using UnityEngine;
-using UnityEngine.Playables;
-using FMOD.Studio;
 using FMODUnity;
 
 public class ChangeDeathScene : MonoBehaviour
 {
-    private Arrow arrow;
-
     [SerializeField] Transform outOfTimeTransform;
     [SerializeField] Transform crashIntoBuildingTransform;
     [SerializeField] Transform crashIntoCarTransform;
@@ -19,6 +15,7 @@ public class ChangeDeathScene : MonoBehaviour
     [SerializeField] DeathMenu deathMenuScript;
     [SerializeField] PauseMenu pauseMenuScript;
     private CarStateController carStateController;
+    private Arrow arrowScript;
 
     [SerializeField] GameObject deathCanvas;
     [SerializeField] GameObject defaultCanvas;
@@ -36,10 +33,9 @@ public class ChangeDeathScene : MonoBehaviour
     private void Awake()
     {
         cameraTransform = FindAnyObjectByType<Camera>().GetComponent<Transform>();
-        arrow = FindFirstObjectByType<Arrow>();
+        arrowScript = FindFirstObjectByType<Arrow>();
         cinemachineChamera = GameObject.Find("CinemachineCamera");
         carStateController = FindAnyObjectByType<CarStateController>();
-
         soundEmitter = GameObject.Find("Music").GetComponent<StudioEventEmitter>();
     }
 
@@ -47,7 +43,7 @@ public class ChangeDeathScene : MonoBehaviour
     {
         if(Leaderboard.Instance != null)
         {
-            Leaderboard.Instance.AddScore(arrow.GetFinalScore());
+            Leaderboard.Instance.AddScore(arrowScript.GetFinalScore());
         }
 
         cinemachineChamera.SetActive(false);
