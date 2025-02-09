@@ -104,6 +104,7 @@ public class CarStateController : MonoBehaviour
         else if(currentState == CarState.Moving)
         {
             soundEmitterRPM.SetParameter("RPM", 0f);
+            soundEmitterRPM.SetParameter("Drifting", 0f);
         }
 
         if(newState == CarState.Overcharging)
