@@ -15,6 +15,7 @@ public class Car : MonoBehaviour
     private StudioEventEmitter pickUpEmitter;
     private StudioEventEmitter dropOffEmitter;
     private StudioEventEmitter honkEmitter;
+    private StudioEventEmitter soundEmitterWinding;
 
     private Rigidbody myRigidBody;
 
@@ -26,6 +27,7 @@ public class Car : MonoBehaviour
 
     private float currentMotorForceMultiplier;
     private float currentTimeToTravel;
+    private float currentWindupPower;
     [SerializeField] private float maxTimeToTravel = 2f;
     [SerializeField] private float maxTimeToCharge = 8f;
     [SerializeField] private float maxTimeToOvercharge = 2f;
@@ -49,6 +51,7 @@ public class Car : MonoBehaviour
         pickUpEmitter = transform.Find("CarAudioPickUp").GetComponent<StudioEventEmitter>();
         dropOffEmitter = transform.Find("CarAudioDropOff").GetComponent<StudioEventEmitter>();
         honkEmitter = transform.Find("CarAudioHonk").GetComponent<StudioEventEmitter>();
+        soundEmitterWinding = transform.Find("CarAudioWinding").GetComponent<StudioEventEmitter>();
         deathScript = FindFirstObjectByType<ChangeDeathScene>();
     }
 
@@ -150,6 +153,7 @@ public class Car : MonoBehaviour
         carMovementController.modifyCurrentMotorForce(0f);
         currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
         currentTimeToTravel = minTimeToTravel;
+        currentWindupPower = 0f;
         shake.AmplitudeGain = 0f;
         shake.enabled = false;
     }
@@ -166,6 +170,7 @@ public class Car : MonoBehaviour
 
     private IEnumerator MoveBehaviour()
     {
+        soundEmitterWinding.SetParameter("WindupPower", 0f);
         carStateController.SetState(CarStateController.CarState.Moving);
         carMovementController.modifyCurrentMotorForce(currentMotorForceMultiplier);
         carMovementController.setVerticalInput(1f);
@@ -205,6 +210,10 @@ public class Car : MonoBehaviour
         while(carStateController.GetState() == CarStateController.CarState.Charging)
         {
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * Time.deltaTime, Space.Self);
+            
+            currentWindupPower += 0.7f / maxTimeToCharge * Time.deltaTime;
+            currentWindupPower = Mathf.Min(currentWindupPower, 0.7f);
+            soundEmitterWinding.SetParameter("WindupPower", currentWindupPower);
 
             shake.AmplitudeGain += maxCamShake / maxTimeToCharge * Time.deltaTime;
             shake.AmplitudeGain = Mathf.Min(shake.AmplitudeGain, maxCamShake);
@@ -223,10 +232,16 @@ public class Car : MonoBehaviour
 
         while(carStateController.GetState() == CarStateController.CarState.Overcharging)
         {
+            currentWindupPower += 0.3f / maxTimeToOvercharge * Time.deltaTime;
+            currentWindupPower = Mathf.Min(currentWindupPower, 1f);
+            soundEmitterWinding.SetParameter("WindupPower", currentWindupPower);
+
             keyModel.Rotate(Vector3.forward, keyDefaultSpinSpeed * (1f / maxTimeToOvercharge) * Time.deltaTime, Space.Self);
 
             yield return null;
         }
+
+        soundEmitterWinding.SetParameter("WindupPower", 0f);
 
         deathScript.ChangeCamera(ChangeDeathScene.Reason.Overcharged);
     }
