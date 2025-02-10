@@ -39,7 +39,6 @@ public class Car : MonoBehaviour
     private float minRPM = 500f;
 
     [SerializeField] bool isInCarMode = false;
-    private bool isHonking = false;
 
     private void Awake()
     {
@@ -117,16 +116,16 @@ public class Car : MonoBehaviour
                 moveCoroutine = StartCoroutine(MoveBehaviour());
             }
 
-            if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.S))
+            if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.S))
             {
-                if(!isHonking && !honkEmitter.IsPlaying())
+                if(!honkEmitter.IsPlaying())
                 {
                     honkEmitter.Play();
-
-                    isHonking = true;
                 }
-
-                isHonking = false;
+            }
+            else if(honkEmitter.IsPlaying())
+            {
+                honkEmitter.Stop();
             }
         }
     }
