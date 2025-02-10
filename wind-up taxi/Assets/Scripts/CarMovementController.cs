@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarMovementController : MonoBehaviour
@@ -7,8 +8,13 @@ public class CarMovementController : MonoBehaviour
     private float horizontalInput, verticalInput;
     private float currentSteerAngle, currentbreakForce;
     private float currentMotorForce;
-    [SerializeField] private float maxMotorForce, breakForce, maxSteerAngle, antiRollForce, accelerationSmoothing;
-    
+    [SerializeField] private float 
+    maxMotorForce, 
+    breakForce, 
+    maxSteerAngle, 
+    antiRollForce, 
+    accelerationSmoothing;
+
     private bool isBreaking;
 
     
@@ -54,6 +60,16 @@ public class CarMovementController : MonoBehaviour
     public void setBreakingInput(bool value)
     {
         isBreaking = value;
+    }
+
+    public float GetCurrentSteerAngle()
+    {
+        return currentSteerAngle;
+    }
+
+    public float GetMaxSteerAngle()
+    {
+        return maxSteerAngle;
     }
 
     public void modifyCurrentMotorForce(float value)

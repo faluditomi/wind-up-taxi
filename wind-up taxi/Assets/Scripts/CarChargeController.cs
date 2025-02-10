@@ -35,6 +35,7 @@ public class Car : MonoBehaviour
     [SerializeField] private float minTimeToTravel = 0.75f;
     [SerializeField] private float minMotorForceMultiplier = 20f;
     [SerializeField] private float keyDefaultSpinSpeed = 5f;
+    [SerializeField] private float driftSteerThreshold = 0.75f;
     private float minRPM = 500f;
 
     [SerializeField] bool isInCarMode = false;
@@ -69,6 +70,7 @@ public class Car : MonoBehaviour
         }
         
         GetInput();
+        CheckForDrifting();
     }
 
     private void GetInput()
@@ -144,6 +146,23 @@ public class Car : MonoBehaviour
 
                 arrowController.DeliverPassenger();
             }
+        }
+    }
+
+    private void CheckForDrifting()
+    {
+        if(carStateController.GetState() != CarStateController.CarState.Moving)
+        {
+            return;
+        }
+
+        float currentSteerPercentage = carMovementController.GetCurrentSteerAngle() / carMovementController.GetMaxSteerAngle();
+
+        if(myRigidBody.linearVelocity.magnitude > 18f
+        && currentSteerPercentage > driftSteerThreshold)
+        {
+            print((currentSteerPercentage - driftSteerThreshold) / (1f - driftSteerThreshold));
+            RPMEmitter.SetParameter("Drifting", (currentSteerPercentage - driftSteerThreshold) / (1f - driftSteerThreshold));
         }
     }
 
