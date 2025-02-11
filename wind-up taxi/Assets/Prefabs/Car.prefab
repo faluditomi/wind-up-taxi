@@ -51,7 +51,7 @@ MonoBehaviour:
       Data2: 1335632815
       Data3: 1359563695
       Data4: -2072128577
-    Path: event:/SFX/Car Engine
+    Path: event:/SFX/Player/Car Engine
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
@@ -1064,7 +1064,7 @@ MonoBehaviour:
       Data2: 1124260408
       Data3: 1787592617
       Data4: -247153724
-    Path: event:/SFX/Car Hit
+    Path: event:/SFX/Player/Car Hit
   Event: 
   EventPlayTrigger: 7
   EventStopTrigger: 0
@@ -1127,7 +1127,7 @@ MonoBehaviour:
       Data2: 1130277249
       Data3: 1771715256
       Data4: 1937151307
-    Path: event:/SFX/Car Wind Up
+    Path: event:/SFX/Player/Car Wind Up
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
@@ -1282,7 +1282,7 @@ MonoBehaviour:
       Data2: 1169396456
       Data3: 1588795053
       Data4: 465965800
-    Path: event:/SFX/PickUp
+    Path: event:/UI/PickUp
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -1345,7 +1345,7 @@ MonoBehaviour:
       Data2: 1155005309
       Data3: -1585788751
       Data4: 1211956183
-    Path: event:/SFX/DropOff
+    Path: event:/UI/DropOff
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
@@ -1496,7 +1496,7 @@ MonoBehaviour:
       Data2: 1200766414
       Data3: -902460544
       Data4: 87533219
-    Path: event:/SFX/Car Honk
+    Path: event:/SFX/Player/Car Honk
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

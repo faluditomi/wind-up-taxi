@@ -395,6 +395,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 3
+  minInterval: 0
+  maxInterval: 0
 --- !u!54 &6058857334810605449
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ MonoBehaviour:
       Data2: 1190146380
       Data3: 1536939143
       Data4: -121201872
-    Path: event:/UI/RobotDeathScream
+    Path: event:/SFX/RobotDeathScream
   Event: 
   EventPlayTrigger: 3
   EventStopTrigger: 0

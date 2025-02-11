@@ -24130,11 +24130,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1599284520173360339, guid: 70effce883c911647bef90ecb1b068dc, type: 3}
   m_PrefabInstance: {fileID: 551162249}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &551408885 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5497486752776200954, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
-  m_PrefabInstance: {fileID: 2912339366870775462}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &556860891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68575,64 +68570,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8537935343545084824, guid: 63ba31b6ff85b4e458b5c963a1156389, type: 3}
   m_PrefabInstance: {fileID: 1327589699}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1328709856
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1328709857}
-  - component: {fileID: 1328709858}
-  m_Layer: 0
-  m_Name: FMODEvents
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1328709857
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328709856}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 551408885}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1328709858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328709856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a760526279e49794380e86ebc79456bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <carHit>k__BackingField:
-    Guid:
-      Data1: -2004290656
-      Data2: 1124260408
-      Data3: 1787592617
-      Data4: -247153724
-    Path: event:/SFX/Car Hit
-  <robotDeathScream>k__BackingField:
-    Guid:
-      Data1: 924147400
-      Data2: 1190146380
-      Data3: 1536939143
-      Data4: -121201872
-    Path: event:/UI/RobotDeathScream
 --- !u!1001 &1330139173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100998,6 +100935,166 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <city>k__BackingField.Path
+      value: event:/Ambience/City
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <pickUp>k__BackingField.Path
+      value: event:/UI/PickUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carHonk>k__BackingField.Path
+      value: event:/SFX/Player/Car Honk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <dropOff>k__BackingField.Path
+      value: event:/UI/DropOff
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <npcHonk>k__BackingField.Path
+      value: event:/SFX/NPCHonk
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carEngine>k__BackingField.Path
+      value: event:/SFX/Player/Car Engine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carWindUp>k__BackingField.Path
+      value: event:/SFX/Player/Car Wind Up
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <taxiMusic>k__BackingField.Path
+      value: event:/Music/TaxiMusic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <city>k__BackingField.Guid.Data1
+      value: -1147629186
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <city>k__BackingField.Guid.Data2
+      value: 1106302555
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <city>k__BackingField.Guid.Data3
+      value: 130402976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <city>k__BackingField.Guid.Data4
+      value: 239065686
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <pickUp>k__BackingField.Guid.Data1
+      value: -1259989831
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <pickUp>k__BackingField.Guid.Data2
+      value: 1169396456
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <pickUp>k__BackingField.Guid.Data3
+      value: 1588795053
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <pickUp>k__BackingField.Guid.Data4
+      value: 465965800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carHonk>k__BackingField.Guid.Data1
+      value: -1234615649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carHonk>k__BackingField.Guid.Data2
+      value: 1200766414
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carHonk>k__BackingField.Guid.Data3
+      value: -902460544
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carHonk>k__BackingField.Guid.Data4
+      value: 87533219
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <dropOff>k__BackingField.Guid.Data1
+      value: 1278828849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <dropOff>k__BackingField.Guid.Data2
+      value: 1155005309
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <dropOff>k__BackingField.Guid.Data3
+      value: -1585788751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <dropOff>k__BackingField.Guid.Data4
+      value: 1211956183
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <npcHonk>k__BackingField.Guid.Data1
+      value: 1650511345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <npcHonk>k__BackingField.Guid.Data2
+      value: 1247496825
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <npcHonk>k__BackingField.Guid.Data3
+      value: 50055336
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <npcHonk>k__BackingField.Guid.Data4
+      value: -1752628751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carEngine>k__BackingField.Guid.Data1
+      value: 209937332
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carEngine>k__BackingField.Guid.Data2
+      value: 1335632815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carEngine>k__BackingField.Guid.Data3
+      value: 1359563695
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carEngine>k__BackingField.Guid.Data4
+      value: -2072128577
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carWindUp>k__BackingField.Guid.Data1
+      value: 689830458
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carWindUp>k__BackingField.Guid.Data2
+      value: 1130277249
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carWindUp>k__BackingField.Guid.Data3
+      value: 1771715256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <carWindUp>k__BackingField.Guid.Data4
+      value: 1937151307
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <taxiMusic>k__BackingField.Guid.Data1
+      value: 1752088481
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <taxiMusic>k__BackingField.Guid.Data2
+      value: 1319552932
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <taxiMusic>k__BackingField.Guid.Data3
+      value: -1750980170
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <taxiMusic>k__BackingField.Guid.Data4
+      value: -796029424
+      objectReference: {fileID: 0}
     - target: {fileID: 5497486752776200954, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -101040,10 +101137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5497486752776200954, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1328709857}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
 --- !u!1001 &6904306570800806648
