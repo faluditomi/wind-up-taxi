@@ -4,6 +4,15 @@ using FMODUnity;
 
 public class NpcController : MonoBehaviour
 {
+    private enum NpcType
+    {
+        Pedestrian,
+        Car,
+        FlyingThingy
+    }
+
+    [SerializeField] private NpcType npcType = NpcType.Pedestrian;
+
     private int currentWaypointIndex = 0;
 
     [SerializeField] private List<Transform> waypoints = new List<Transform>();
@@ -13,11 +22,19 @@ public class NpcController : MonoBehaviour
     [SerializeField] float maxInterval;
     private float nextTime;
 
+
+    private float time;
+    private float rockingDuration;
+    private float rockingDistance;
+
     private StudioEventEmitter honkEmitter;
 
     private void Awake()
     {
         honkEmitter = GetComponent<StudioEventEmitter>();
+        time = Random.Range(-200, 200) * 0.01f;
+        rockingDuration = Random.Range(50f, 250f) * 0.01f;
+        rockingDistance = Random.Range(8, 16);
     }
 
     private void Start()
@@ -52,6 +69,13 @@ public class NpcController : MonoBehaviour
         Vector3 direction = (targetWaypoint.position - transform.position).normalized;
         transform.position += direction * speed * Time.fixedDeltaTime;
         transform.forward = direction;
+
+        if(npcType == NpcType.Pedestrian)
+        {
+            time += Time.deltaTime * rockingDuration;
+            float zRotation = Mathf.Sin(time) * rockingDistance;
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, zRotation);
+        }
 
         if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
         {
