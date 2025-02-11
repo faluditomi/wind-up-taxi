@@ -69,7 +69,7 @@ public class NpcController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Car")
+        if(other.gameObject.tag == "Car" || other.gameObject.tag == "Robot")
         {
             speed = 0f;
 
@@ -82,7 +82,7 @@ public class NpcController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag == "Car")
+        if(other.gameObject.tag == "Car" || other.gameObject.tag == "Robot")
         {
             speed = startingSpeed;
         }
