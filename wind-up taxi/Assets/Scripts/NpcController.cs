@@ -12,6 +12,7 @@ public class NpcController : MonoBehaviour
     [SerializeField] float minInterval;
     [SerializeField] float maxInterval;
     private float nextTime;
+    private float startingSpeed;
 
     private StudioEventEmitter honkEmitter;
 
@@ -22,6 +23,8 @@ public class NpcController : MonoBehaviour
 
     private void Start()
     {
+        startingSpeed = speed;
+
         if(this.gameObject.tag == "Honk")
         {
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
@@ -61,6 +64,27 @@ public class NpcController : MonoBehaviour
             {
                 currentWaypointIndex = 0;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Car")
+        {
+            speed = 0f;
+
+            if(!honkEmitter.IsPlaying())
+            {
+                honkEmitter.Play();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Car")
+        {
+            speed = startingSpeed;
         }
     }
 }

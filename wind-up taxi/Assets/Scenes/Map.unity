@@ -12167,7 +12167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
@@ -13722,11 +13722,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070885249816396549, guid: c3b30a6d2cd7838418397f10893980f9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000029504295
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070885249816396549, guid: c3b30a6d2cd7838418397f10893980f9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070885249816396549, guid: c3b30a6d2cd7838418397f10893980f9, type: 3}
       propertyPath: m_LocalRotation.y
@@ -13734,7 +13734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4070885249816396549, guid: c3b30a6d2cd7838418397f10893980f9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4070885249816396549, guid: c3b30a6d2cd7838418397f10893980f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -14566,7 +14566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
@@ -22530,7 +22530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
@@ -61869,7 +61869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
@@ -96050,6 +96050,10 @@ PrefabInstance:
       value: NpcCar1 (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
+      propertyPath: speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -101164,7 +101168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: speed
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1685479007849215593, guid: dcd5de743101c8342829f574785c7320, type: 3}
       propertyPath: waypoints.Array.size
