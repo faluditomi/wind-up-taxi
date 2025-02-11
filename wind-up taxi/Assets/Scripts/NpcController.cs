@@ -22,19 +22,27 @@ public class NpcController : MonoBehaviour
     [SerializeField] float maxInterval;
     private float nextTime;
 
+    private float flyingWobbleTime;
+    private float flyingWobbleDuration;
+    private float flyingWobbleDistance;
 
-    private float time;
-    private float rockingDuration;
-    private float rockingDistance;
+    private float pedestrianWobbleTime;
+    private float pedestrianWobbleDuration;
+    private float pedestrianWobbleDistance;
 
     private StudioEventEmitter honkEmitter;
 
     private void Awake()
     {
         honkEmitter = GetComponent<StudioEventEmitter>();
-        time = Random.Range(-200, 200) * 0.01f;
-        rockingDuration = Random.Range(50f, 250f) * 0.01f;
-        rockingDistance = Random.Range(8, 16);
+
+        pedestrianWobbleTime = Random.Range(-200, 200) * 0.01f;
+        pedestrianWobbleDuration = Random.Range(50f, 250f) * 0.01f;
+        pedestrianWobbleDistance = Random.Range(8, 16);
+
+        flyingWobbleTime = Random.Range(-200, 200) * 0.01f;
+        flyingWobbleDuration = Random.Range(50f, 250f) * 0.01f;
+        flyingWobbleDistance = Random.Range(0, 41) * 0.01f;
     }
 
     private void Start()
@@ -60,31 +68,37 @@ public class NpcController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(waypoints.Count == 0)
-        {
-            return;
-        }
+        // if(waypoints.Count == 0)
+        // {
+        //     return;
+        // }
 
-        Transform targetWaypoint = waypoints[currentWaypointIndex];
-        Vector3 direction = (targetWaypoint.position - transform.position).normalized;
-        transform.position += direction * speed * Time.fixedDeltaTime;
-        transform.forward = direction;
+        // Transform targetWaypoint = waypoints[currentWaypointIndex];
+        // Vector3 direction = (targetWaypoint.position - transform.position).normalized;
+        // transform.position += direction * speed * Time.fixedDeltaTime;
+        // transform.forward = direction;
 
         if(npcType == NpcType.Pedestrian)
         {
-            time += Time.deltaTime * rockingDuration;
-            float zRotation = Mathf.Sin(time) * rockingDistance;
+            pedestrianWobbleTime += Time.deltaTime * pedestrianWobbleDuration;
+            float zRotation = Mathf.Sin(pedestrianWobbleTime) * pedestrianWobbleDistance;
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, zRotation);
         }
-
-        if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+        else if(npcType == NpcType.FlyingThingy)
         {
-            currentWaypointIndex++;
-
-            if(currentWaypointIndex >= waypoints.Count)
-            {
-                currentWaypointIndex = 0;
-            }
+            flyingWobbleTime += Time.deltaTime * flyingWobbleDuration;
+            float yposition = Mathf.Sin(flyingWobbleTime) * flyingWobbleDistance;
+            transform.position = new Vector3(transform.position.x, yposition, transform.position.z);
         }
+
+        // if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+        // {
+        //     currentWaypointIndex++;
+
+        //     if(currentWaypointIndex >= waypoints.Count)
+        //     {
+        //         currentWaypointIndex = 0;
+        //     }
+        // }
     }
 }
