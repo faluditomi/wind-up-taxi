@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
 
     private List<StudioEventEmitter> eventEmitters;
 
+
+    private EventInstance ambienceEventInstance;
+
     private void Awake()
     {
         if(instance != null)
@@ -22,6 +25,17 @@ public class AudioManager : MonoBehaviour
 
         eventInstances= new List<EventInstance>();
         eventEmitters= new List<StudioEventEmitter>();
+    }
+
+    private void Start()
+    {
+        InitializeAmbience(FMODEvents.instance.city);
+    }
+
+    private void InitializeAmbience(EventReference ambienceEventReferece)
+    {
+        ambienceEventInstance = CreateEventInstance(ambienceEventReferece);
+        ambienceEventInstance.start();
     }
 
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
