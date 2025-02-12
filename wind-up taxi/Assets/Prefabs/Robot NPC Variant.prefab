@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2975682055362779775}
   - component: {fileID: 2461700955294827924}
   - component: {fileID: 5302196715987640083}
+  - component: {fileID: 107843844843997433}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
@@ -121,6 +122,28 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!95 &107843844843997433
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6967072753926896884}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: abd7a6c1d8998284b83208a53f59804a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8194342968065379022
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,6 +219,18 @@ PrefabInstance:
     - target: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       propertyPath: m_Name
       value: Robot NPC Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       propertyPath: m_LocalPosition.x
@@ -279,7 +314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7955409758059919248, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6606774
+      value: 1.652
       objectReference: {fileID: 0}
     - target: {fileID: 7955409758059919248, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       propertyPath: m_LocalPosition.z
@@ -333,6 +368,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       insertIndex: -1
       addedObject: {fileID: -2427990141293647441}
+    - targetCorrespondingSourceObject: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8243829223637944403}
     - targetCorrespondingSourceObject: {fileID: 8111993455575836774, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8536722926646220648}
@@ -381,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27657b3ef4ef0d499a69d76c969c593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcType: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -394,7 +433,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 3
+  speed: 2
   minInterval: 0
   maxInterval: 0
 --- !u!54 &6058857334810605449
@@ -455,6 +494,28 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!95 &8243829223637944403
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3518128918311726990}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38352935e03187944b489c2620a22959, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &4070885249816396549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
