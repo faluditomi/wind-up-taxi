@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5497486752776200954}
   - component: {fileID: 3334422626056169992}
+  - component: {fileID: 4375803958809830563}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -29,7 +30,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1141882686965052673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3334422626056169992
@@ -48,3 +50,129 @@ MonoBehaviour:
   musicVolume: 1
   ambienceVolume: 1
   sfxVolume: 1
+--- !u!114 &4375803958809830563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144570032393049961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb97e38aa3f528f4ab5d60bae4984e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7906783132725266372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141882686965052673}
+  - component: {fileID: 4787857819568439612}
+  m_Layer: 0
+  m_Name: FMODEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141882686965052673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906783132725266372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5497486752776200954}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4787857819568439612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906783132725266372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a760526279e49794380e86ebc79456bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <city>k__BackingField:
+    Guid:
+      Data1: -1147629186
+      Data2: 1106302555
+      Data3: 130402976
+      Data4: 239065686
+    Path: event:/Ambience/City
+  <music>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <carHit>k__BackingField:
+    Guid:
+      Data1: -2004290656
+      Data2: 1124260408
+      Data3: 1787592617
+      Data4: -247153724
+    Path: event:/SFX/Player/Car Hit
+  <carHonk>k__BackingField:
+    Guid:
+      Data1: -1234615649
+      Data2: 1200766414
+      Data3: -902460544
+      Data4: 87533219
+    Path: event:/SFX/Player/Car Honk
+  <carEngine>k__BackingField:
+    Guid:
+      Data1: 209937332
+      Data2: 1335632815
+      Data3: 1359563695
+      Data4: -2072128577
+    Path: event:/SFX/Player/Car Engine
+  <carWindUp>k__BackingField:
+    Guid:
+      Data1: 689830458
+      Data2: 1130277249
+      Data3: 1771715256
+      Data4: 1937151307
+    Path: event:/SFX/Player/Car Wind Up
+  <robotDeathScream>k__BackingField:
+    Guid:
+      Data1: 924147400
+      Data2: 1190146380
+      Data3: 1536939143
+      Data4: -121201872
+    Path: event:/SFX/RobotDeathScream
+  <npcHonk>k__BackingField:
+    Guid:
+      Data1: 1650511345
+      Data2: 1247496825
+      Data3: 50055336
+      Data4: -1752628751
+    Path: event:/SFX/NPCHonk
+  <pickUp>k__BackingField:
+    Guid:
+      Data1: -1259989831
+      Data2: 1169396456
+      Data3: 1588795053
+      Data4: 465965800
+    Path: event:/UI/PickUp
+  <dropOff>k__BackingField:
+    Guid:
+      Data1: 1278828849
+      Data2: 1155005309
+      Data3: -1585788751
+      Data4: 1211956183
+    Path: event:/UI/DropOff
