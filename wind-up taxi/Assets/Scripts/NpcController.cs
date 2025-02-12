@@ -21,6 +21,7 @@ public class NpcController : MonoBehaviour
     [SerializeField] float minInterval;
     [SerializeField] float maxInterval;
     private float nextTime;
+    private float startingSpeed;
 
     private float flyingWobbleTime;
     private float flyingWobbleDuration;
@@ -47,6 +48,8 @@ public class NpcController : MonoBehaviour
 
     private void Start()
     {
+        startingSpeed = speed;
+
         if(this.gameObject.tag == "Honk")
         {
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
@@ -68,15 +71,15 @@ public class NpcController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // if(waypoints.Count == 0)
-        // {
-        //     return;
-        // }
+        if(waypoints.Count == 0)
+        {
+            return;
+        }
 
-        // Transform targetWaypoint = waypoints[currentWaypointIndex];
-        // Vector3 direction = (targetWaypoint.position - transform.position).normalized;
-        // transform.position += direction * speed * Time.fixedDeltaTime;
-        // transform.forward = direction;
+        Transform targetWaypoint = waypoints[currentWaypointIndex];
+        Vector3 direction = (targetWaypoint.position - transform.position).normalized;
+        transform.position += direction * speed * Time.fixedDeltaTime;
+        transform.forward = direction;
 
         if(npcType == NpcType.Pedestrian)
         {
@@ -91,14 +94,35 @@ public class NpcController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, yposition, transform.position.z);
         }
 
-        // if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
-        // {
-        //     currentWaypointIndex++;
+        if(Vector3.Distance(transform.position, targetWaypoint.position) < 0.1f)
+        {
+            currentWaypointIndex++;
 
-        //     if(currentWaypointIndex >= waypoints.Count)
-        //     {
-        //         currentWaypointIndex = 0;
-        //     }
-        // }
+            if(currentWaypointIndex >= waypoints.Count)
+            {
+                currentWaypointIndex = 0;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Car" || other.gameObject.tag == "Robot")
+        {
+            speed = 0f;
+
+            if(!honkEmitter.IsPlaying())
+            {
+                honkEmitter.Play();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Car" || other.gameObject.tag == "Robot")
+        {
+            speed = startingSpeed;
+        }
     }
 }
