@@ -38,6 +38,11 @@ public class AudioManager : MonoBehaviour
         ambienceEventInstance.start();
     }
 
+    public void SetAmbienceParameter(string parameterName, float parameterValue)
+    {
+        ambienceEventInstance.setParameterByName(parameterName, parameterValue);
+    }
+
     public void PlayOneShot(EventReference sound, Vector3 worldPos)
     {
         RuntimeManager.PlayOneShot(sound, worldPos);
