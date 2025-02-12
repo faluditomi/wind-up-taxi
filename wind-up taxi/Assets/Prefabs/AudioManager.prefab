@@ -115,11 +115,11 @@ MonoBehaviour:
     Path: event:/Ambience/City
   <music>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1752088481
+      Data2: 1319552932
+      Data3: -1750980170
+      Data4: -796029424
+    Path: event:/Music/TaxiMusic
   <carHit>k__BackingField:
     Guid:
       Data1: -2004290656
