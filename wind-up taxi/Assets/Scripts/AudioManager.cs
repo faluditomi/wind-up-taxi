@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
 
 
     private EventInstance ambienceEventInstance;
+    public EventInstance musicEventInstance;
 
     private void Awake()
     {
@@ -30,6 +31,13 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         InitializeAmbience(FMODEvents.instance.city);
+        InitializeMusic(FMODEvents.instance.music);
+    }
+
+    private void InitializeMusic(EventReference musicEventReference)
+    {
+        musicEventInstance = CreateEventInstance(musicEventReference);
+        musicEventInstance.start();
     }
 
     private void InitializeAmbience(EventReference ambienceEventReferece)

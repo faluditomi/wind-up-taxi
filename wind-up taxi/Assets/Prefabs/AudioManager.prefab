@@ -108,12 +108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <city>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  <taxiMusic>k__BackingField:
+      Data1: -1147629186
+      Data2: 1106302555
+      Data3: 130402976
+      Data4: 239065686
+    Path: event:/Ambience/City
+  <music>k__BackingField:
     Guid:
       Data1: 0
       Data2: 0
@@ -129,25 +129,25 @@ MonoBehaviour:
     Path: event:/SFX/Player/Car Hit
   <carHonk>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1234615649
+      Data2: 1200766414
+      Data3: -902460544
+      Data4: 87533219
+    Path: event:/SFX/Player/Car Honk
   <carEngine>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 209937332
+      Data2: 1335632815
+      Data3: 1359563695
+      Data4: -2072128577
+    Path: event:/SFX/Player/Car Engine
   <carWindUp>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 689830458
+      Data2: 1130277249
+      Data3: 1771715256
+      Data4: 1937151307
+    Path: event:/SFX/Player/Car Wind Up
   <robotDeathScream>k__BackingField:
     Guid:
       Data1: 924147400
@@ -157,22 +157,22 @@ MonoBehaviour:
     Path: event:/SFX/RobotDeathScream
   <npcHonk>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1650511345
+      Data2: 1247496825
+      Data3: 50055336
+      Data4: -1752628751
+    Path: event:/SFX/NPCHonk
   <pickUp>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1259989831
+      Data2: 1169396456
+      Data3: 1588795053
+      Data4: 465965800
+    Path: event:/UI/PickUp
   <dropOff>k__BackingField:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1278828849
+      Data2: 1155005309
+      Data3: -1585788751
+      Data4: 1211956183
+    Path: event:/UI/DropOff
