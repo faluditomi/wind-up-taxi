@@ -23,7 +23,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{24af3eef-4e1a-46c4-98e7-5211bb3a531c}</destination>
+			<destination>{04ddd7aa-c29e-4667-9b63-fbe670ad3a20}</destination>
 		</relationship>
 		<relationship name="tags">
 			<destination>{b25c4f9d-1f47-4b94-89e1-8b05ecc39502}</destination>
@@ -54,6 +54,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{53a8bc4d-e6d0-40d6-9aaf-8a2351cfddcc}</destination>
+			<destination>{d7b7317b-f568-48c3-9b28-db793054ac7d}</destination>
 		</relationship>
 		<relationship name="timeline">
 			<destination>{8f749d33-0bf6-4724-ac6d-44aeea43e91a}</destination>
@@ -119,6 +120,14 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{d5a7b347-880f-4ee9-ac94-7331297152f2}</destination>
 		</relationship>
 	</object>
+	<object class="GroupTrack" id="{d7b7317b-f568-48c3-9b28-db793054ac7d}">
+		<relationship name="modules">
+			<destination>{2feb9abd-bf7b-4b4d-9b3d-e6fd522e292c}</destination>
+		</relationship>
+		<relationship name="mixerGroup">
+			<destination>{a3540520-f022-46fc-8c67-f8e0c7a8f660}</destination>
+		</relationship>
+	</object>
 	<object class="Timeline" id="{8f749d33-0bf6-4724-ac6d-44aeea43e91a}">
 		<property name="isProxyEnabled">
 			<value>false</value>
@@ -144,6 +153,9 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{6aee98e9-c930-40c9-870b-3f848808230e}">
+		<relationship name="modules">
+			<destination>{2feb9abd-bf7b-4b4d-9b3d-e6fd522e292c}</destination>
+		</relationship>
 		<relationship name="preset">
 			<destination>{23cf345f-74f0-444d-971c-1a05f84d666c}</destination>
 		</relationship>
@@ -570,6 +582,40 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{8a846517-7e63-401c-b7d0-436564e94192}</destination>
 		</relationship>
 	</object>
+	<object class="SingleSound" id="{2feb9abd-bf7b-4b4d-9b3d-e6fd522e292c}">
+		<property name="pitch">
+			<value>0.300000012</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{7cf99c01-fb5e-410b-bf9b-231c426eeed2}</destination>
+		</relationship>
+		<relationship name="fadeInCurve">
+			<destination>{9a5ddbcb-c0d2-4d48-80a5-689d32efba5b}</destination>
+		</relationship>
+		<relationship name="audioFile">
+			<destination>{f432b32d-541c-4c48-8c33-7269d05f274a}</destination>
+		</relationship>
+	</object>
+	<object class="EventMixerGroup" id="{a3540520-f022-46fc-8c67-f8e0c7a8f660}">
+		<property name="volume">
+			<value>8.5</value>
+		</property>
+		<property name="name">
+			<value>Audio 1</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{a42ce9a9-78b2-403c-b716-842b2207377d}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{faf138b3-6003-4c37-a2a3-917e6823554d}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{8a846517-7e63-401c-b7d0-436564e94192}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{0575ff31-40ca-44be-b0e4-998e40245e8a}">
 		<relationship name="effects">
 			<destination>{6a58311e-3f0c-4fe4-80a8-ca1edab88f81}</destination>
@@ -908,6 +954,29 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5f11a552-ee58-4ff5-853a-e6a976b5a84a}" />
+	<object class="RandomizerModulator" id="{7cf99c01-fb5e-410b-bf9b-231c426eeed2}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>1.5</value>
+		</property>
+	</object>
+	<object class="FadeCurve" id="{9a5ddbcb-c0d2-4d48-80a5-689d32efba5b}">
+		<relationship name="startPoint">
+			<destination>{edac17e4-8569-4c91-ba30-ae7c0b67892b}</destination>
+		</relationship>
+		<relationship name="endPoint">
+			<destination>{308f7c17-7542-4e2e-b0f3-ebdeb68e7493}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{a42ce9a9-78b2-403c-b716-842b2207377d}">
+		<relationship name="effects">
+			<destination>{1916f555-fefc-46b3-950e-0dbe9e2f79e9}</destination>
+			<destination>{25fe679c-c468-4d58-9130-70d24b1c75cc}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{faf138b3-6003-4c37-a2a3-917e6823554d}" />
 	<object class="ThreeEQEffect" id="{6a58311e-3f0c-4fe4-80a8-ca1edab88f81}">
 		<property name="highGain">
 			<value>-13.5</value>
@@ -916,7 +985,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 	<object class="MixerBusFader" id="{42cab93d-da01-41b9-be0e-79d9a25bd2f2}" />
 	<object class="ProxyEffect" id="{41cc0784-c8dd-019b-3f90-356a01104cee}">
 		<property name="inputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="preset">
 			<destination>{3eae0edd-4f73-005f-09e3-f727ff075640}</destination>
@@ -1362,6 +1431,37 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		<relationship name="automators">
 			<destination>{1016cc11-5202-4004-9cc2-fe1799331742}</destination>
 		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{edac17e4-8569-4c91-ba30-ae7c0b67892b}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>0</value>
+		</property>
+		<property name="curveShape">
+			<value>0.30511263</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{308f7c17-7542-4e2e-b0f3-ebdeb68e7493}">
+		<property name="position">
+			<value>1</value>
+		</property>
+		<property name="value">
+			<value>1</value>
+		</property>
+	</object>
+	<object class="MixerBusFader" id="{1916f555-fefc-46b3-950e-0dbe9e2f79e9}" />
+	<object class="ThreeEQEffect" id="{25fe679c-c468-4d58-9130-70d24b1c75cc}">
+		<property name="lowGain">
+			<value>-16</value>
+		</property>
+		<property name="midGain">
+			<value>-14</value>
+		</property>
+		<property name="highGain">
+			<value>-3</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{5cc378bd-086b-4986-b2a0-3a73beb6e295}">
 		<property name="position">

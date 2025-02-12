@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27657b3ef4ef0d499a69d76c969c593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  npcType: 0
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -481,7 +482,7 @@ MonoBehaviour:
       Data2: 1190146380
       Data3: 1536939143
       Data4: -121201872
-    Path: event:/UI/RobotDeathScream
+    Path: event:/SFX/RobotDeathScream
   Event: 
   EventPlayTrigger: 3
   EventStopTrigger: 0
