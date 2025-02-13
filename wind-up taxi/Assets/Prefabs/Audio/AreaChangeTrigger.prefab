@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6221763442573834089}
   - component: {fileID: 1859858296476160820}
   - component: {fileID: 5663611995936940462}
+  - component: {fileID: 2820542352990635109}
   m_Layer: 0
   m_Name: AreaChangeTrigger
   m_TagString: Untagged
@@ -66,3 +67,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2797e456e8a90a45939274ea8e5e958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parameterName: 
+  parameterValue: 0
+--- !u!114 &2820542352990635109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736489022403074035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e07c878afe90d4d808c56a6946db94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  area: 0
