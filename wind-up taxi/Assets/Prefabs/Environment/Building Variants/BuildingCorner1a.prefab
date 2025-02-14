@@ -122,6 +122,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: -145221359908034628, guid: 00279065aabebd64f9208b4e590aa7cc, type: 3}
+    - target: {fileID: 5454822387772034669, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7636506539461866959, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
       propertyPath: m_Name
       value: Building3 top
@@ -324,6 +328,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 723097133743100540}
     m_Modifications:
+    - target: {fileID: 549451335806740223, guid: ca21812eceeccbe4eaec6eae2fc12b5b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 626282941733691361, guid: ca21812eceeccbe4eaec6eae2fc12b5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -47,6 +47,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2895064947943234598, guid: 69fd77d9919cd09469b20b573068bb69, type: 3}
+    - target: {fileID: 5454822387772034669, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7636506539461866959, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
       propertyPath: m_Name
       value: Building3 top

@@ -23,7 +23,7 @@ public class CarCollisionController : MonoBehaviour
             break;
             
             case "Robot":
-                MeshCollider collider = other.gameObject.GetComponentInChildren<MeshCollider>();
+                BoxCollider collider = other.gameObject.GetComponentInChildren<BoxCollider>();
 
                 StudioEventEmitter emitter = other.gameObject.GetComponent<StudioEventEmitter>();
 

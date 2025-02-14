@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7028779525577248632}
   - component: {fileID: 7610884659754666492}
   - component: {fileID: 7346201752588913466}
-  - component: {fileID: 4656864744187835683}
+  - component: {fileID: 4953949476064048757}
   m_Layer: 3
   m_Name: base car 2 try.001
   m_TagString: NpcCar
@@ -90,8 +90,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4656864744187835683
-MeshCollider:
+--- !u!65 &4953949476064048757
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,10 +108,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4544813791415606462, guid: 1851124295723bd4bac50f5a88cb8ced, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.13071619, y: 0.28261214, z: 0.06364815}
+  m_Center: {x: -0.00012789665, y: -0.0041799983, z: 0.0005120541}
 --- !u!1 &1279979914830846954
 GameObject:
   m_ObjectHideFlags: 0

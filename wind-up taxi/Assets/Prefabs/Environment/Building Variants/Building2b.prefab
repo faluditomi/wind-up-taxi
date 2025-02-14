@@ -287,6 +287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -119.999
       objectReference: {fileID: 0}
+    - target: {fileID: 6264475838428123114, guid: a6181dbbcd4192a428078b779c499f35, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7870471181113423937, guid: a6181dbbcd4192a428078b779c499f35, type: 3}
       propertyPath: m_Name
       value: Building1 middle
@@ -377,6 +381,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6819430531714602176, guid: 2f813ff51f9e01a4095666111cdbaa74, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -399,6 +407,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 8954249651280262727, guid: 0f16b4efecf181645bee4642bbd8c1ba, type: 3}
+    - target: {fileID: 5454822387772034669, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7636506539461866959, guid: 0d57bc246fc35c24f90ca2a26eb0408e, type: 3}
       propertyPath: m_Name
       value: Building3 top
