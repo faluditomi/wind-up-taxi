@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[3]'
       value: 
       objectReference: {fileID: 6226947963306787495, guid: 03b2f34816570f74eaa35afcc4afb85a, type: 3}
+    - target: {fileID: 5179888691115787504, guid: 2f813ff51f9e01a4095666111cdbaa74, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5446153079337620358, guid: 2f813ff51f9e01a4095666111cdbaa74, type: 3}
       propertyPath: m_Name
       value: Building3 low
