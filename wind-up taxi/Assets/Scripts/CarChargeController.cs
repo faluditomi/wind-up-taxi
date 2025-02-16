@@ -158,11 +158,14 @@ public class Car : MonoBehaviour
 
         float currentSteerPercentage = carMovementController.GetCurrentSteerAngle() / carMovementController.GetMaxSteerAngle();
 
-        if(myRigidBody.linearVelocity.magnitude > 18f
-        && currentSteerPercentage > driftSteerThreshold)
+        if(myRigidBody.linearVelocity.magnitude > 15f
+        && Mathf.Abs(currentSteerPercentage) > driftSteerThreshold)
         {
-            print((currentSteerPercentage - driftSteerThreshold) / (1f - driftSteerThreshold));
-            RPMEmitter.SetParameter("Drifting", (currentSteerPercentage - driftSteerThreshold) / (1f - driftSteerThreshold));
+            RPMEmitter.SetParameter("Drifting", (Mathf.Abs(currentSteerPercentage) - driftSteerThreshold) / (1f - driftSteerThreshold));
+        }
+        else
+        {
+            RPMEmitter.SetParameter("Drifting", 0f);
         }
     }
 

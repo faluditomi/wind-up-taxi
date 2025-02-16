@@ -55,7 +55,7 @@ MonoBehaviour:
   Event: 
   EventPlayTrigger: 1
   EventStopTrigger: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
@@ -997,7 +997,7 @@ MonoBehaviour:
   minTimeToTravel: 0.75
   minMotorForceMultiplier: 30
   keyDefaultSpinSpeed: 40
-  driftSteerThreshold: 0.75
+  driftSteerThreshold: 0.6
   isInCarMode: 0
 --- !u!114 &1463917877189719009
 MonoBehaviour:
@@ -1500,11 +1500,13 @@ MonoBehaviour:
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0
-  AllowFadeout: 1
+  AllowFadeout: 0
   TriggerOnce: 0
   Preload: 0
   NonRigidbodyVelocity: 0
-  Params: []
+  Params:
+  - Name: Honking
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
