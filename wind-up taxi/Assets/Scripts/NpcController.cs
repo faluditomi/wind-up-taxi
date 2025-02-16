@@ -49,11 +49,6 @@ public class NpcController : MonoBehaviour
     private void Start()
     {
         startingSpeed = speed;
-
-        if(this.gameObject.tag == "Honk")
-        {
-            nextTime = Time.time + Random.Range(minInterval, maxInterval);
-        }
     }
 
     private void Update()
