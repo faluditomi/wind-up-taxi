@@ -220,6 +220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot NPC Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4713791199687615808, guid: 224600f8fa27849479fbad837aab4404, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5316102519761324491, guid: 224600f8fa27849479fbad837aab4404, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3

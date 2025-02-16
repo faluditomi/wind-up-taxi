@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a27657b3ef4ef0d499a69d76c969c593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcType: 2
+  npcType: 1
   waypoints: []
   speed: 0
   minInterval: 0
