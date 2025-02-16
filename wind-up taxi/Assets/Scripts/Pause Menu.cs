@@ -122,6 +122,8 @@ public class PauseMenu : MonoBehaviour
     {
         masterBus.setPaused(true);
         
+        Destroy(GameObject.Find("Car"));
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         ResumeGame();
