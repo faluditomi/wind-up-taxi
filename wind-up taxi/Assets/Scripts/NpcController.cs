@@ -4,6 +4,7 @@ using FMODUnity;
 
 public class NpcController : MonoBehaviour
 {
+    
     private enum NpcType
     {
         Pedestrian,
@@ -37,6 +38,7 @@ public class NpcController : MonoBehaviour
     {
         honkEmitter = GetComponent<StudioEventEmitter>();
 
+
         pedestrianWobbleTime = Random.Range(-200, 200) * 0.01f;
         pedestrianWobbleDuration = Random.Range(50f, 250f) * 0.01f;
         pedestrianWobbleDistance = Random.Range(8, 16);
@@ -54,6 +56,8 @@ public class NpcController : MonoBehaviour
         {
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
         }
+
+        // droneHumEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.droneHum, );
     }
 
     private void Update()
