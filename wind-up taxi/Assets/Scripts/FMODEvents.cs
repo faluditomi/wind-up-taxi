@@ -29,8 +29,7 @@ public class FMODEvents : MonoBehaviour
     [field: Header("NPC SFX")]
     [field: SerializeField] public EventReference robotDeathScream { get; private set; }
     [field: SerializeField] public EventReference npcHonk { get; private set; }
-    [field: SerializeField] public EventReference droneHum { get; private set; }
-    [field: SerializeField] public EventReference droneMovements { get; private set; }
+    [field: SerializeField] public EventReference drone { get; private set; }
 
 
     [field: Header("UI")]

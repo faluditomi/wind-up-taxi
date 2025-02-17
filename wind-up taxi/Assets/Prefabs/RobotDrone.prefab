@@ -1879,6 +1879,7 @@ GameObject:
   - component: {fileID: 6544266345070128648}
   - component: {fileID: 2074073858526692432}
   - component: {fileID: 8385287617987682180}
+  - component: {fileID: 4702116543823462599}
   m_Layer: 0
   m_Name: RobotDrone
   m_TagString: Untagged
@@ -1942,6 +1943,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4702116543823462599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7759381541791929138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -704341112
+      Data2: 1301355022
+      Data3: -3713374
+      Data4: 1208809186
+    Path: event:/SFX/Drone
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7882360646006247814
 GameObject:
   m_ObjectHideFlags: 0

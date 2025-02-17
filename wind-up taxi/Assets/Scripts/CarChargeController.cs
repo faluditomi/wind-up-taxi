@@ -1,4 +1,5 @@
 using System.Collections;
+using FMOD.Studio;
 using FMODUnity;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class Car : MonoBehaviour
     private StudioEventEmitter dropOffEmitter;
     private StudioEventEmitter honkEmitter;
     private StudioEventEmitter soundEmitterWinding;
+    private EventInstance honkEventInstance;
+    private PLAYBACK_STATE honkPlaybackState;
 
     private Rigidbody myRigidBody;
 
@@ -59,7 +62,10 @@ public class Car : MonoBehaviour
     {
         currentMotorForceMultiplier = minMotorForceMultiplier / 100f;
         currentTimeToTravel = minTimeToTravel;
-        shake.enabled = false;    
+        shake.enabled = false;  
+        honkEventInstance = AudioManager.instance.CreateEventInstance(FMODEvents.instance.carHonk);
+        
+
     }
 
     private void Update()
@@ -71,6 +77,7 @@ public class Car : MonoBehaviour
         
         GetInput();
         CheckForDrifting();
+        // honkPlaybackState = honkEventInstance.getPlaybackState(out PLAYBACK_STATE playing);
     }
 
     private void GetInput()
@@ -121,11 +128,14 @@ public class Car : MonoBehaviour
                 if(!honkEmitter.IsPlaying())
                 {
                     honkEmitter.Play();
+                    // honkEventInstance.start();
                 }
             }
             else if(honkEmitter.IsPlaying())
             {
+                honkEventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
                 honkEmitter.Stop();
+                
             }
         }
     }

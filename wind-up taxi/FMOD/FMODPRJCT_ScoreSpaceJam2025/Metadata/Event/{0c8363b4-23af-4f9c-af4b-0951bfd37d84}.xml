@@ -622,6 +622,8 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 			<destination>{42cab93d-da01-41b9-be0e-79d9a25bd2f2}</destination>
 			<destination>{41cc0784-c8dd-019b-3f90-356a01104cee}</destination>
 			<destination>{7def31a4-c6d5-0a69-1f78-61435b1ab9f9}</destination>
+			<destination>{7f4e9719-2a47-498f-9ad4-c5b5c3845aad}</destination>
+			<destination>{e68f9e64-8ef6-48f3-a4a8-350701eb1437}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{038eac33-220e-451d-b5ac-863adc37e2c1}" />
@@ -998,6 +1000,19 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1985 Mercedes-Benz 
 		<relationship name="preset">
 			<destination>{028d38fd-417b-0bad-290b-a30ea50da357}</destination>
 		</relationship>
+	</object>
+	<object class="GainEffect" id="{7f4e9719-2a47-498f-9ad4-c5b5c3845aad}">
+		<property name="gain">
+			<value>5.5</value>
+		</property>
+	</object>
+	<object class="DelayEffect" id="{e68f9e64-8ef6-48f3-a4a8-350701eb1437}">
+		<property name="delay">
+			<value>9</value>
+		</property>
+		<property name="level">
+			<value>-16</value>
+		</property>
 	</object>
 	<object class="AutomationPoint" id="{910c3ad3-5e95-405d-8469-526648219886}">
 		<property name="position">

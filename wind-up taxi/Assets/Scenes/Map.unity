@@ -102118,8 +102118,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <drone>k__BackingField.Path
+      value: event:/SFX/Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
       propertyPath: <droneHum>k__BackingField.Path
-      value: event:/SFX/DroneHum
+      value: event:/SFX/Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <drone>k__BackingField.Guid.Data1
+      value: -704341112
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <drone>k__BackingField.Guid.Data2
+      value: 1301355022
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <drone>k__BackingField.Guid.Data3
+      value: -3713374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
+      propertyPath: <drone>k__BackingField.Guid.Data4
+      value: 1208809186
       objectReference: {fileID: 0}
     - target: {fileID: 4787857819568439612, guid: b9ec904a2ac116b49b700a39de3a7f5c, type: 3}
       propertyPath: <droneHum>k__BackingField.Guid.Data1

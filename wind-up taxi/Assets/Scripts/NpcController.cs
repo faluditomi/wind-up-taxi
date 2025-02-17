@@ -36,7 +36,7 @@ public class NpcController : MonoBehaviour
 
     private void Awake()
     {
-        honkEmitter = GetComponent<StudioEventEmitter>();
+       
 
 
         pedestrianWobbleTime = Random.Range(-200, 200) * 0.01f;
@@ -56,6 +56,8 @@ public class NpcController : MonoBehaviour
         {
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
         }
+
+        honkEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.npcHonk, this.gameObject);
 
         // droneHumEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.droneHum, );
     }

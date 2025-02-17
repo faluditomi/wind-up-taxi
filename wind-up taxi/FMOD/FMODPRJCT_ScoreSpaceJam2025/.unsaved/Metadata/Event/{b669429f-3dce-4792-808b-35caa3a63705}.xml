@@ -63,7 +63,17 @@
 			<destination>{d320eb98-3d4a-4cd9-a001-fdb4e071c58e}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{dd8e72cb-fefd-4b09-8c2a-f43ff795ffad}" />
+	<object class="EventAutomatableProperties" id="{dd8e72cb-fefd-4b09-8c2a-f43ff795ffad}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+		<property name="maxVoices">
+			<value>3</value>
+		</property>
+		<property name="voiceStealing">
+			<value>3</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{80fc0f52-ecef-4745-bcf9-ac3c9b01e0af}" />
 	<object class="GroupTrack" id="{8c0ceddf-6203-4f5b-96d2-29ec14c946d1}">
 		<relationship name="automationTracks">
@@ -266,13 +276,16 @@
 			<value>-80</value>
 		</property>
 		<property name="attackTime">
-			<value>200</value>
+			<value>209.743591</value>
 		</property>
 		<property name="attackShape">
 			<value>-1.00000048</value>
 		</property>
 		<property name="releaseTime">
-			<value>820</value>
+			<value>3400</value>
+		</property>
+		<property name="releaseShape">
+			<value>-0.485502213</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>

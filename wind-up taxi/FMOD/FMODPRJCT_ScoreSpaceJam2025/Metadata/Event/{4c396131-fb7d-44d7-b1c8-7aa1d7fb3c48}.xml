@@ -73,7 +73,7 @@
 	</object>
 	<object class="EventMixerMaster" id="{4212d437-bad2-4f7b-9d8d-7e0036ec8c18}">
 		<property name="volume">
-			<value>-14</value>
+			<value>-9</value>
 		</property>
 		<relationship name="effectChain">
 			<destination>{f90977cf-dd05-413e-8596-2759c132938b}</destination>
@@ -112,16 +112,16 @@
 	<object class="MixerBusFader" id="{5a033889-e8f9-4665-b805-45e5fa6b910d}" />
 	<object class="SFXReverbEffect" id="{449dd923-0d2f-4816-98b9-de9a35bc9cab}">
 		<property name="decayTime">
-			<value>4000</value>
+			<value>5000</value>
 		</property>
 		<property name="lateDelay">
 			<value>89</value>
 		</property>
 		<property name="earlyLateMix">
-			<value>79</value>
+			<value>40</value>
 		</property>
 		<property name="wetLevel">
-			<value>-19.5</value>
+			<value>-14</value>
 		</property>
 	</object>
 </objects>
