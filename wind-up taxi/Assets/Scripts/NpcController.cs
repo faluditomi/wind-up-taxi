@@ -32,7 +32,7 @@ public class NpcController : MonoBehaviour
     private float pedestrianWobbleDuration;
     private float pedestrianWobbleDistance;
 
-    private StudioEventEmitter honkEmitter;
+    private StudioEventEmitter npcEmitter;
 
     private void Awake()
     {
@@ -55,9 +55,12 @@ public class NpcController : MonoBehaviour
         if(this.gameObject.tag == "Honk")
         {
             nextTime = Time.time + Random.Range(minInterval, maxInterval);
+            npcEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.npcHonk, this.gameObject);
         }
-
-        honkEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.npcHonk, this.gameObject);
+        else if(this.gameObject.tag == "Robot")
+        {
+            npcEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.robotDeathScream, this.gameObject);
+        }
 
         // droneHumEmitter = AudioManager.instance.InitializeEventEmitter(FMODEvents.instance.droneHum, );
     }
@@ -68,7 +71,7 @@ public class NpcController : MonoBehaviour
         {
             if(Time.time >= nextTime)
             {
-                honkEmitter.Play();
+                npcEmitter.Play();
 
                 nextTime = Time.time + Random.Range(minInterval, maxInterval);
             }
@@ -117,9 +120,9 @@ public class NpcController : MonoBehaviour
         {
             speed = 0f;
 
-            if(!honkEmitter.IsPlaying())
+            if(!npcEmitter.IsPlaying())
             {
-                honkEmitter.Play();
+                npcEmitter.Play();
             }
         }
     }
