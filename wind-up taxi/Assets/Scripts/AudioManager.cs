@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using FMODUnity;
@@ -29,8 +30,24 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        InitializeAmbience(FMODEvents.instance.city);
-        InitializeMusic(FMODEvents.instance.music);
+
+        // Initializes and starts correct music and ambience
+        string currentScene = SceneManager.GetActiveScene().name;
+        switch (currentScene)
+        {
+            case "Main Menu":
+                InitializeMusic(FMODEvents.instance.menuMusic);
+                InitializeAmbience(FMODEvents.instance.cityMenu);
+                break;
+
+            case "Map":
+                InitializeMusic(FMODEvents.instance.music);
+                InitializeAmbience(FMODEvents.instance.city);
+                break;
+
+
+        }
+
     }
 
     private void InitializeMusic(EventReference musicEventReference)

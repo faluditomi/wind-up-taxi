@@ -13,10 +13,14 @@ public class FMODEvents : MonoBehaviour
 
     [field: Header("Ambience")]
     [field: SerializeField] public EventReference city { get; private set; }
+    [field: SerializeField] public EventReference cityMenu { get; private set; }
+
 
 
     [field: Header("Music")]
     [field: SerializeField] public EventReference music { get; private set; }
+    [field: SerializeField] public EventReference menuMusic { get; private set; }
+
 
 
     [field: Header("Player SFX")]
