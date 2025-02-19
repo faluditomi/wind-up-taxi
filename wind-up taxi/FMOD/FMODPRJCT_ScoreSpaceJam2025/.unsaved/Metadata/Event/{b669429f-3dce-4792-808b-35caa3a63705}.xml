@@ -70,9 +70,6 @@
 		<property name="isPersistent">
 			<value>true</value>
 		</property>
-		<property name="maxVoices">
-			<value>3</value>
-		</property>
 		<property name="voiceStealing">
 			<value>3</value>
 		</property>
@@ -108,6 +105,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c1aaeb94-dd61-49ae-8937-92df1dc19e65}">
+		<relationship name="modulators">
+			<destination>{c3d22208-8063-4d5f-93da-d225eb4c9c9e}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{f1ac8671-e085-465e-8455-3c18ada1f6ff}</destination>
 		</relationship>
@@ -204,10 +204,42 @@
 			<destination>{80fc0f52-ecef-4745-bcf9-ac3c9b01e0af}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{c3d22208-8063-4d5f-93da-d225eb4c9c9e}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="attackTime">
+			<value>100</value>
+		</property>
+		<property name="attackShape">
+			<value>-0.887307942</value>
+		</property>
+		<property name="holdTime">
+			<value>0</value>
+		</property>
+		<property name="decayTime">
+			<value>220</value>
+		</property>
+		<property name="decayShape">
+			<value>-0.587577224</value>
+		</property>
+		<property name="sustainValue">
+			<value>-5</value>
+		</property>
+		<property name="releaseTime">
+			<value>160</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{f1ac8671-e085-465e-8455-3c18ada1f6ff}">
 		<relationship name="effects">
-			<destination>{5263128f-4818-4b58-8bbd-1403182a1e08}</destination>
 			<destination>{e54946bb-1736-4b74-8a65-cec8058fc791}</destination>
+			<destination>{5263128f-4818-4b58-8bbd-1403182a1e08}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ece50396-4420-49cb-9589-de880a1f04e7}" />
@@ -223,7 +255,6 @@
 		</relationship>
 		<relationship name="modulators">
 			<destination>{f53c80fc-9bf4-4a57-9293-cc8861261a8b}</destination>
-			<destination>{56d545d2-538c-4758-9473-2826e7715cfe}</destination>
 		</relationship>
 		<relationship name="audioFile">
 			<destination>{3db2fdf2-06e8-4a89-a348-28379c4eff67}</destination>
@@ -256,21 +287,24 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5252f78c-090f-43c1-8f9d-832fbedc12a9}" />
-	<object class="MixerBusFader" id="{5263128f-4818-4b58-8bbd-1403182a1e08}" />
 	<object class="SFXReverbEffect" id="{e54946bb-1736-4b74-8a65-cec8058fc791}">
 		<property name="decayTime">
-			<value>650</value>
+			<value>350</value>
 		</property>
 		<property name="lateDelay">
-			<value>20</value>
+			<value>56</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>61.5</value>
 		</property>
 		<property name="earlyLateMix">
-			<value>23</value>
+			<value>35</value>
 		</property>
 		<property name="wetLevel">
-			<value>-14</value>
+			<value>-80</value>
 		</property>
 	</object>
+	<object class="MixerBusFader" id="{5263128f-4818-4b58-8bbd-1403182a1e08}" />
 	<object class="Automator" id="{393e04e5-a68b-4b3d-a7fe-9b42650166b1}">
 		<property name="nameOfPropertyBeingAutomated">
 			<value>volume</value>
@@ -281,30 +315,7 @@
 			<value>pitch</value>
 		</property>
 		<property name="amount">
-			<value>0.5</value>
-		</property>
-	</object>
-	<object class="ADSRModulator" id="{56d545d2-538c-4758-9473-2826e7715cfe}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="initialValue">
-			<value>-80</value>
-		</property>
-		<property name="attackTime">
-			<value>100</value>
-		</property>
-		<property name="attackShape">
-			<value>-1.00000048</value>
-		</property>
-		<property name="releaseTime">
-			<value>4000</value>
-		</property>
-		<property name="releaseShape">
-			<value>-0.0796547309</value>
-		</property>
-		<property name="finalValue">
-			<value>-80</value>
+			<value>1</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{fb4f4c22-a8c0-4f22-b0f5-f41d089ca68d}">
