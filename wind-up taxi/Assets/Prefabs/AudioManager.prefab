@@ -113,6 +113,13 @@ MonoBehaviour:
       Data3: 130402976
       Data4: 239065686
     Path: event:/Ambience/City
+  <cityMenu>k__BackingField:
+    Guid:
+      Data1: 1592196350
+      Data2: 1107447710
+      Data3: 897687465
+      Data4: -665964534
+    Path: event:/Ambience/CityMenu
   <music>k__BackingField:
     Guid:
       Data1: 1752088481
@@ -120,6 +127,13 @@ MonoBehaviour:
       Data3: -1750980170
       Data4: -796029424
     Path: event:/Music/Level01Music
+  <menuMusic>k__BackingField:
+    Guid:
+      Data1: 646032988
+      Data2: 1134966983
+      Data3: -1381514324
+      Data4: -1538621052
+    Path: event:/Music/MenuMusic
   <carHit>k__BackingField:
     Guid:
       Data1: -2004290656
@@ -162,6 +176,13 @@ MonoBehaviour:
       Data3: 50055336
       Data4: -1752628751
     Path: event:/SFX/NPCHonk
+  <drone>k__BackingField:
+    Guid:
+      Data1: -704341112
+      Data2: 1301355022
+      Data3: -3713374
+      Data4: 1208809186
+    Path: event:/SFX/Drone
   <pickUp>k__BackingField:
     Guid:
       Data1: -1259989831
