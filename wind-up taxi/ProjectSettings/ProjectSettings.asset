@@ -529,7 +529,7 @@ PlayerSettings:
     m_Automatic: 0
   - m_BuildTarget: WebGLSupport
     m_APIs: 1c0000000b000000
-    m_Automatic: 0
+    m_Automatic: 1
   m_BuildTargetVRSettings: []
   m_DefaultShaderChunkSizeInMB: 16
   m_DefaultShaderChunkCount: 0
@@ -818,7 +818,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLEnableWebGPU: 1
   webGLPowerPreference: 2
-  webGLWebAssemblyTable: 0
+  webGLWebAssemblyTable: 1
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   webWasm2023: 0
@@ -858,8 +858,8 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: wind-up taxi
-  metroPackageVersion: 
+  metroPackageName: wind-uptaxi
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
@@ -867,7 +867,7 @@ PlayerSettings:
   metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: wind-up taxi
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: wind-up taxi
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
