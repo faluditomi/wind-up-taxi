@@ -67,7 +67,6 @@ public class Leaderboard : MonoBehaviour
 
     public void SetLeaderBoardNamesText()
     {
-        print(1);
         string namesText = "";
 
         if(HasEntries())
