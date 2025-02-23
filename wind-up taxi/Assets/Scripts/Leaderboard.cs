@@ -132,7 +132,7 @@ public class Leaderboard : MonoBehaviour
             }
         }
 
-        leaderboardHolder.entries.Add(new LeaderboardEntry(currentName, score));
+        leaderboardHolder.entries.Add(new LeaderboardEntry(currentName == null ? "Mad Cabbie" : currentName, score));
         leaderboardHolder.entries.Sort((a, b) => b.score.CompareTo(a.score));
 
         if(leaderboardHolder.entries.Count > 10)

@@ -11,7 +11,7 @@ public class Ticker : MonoBehaviour
     private List<string> fillerItems;
 
     private float width;
-    private float pixelsPerSecond;
+    private float movementPerSecond;
 
     private int currentItemIndex = 0;
 
@@ -32,9 +32,10 @@ public class Ticker : MonoBehaviour
                 }
             }
         }
-
+        
         width = GetComponent<RectTransform>().rect.width;
-        pixelsPerSecond = width / itemDuration;
+        float increment = 100f / itemDuration * 0.01f;
+        movementPerSecond = width * increment;
     }
 
     private void Update()
@@ -48,7 +49,7 @@ public class Ticker : MonoBehaviour
     private void AddNextTickerItem()
     {
         currentItem = Instantiate(tickerItemPrefab, transform);
-        currentItem.Initialise(width, pixelsPerSecond, fillerItems[currentItemIndex]);
+        currentItem.Initialise(width, movementPerSecond, fillerItems[currentItemIndex]);
 
         if(currentItemIndex + 1 >= fillerItems.Count)
         {
